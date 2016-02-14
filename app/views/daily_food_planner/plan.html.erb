@@ -1,39 +1,50 @@
-<div>
-  <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
-      <%= label_tag :ingredient0, 'Select an ingredient ' %>
-      <select name="ingredient0">
-        <option value="0">Please select an ingredient</option>
+<h1>Daily meal planner</h1>
 
-        <% for each in Ingredient.all %>
-            <option value="<%= each.name %>"><%= each.name %></option>
-        <% end %>
-      </select>
 
-      <br>
+<%= form_for daily_food_planner_plan_path, method: 'POST' do %>
+    <div class="row">
 
-      <%= label_tag :quantity0, 'Enter servings quantity' %>
-      <%= text_field_tag :quantity0 %>
+      <section>
+        <%= label_tag :ingredient0, 'Select an ingredient ' %>
+        <select name="ingredient0">
+          <option value="0">Please select an ingredient</option>
 
-      <hr>
+          <% for each in Ingredient.all %>
+              <option value="<%= each.name %>"><%= each.name %></option>
+          <% end %>
+        </select>
 
-      <%= label_tag :ingredient1, 'Select an ingredient ' %>
-      <select name="ingredient1">
-        <option value="0">Please select an ingredient</option>
+        <br>
 
-        <% for each in Ingredient.all %>
-            <option value="<%= each.name %>"><%= each.name %></option>
-        <% end %>
-      </select>
+        <%= label_tag :quantity0, 'Enter servings quantity' %>
+        <%= text_field_tag :quantity0 %>
+      </section>
 
-      <br>
-      <%= label_tag :quantity1, 'Enter servings quantity' %>
-      <%= text_field_tag :quantity1 %>
 
-      <br><br>
+      <section>
+        <%= label_tag :ingredient1, 'Select an ingredient ' %>
+        <select name="ingredient1">
+          <option value="0">Please select an ingredient</option>
 
-      <%= submit_tag 'Submit', id: 'submit' %>
-  <% end %>
-</div>
+          <% for each in Ingredient.all %>
+              <option value="<%= each.name %>"><%= each.name %></option>
+          <% end %>
+          
+        </select>
+
+        <br>
+        <%= label_tag :quantity1, 'Enter servings quantity' %>
+        <%= text_field_tag :quantity1 %>
+      </section>
+
+
+    </div>
+
+    <br><br>
+
+    <%= submit_tag 'Submit', id: 'submit' %>
+<% end %>
+
 
 <% unless @results.empty? %>
     <div class="row">
@@ -47,7 +58,7 @@
       </section>
 
       <section>
-        <h2>Nutrients totals:</h2>
+        <h2>Nutrient totals:</h2>
 
         <p> Proteins - <%= @results[:prots] %> g</p>
 
