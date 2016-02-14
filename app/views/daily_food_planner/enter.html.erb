@@ -1,6 +1,6 @@
 <h1>Add an ingredient to database</h1>
-<% if flash['message'].nil? and flash['entry'] == true%>
-    <% each = Ingredient.last%>
+<% if flash['message'].nil? and flash['entry'] == true %>
+    <% each = Ingredient.last %>
     <h2>Added <%= each.name %></h2>
     serving type - <%= each.serving_type %>,
     serving size - <%= each.serving_size %> <%= each.serving_type %>,
@@ -12,30 +12,45 @@
     <%= flash['message'] %>
 <% end %>
 
-<hr>
 <%= form_for daily_food_planner_enter_path, method: 'POST' do %>
 
-    <%= label_tag :name, 'Ingredient name ' %>
-    <%= text_field_tag :name %>
+    <div class="row">
+      <section>
+        <%= label_tag :name, 'Ingredient title ' %>
+        <%= text_field_tag :name %>
+      </section>
 
-    <%= label_tag :serving_type, 'Serving type ' %>
-    <%= text_field_tag :serving_type, 'g' %>
+      <section>
+      <%= label_tag :serving_type, 'Serving units (g, ml, tbs, etc)' %>
+      <%= text_field_tag :serving_type, 'g' %>
+      </section>
 
-    <%= label_tag :serving_size, 'Serving size ' %>
-    <%= text_field_tag :serving_size, '113' %>
+      <section>
+        <%= label_tag :serving_size, 'Serving size ' %>
+        <%= text_field_tag :serving_size, '113' %>
+      </section>
 
-    <%= label_tag :prots, 'Protein count ' %>
-    <%= text_field_tag :prots, '0' %>
+      <section>
+        <%= label_tag :prots, 'Proteins' %>
+        <%= text_field_tag :prots, '0' %>
+      </section>
 
-    <%= label_tag :carbs, 'Carbs count ' %>
-    <%= text_field_tag :carbs, '0' %>
+      <section>
+        <%= label_tag :carbs, 'Carbs' %>
+        <%= text_field_tag :carbs, '0' %>
+      </section>
 
-    <%= label_tag :fats, 'Fats count ' %>
-    <%= text_field_tag :fats, '0' %>
+      <section>
+        <%= label_tag :fats, 'Fats' %>
+        <%= text_field_tag :fats, '0' %>
+      </section>
 
-    <%= label_tag :cals, 'Calories count ' %>
-    <%= text_field_tag :cals, '0' %>
+      <section>
+        <%= label_tag :cals, 'Calories' %>
+        <%= text_field_tag :cals, '0' %>
+      </section>
 
+    </div>
 
     <br>
     <br>
@@ -44,6 +59,6 @@
 
     <%= submit_tag 'Delete last entry', id: 'delete_record' %>
 
-    <%= submit_tag 'DB reset', id: 'db_reset' %>
+    <!--<%= submit_tag 'DB reset', id: 'db_reset' %>-->
 
 <% end %>

@@ -18,7 +18,8 @@
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-		display: block;
+        margin-top: 2em;
+        margin-left: 0.3em;
 	}
 
 	body {

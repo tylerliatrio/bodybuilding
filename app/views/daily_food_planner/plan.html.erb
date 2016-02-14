@@ -4,43 +4,89 @@
 <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
     <div class="row">
 
+      <% ingredients = Ingredient.all.order('name ASC') %>
+
       <section>
-        <%= label_tag :ingredient0, 'Select an ingredient ' %>
         <select name="ingredient0">
           <option value="0">Please select an ingredient</option>
 
-          <% for each in Ingredient.all %>
-              <option value="<%= each.name %>"><%= each.name %></option>
+          <% for each in ingredients %>
+              <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type%>) </option>
           <% end %>
         </select>
 
-        <br>
-
-        <%= label_tag :quantity0, 'Enter servings quantity' %>
-        <%= text_field_tag :quantity0 %>
+        <%= text_field_tag :quantity0, nil, placeholder:'Enter quantity'%>
       </section>
 
-
       <section>
-        <%= label_tag :ingredient1, 'Select an ingredient ' %>
         <select name="ingredient1">
           <option value="0">Please select an ingredient</option>
 
-          <% for each in Ingredient.all %>
-              <option value="<%= each.name %>"><%= each.name %></option>
+          <% for each in ingredients %>
+              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
           <% end %>
 
         </select>
 
-        <br>
-        <%= label_tag :quantity1, 'Enter servings quantity' %>
-        <%= text_field_tag :quantity1 %>
+        <%= text_field_tag :quantity1, nil, placeholder:'Enter quantity'%>
+      </section>
+
+      <section>
+        <select name="ingredient2">
+          <option value="0">Please select an ingredient</option>
+
+          <% for each in ingredients %>
+              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+          <% end %>
+
+        </select>
+
+        <%= text_field_tag :quantity2, nil, placeholder:'Enter quantity'%>
+      </section>
+
+      <section>
+        <select name="ingredient3">
+          <option value="0">Please select an ingredient</option>
+
+          <% for each in ingredients %>
+              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+          <% end %>
+
+        </select>
+
+        <%= text_field_tag :quantity3, nil, placeholder:'Enter quantity'%>
+      </section>
+
+      <section>
+        <select name="ingredient4">
+          <option value="0">Please select an ingredient</option>
+
+          <% for each in ingredients %>
+              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+          <% end %>
+
+        </select>
+
+        <%= text_field_tag :quantity4, nil, placeholder:'Enter quantity'%>
+      </section>
+
+      <section>
+        <select name="ingredient5">
+          <option value="0">Please select an ingredient</option>
+
+          <% for each in ingredients %>
+              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+          <% end %>
+
+        </select>
+
+        <%= text_field_tag :quantity5, nil, placeholder:'Enter quantity'%>
       </section>
 
 
     </div>
 
-    <br><br>
+    <br>
 
     <%= submit_tag 'Submit', id: 'submit' %>
 <% end %>
@@ -52,8 +98,7 @@
       <section>
         <h2>Ingredients:</h2>
         <% for meal in @meals %>
-            <p><%= meal[0] %>
-              <%= meal[1] %></p>
+            <p><%= meal[0] %> - <%= meal[1] %> <%= meal[2] %></p>
         <% end %>
       </section>
 

@@ -36,22 +36,117 @@ class DailyFoodPlannerController < ApplicationController
     if params['commit'] == 'Submit' and not params['ingredient0'] == '0'
 
       selectedIngredient = Ingredient.where(name: params['ingredient0']).first
-      @results[:prots] = selectedIngredient.prots * Integer(params['quantity0'])
-      @results[:carbs] = selectedIngredient.carbs * Integer(params['quantity0'])
-      @results[:fats] = selectedIngredient.fats * Integer(params['quantity0'])
-      @results[:cals] = selectedIngredient.cals * Integer(params['quantity0'])
-      @meals << [params['ingredient0'], params['quantity0']]
+
+      if selectedIngredient.serving_type == 'ml' or selectedIngredient.serving_type == 'g'
+        @results[:prots] = selectedIngredient.prots * Integer(params['quantity0'])/selectedIngredient.serving_size
+        @results[:carbs] = selectedIngredient.carbs * Integer(params['quantity0'])/selectedIngredient.serving_size
+        @results[:fats] = selectedIngredient.fats * Integer(params['quantity0'])/selectedIngredient.serving_size
+        @results[:cals] = selectedIngredient.cals * Integer(params['quantity0'])/selectedIngredient.serving_size
+      else
+        @results[:prots] = selectedIngredient.prots * Integer(params['quantity0'])
+        @results[:carbs] = selectedIngredient.carbs * Integer(params['quantity0'])
+        @results[:fats] = selectedIngredient.fats * Integer(params['quantity0'])
+        @results[:cals] = selectedIngredient.cals * Integer(params['quantity0'])
+      end
+
+      @meals << [params['ingredient0'], params['quantity0'], selectedIngredient.serving_type]
     end
 
     if params['commit'] == 'Submit' and not params['ingredient1'] == '0'
 
       selectedIngredient = Ingredient.where(name: params['ingredient1']).first
-      @results[:prots] += selectedIngredient.prots * Integer(params['quantity1'])
-      @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity1'])
-      @results[:fats] += selectedIngredient.fats * Integer(params['quantity1'])
-      @results[:cals] += selectedIngredient.cals * Integer(params['quantity1'])
-      @meals << [params['ingredient1'], params['quantity1']]
+
+      if selectedIngredient.serving_type == 'ml' or selectedIngredient.serving_type == 'g'
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity1'])/selectedIngredient.serving_size
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity1'])/selectedIngredient.serving_size
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity1'])/selectedIngredient.serving_size
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity1'])/selectedIngredient.serving_size
+      else
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity1'])
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity1'])
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity1'])
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity1'])
+      end
+
+      @meals << [params['ingredient1'], params['quantity1'], selectedIngredient.serving_type]
     end
+
+    if params['commit'] == 'Submit' and not params['ingredient2'] == '0'
+
+      selectedIngredient = Ingredient.where(name: params['ingredient2']).first
+
+      if selectedIngredient.serving_type == 'ml' or selectedIngredient.serving_type == 'g'
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity2'])/selectedIngredient.serving_size
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity2'])/selectedIngredient.serving_size
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity2'])/selectedIngredient.serving_size
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity2'])/selectedIngredient.serving_size
+      else
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity2'])
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity2'])
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity2'])
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity2'])
+      end
+
+      @meals << [params['ingredient2'], params['quantity2'], selectedIngredient.serving_type]
+    end
+
+    if params['commit'] == 'Submit' and not params['ingredient3'] == '0'
+
+      selectedIngredient = Ingredient.where(name: params['ingredient3']).first
+
+      if selectedIngredient.serving_type == 'ml' or selectedIngredient.serving_type == 'g'
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity3'])/selectedIngredient.serving_size
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity3'])/selectedIngredient.serving_size
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity3'])/selectedIngredient.serving_size
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity3'])/selectedIngredient.serving_size
+      else
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity3'])
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity3'])
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity3'])
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity3'])
+      end
+
+      @meals << [params['ingredient3'], params['quantity3'], selectedIngredient.serving_type]
+    end
+
+    if params['commit'] == 'Submit' and not params['ingredient4'] == '0'
+
+      selectedIngredient = Ingredient.where(name: params['ingredient4']).first
+
+      if selectedIngredient.serving_type == 'ml' or selectedIngredient.serving_type == 'g'
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity4'])/selectedIngredient.serving_size
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity4'])/selectedIngredient.serving_size
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity4'])/selectedIngredient.serving_size
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity4'])/selectedIngredient.serving_size
+      else
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity4'])
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity4'])
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity4'])
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity4'])
+      end
+
+      @meals << [params['ingredient4'], params['quantity4'], selectedIngredient.serving_type]
+    end
+
+    if params['commit'] == 'Submit' and not params['ingredient5'] == '0'
+
+      selectedIngredient = Ingredient.where(name: params['ingredient5']).first
+
+      if selectedIngredient.serving_type == 'ml' or selectedIngredient.serving_type == 'g'
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity5'])/selectedIngredient.serving_size
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity5'])/selectedIngredient.serving_size
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity5'])/selectedIngredient.serving_size
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity5'])/selectedIngredient.serving_size
+      else
+        @results[:prots] += selectedIngredient.prots * Integer(params['quantity5'])
+        @results[:carbs] += selectedIngredient.carbs * Integer(params['quantity5'])
+        @results[:fats] += selectedIngredient.fats * Integer(params['quantity5'])
+        @results[:cals] += selectedIngredient.cals * Integer(params['quantity5'])
+      end
+
+      @meals << [params['ingredient5'], params['quantity5'], selectedIngredient.serving_type]
+    end
+
   end
 
   def list
