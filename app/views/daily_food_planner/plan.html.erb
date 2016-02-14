@@ -173,23 +173,32 @@
     <% unless @totals.nil? or @totals.empty? %>
 
         <div>
+          <hr>
           <% if @totals[:prots] < @target[:prots] %>
-              <h1>Eat more Meat!</h1>
+              <h2 style="color: wheat">Eat more animal derived Proteins! </h2>
+              <h4>Great sources are Beef, Chicken Breast, Tuna, Turkey, Salmon, Eggs </h4>
           <% elsif @totals[:prots] > @target[:prots] %>
-              <h1 style="color: #730E15">Too much Meat!</h1>
+              <h2 style="color: #730E15">Too much Proteins!</h2>
           <% end %>
+
+          <hr>
 
           <% if @totals[:carbs] < @target[:carbs] %>
-              <section><h1>Eat more Carbs!</h1></section>
+              <h2 style="color: wheat">Eat more Carbs!</h2>
+              <h4>Great sources are Buckwheat, Basmati Rice, Old Fashioned Oats, Pasta, Beans</h4>
           <% elsif @totals[:carbs] > @target[:carbs] %>
-              <h1 style="color: #730E15">Too much Carbs!</h1>
+              <h2 style="color: red">Too much Carbs!</h2>
           <% end %>
 
+          <hr>
+
           <% if @totals[:fats] < @target[:fats]/2 %>
-              <section><h1>Eat more Fats!</h1></section>
+              <h2 style="color: wheat">Eat more Fats!</h2>
+              <h4>Great sources are Avocado, Nuts, Olive Oil, Peanut Butter</h4>
           <% elsif @totals[:fats] > @target[:fats] %>
-              <h1 style="color: #730E15">Too much Fats!</h1>
+              <h2 style="color: #730E15">Too much Fats!</h2>
           <% end %>
+          <hr>
         </div>
 
         <div class="row">
