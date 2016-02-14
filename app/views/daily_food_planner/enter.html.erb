@@ -1,4 +1,4 @@
-<h1>Ingredient entry</h1>
+<h1>Add an ingredient to database</h1>
 <% if flash['message'].nil? and flash['entry'] == true%>
     <% each = Ingredient.last%>
     <h2>Added <%= each.name %></h2>
