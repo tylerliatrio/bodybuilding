@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  serving_type: MyString
+  serving_size: 1
+  prots: 1
+  carbs: 1
+  fats: 1
+  cals: 1
+
+two:
+  name: MyString
+  serving_type: MyString
+  serving_size: 1
+  prots: 1
+  carbs: 1
+  fats: 1
+  cals: 1

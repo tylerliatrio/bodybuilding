@@ -1,0 +1,2 @@
+module DailyFoodPlannerHelper
+end

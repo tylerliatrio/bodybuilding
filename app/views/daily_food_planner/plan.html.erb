@@ -1,0 +1,62 @@
+<div>
+  <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
+      <%= label_tag :ingredient0, 'Select an ingredient ' %>
+      <select name="ingredient0">
+        <option value="0">Please select an ingredient</option>
+
+        <% for each in Ingredient.all %>
+            <option value="<%= each.name %>"><%= each.name %></option>
+        <% end %>
+      </select>
+
+      <br>
+
+      <%= label_tag :quantity0, 'Enter servings quantity' %>
+      <%= text_field_tag :quantity0 %>
+
+      <hr>
+
+      <%= label_tag :ingredient1, 'Select an ingredient ' %>
+      <select name="ingredient1">
+        <option value="0">Please select an ingredient</option>
+
+        <% for each in Ingredient.all %>
+            <option value="<%= each.name %>"><%= each.name %></option>
+        <% end %>
+      </select>
+
+      <br>
+      <%= label_tag :quantity1, 'Enter servings quantity' %>
+      <%= text_field_tag :quantity1 %>
+
+      <br><br>
+
+      <%= submit_tag 'Submit', id: 'submit' %>
+  <% end %>
+</div>
+
+<% unless @results.empty? %>
+    <div class="row">
+
+      <section>
+        <h2>Ingredients:</h2>
+        <% for meal in @meals %>
+            <p><%= meal[0] %>
+              <%= meal[1] %></p>
+        <% end %>
+      </section>
+
+      <section>
+        <h2>Nutrients totals:</h2>
+
+        <p> Proteins - <%= @results[:prots] %> g</p>
+
+        <p> Carbs - <%= @results[:carbs] %> g</p>
+
+        <p> Fats - <%= @results[:fats] %> g</p>
+      </section>
+
+    </div>
+<% end %>
+
+

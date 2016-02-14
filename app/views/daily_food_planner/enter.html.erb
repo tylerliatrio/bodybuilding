@@ -1,0 +1,49 @@
+<h1>Ingredient entry</h1>
+<% if flash['message'].nil? and flash['entry'] == true%>
+    <% each = Ingredient.last%>
+    <h2>Added <%= each.name %></h2>
+    serving type - <%= each.serving_type %>,
+    serving size - <%= each.serving_size %> <%= each.serving_type %>,
+    proteins - <%= each.prots %> g,
+    carbs - <%= each.carbs %> g,
+    fats - <%= each.fats %> g,
+    cals - <%= each.cals %>
+<% else %>
+    <%= flash['message'] %>
+<% end %>
+
+<hr>
+<%= form_for daily_food_planner_enter_path, method: 'POST' do %>
+
+    <%= label_tag :name, 'Ingredient name ' %>
+    <%= text_field_tag :name %>
+
+    <%= label_tag :serving_type, 'Serving type ' %>
+    <%= text_field_tag :serving_type, 'g' %>
+
+    <%= label_tag :serving_size, 'Serving size ' %>
+    <%= text_field_tag :serving_size, '113' %>
+
+    <%= label_tag :prots, 'Protein count ' %>
+    <%= text_field_tag :prots, '0' %>
+
+    <%= label_tag :carbs, 'Carbs count ' %>
+    <%= text_field_tag :carbs, '0' %>
+
+    <%= label_tag :fats, 'Fats count ' %>
+    <%= text_field_tag :fats, '0' %>
+
+    <%= label_tag :cals, 'Calories count ' %>
+    <%= text_field_tag :cals, '0' %>
+
+
+    <br>
+    <br>
+
+    <%= submit_tag 'Submit', id: 'submit' %>
+
+    <%= submit_tag 'Delete last entry', id: 'delete_record' %>
+
+    <%= submit_tag 'DB reset', id: 'db_reset' %>
+
+<% end %>
