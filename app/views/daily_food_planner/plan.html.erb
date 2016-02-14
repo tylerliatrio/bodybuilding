@@ -1,6 +1,6 @@
 <h1>Daily intake planner</h1>
 
-<%= flash['error'] %>
+<h3 style="color: red"><%= flash['error'] %></h3>
 
 <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
     <div class="row">
