@@ -184,7 +184,7 @@
           <hr>
 
           <% if @totals[:carbs] < @target[:carbs] %>
-              <h2 style="color: wheat">Eat more Carbs!</h2>
+              <h2 style="color: wheat">Eat more Carbs with low glycemic index!</h2>
               <h4>Great sources are Buckwheat, Basmati Rice, Old Fashioned Oats, Pasta, Beans</h4>
           <% elsif @totals[:carbs] > @target[:carbs] %>
               <h2 style="color: red">Too much Carbs!</h2>
@@ -193,7 +193,7 @@
           <hr>
 
           <% if @totals[:fats] < @target[:fats]/2 %>
-              <h2 style="color: wheat">Eat more Fats!</h2>
+              <h2 style="color: wheat">Eat more of healthy Fats!</h2>
               <h4>Great sources are Avocado, Nuts, Olive Oil, Peanut Butter</h4>
           <% elsif @totals[:fats] > @target[:fats] %>
               <h2 style="color: #730E15">Too much Fats!</h2>

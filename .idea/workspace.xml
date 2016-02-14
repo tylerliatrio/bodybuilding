@@ -50,8 +50,8 @@
       <file leaf-file-name="plan.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73394495">
-              <caret line="195" column="38" selection-start-line="195" selection-start-column="38" selection-end-line="195" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.44036698">
+              <caret line="195" column="51" selection-start-line="195" selection-start-column="51" selection-end-line="195" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#h2#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#2;n#div#2;n#!!top" expanded="true" />
@@ -992,8 +992,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73394495">
-          <caret line="195" column="38" selection-start-line="195" selection-start-column="38" selection-end-line="195" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.44036698">
+          <caret line="195" column="51" selection-start-line="195" selection-start-column="51" selection-end-line="195" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#h2#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#2;n#div#2;n#!!top" expanded="true" />
