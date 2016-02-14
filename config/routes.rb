@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'daily_food_planner#enter'
+  root 'daily_food_planner#plan'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
