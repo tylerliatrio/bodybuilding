@@ -1,7 +1,48 @@
-<h1>Daily meal planner</h1>
+<h1>Daily intake planner</h1>
 
+<%= flash['error'] %>
 
 <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
+    <div class="row">
+
+      <div>
+        <%= label_tag :weight, 'Enter your weight (kgs or lbs)' %>
+        <%= text_field_tag :weight, @weight, placeholder: 'i.e. 88 or 193' %>
+      </div>
+
+      <div>
+        Select your body type:
+      </div>
+      <div class="cc-selector">
+
+        <% if @body_type == 'gain' %>
+            <input checked id="gain" type="radio" name="body_type" value="gain"/>
+            <label class="drinkcard-cc gain" for="gain"></label>
+
+        <% else %>
+            <input id="gain" type="radio" name="body_type" value="gain"/>
+            <label class="drinkcard-cc gain" for="gain"></label>
+        <% end %>
+
+        <% if @body_type == 'keep' %>
+            <input checked id="keep" type="radio" name="body_type" value="keep"/>
+            <label class="drinkcard-cc keep" for="keep"></label>
+        <% else %>
+            <input id="keep" type="radio" name="body_type" value="keep"/>
+            <label class="drinkcard-cc keep" for="keep"></label>
+        <% end %>
+
+        <% if @body_type == 'loose' %>
+            <input checked id="loose" type="radio" name="body_type" value="loose"/>
+            <label class="drinkcard-cc loose" for="loose"></label>
+        <% else %>
+            <input id="loose" type="radio" name="body_type" value="loose"/>
+            <label class="drinkcard-cc loose" for="loose"></label>
+        <% end %>
+
+      </div>
+    </div>
+
     <div class="row">
 
       <% ingredients = Ingredient.all.order('name ASC') %>
@@ -11,11 +52,18 @@
           <option value="0">Please select an ingredient</option>
 
           <% for each in ingredients %>
-              <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type%>) </option>
+
+              <% if @name0 == each.name %>
+                  <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                  </option>
+              <% else %>
+                  <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+              <% end %>
+
           <% end %>
         </select>
 
-        <%= text_field_tag :quantity0, nil, placeholder:'Enter quantity'%>
+        <%= text_field_tag :quantity0, @quantity0, placeholder: 'Enter quantity' %>
       </section>
 
       <section>
@@ -23,12 +71,18 @@
           <option value="0">Please select an ingredient</option>
 
           <% for each in ingredients %>
-              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+
+              <% if @name1 == each.name %>
+                  <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                  </option>
+              <% else %>
+                  <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+              <% end %>
           <% end %>
 
         </select>
 
-        <%= text_field_tag :quantity1, nil, placeholder:'Enter quantity'%>
+        <%= text_field_tag :quantity1, @quantity1, placeholder: 'Enter quantity' %>
       </section>
 
       <section>
@@ -36,12 +90,18 @@
           <option value="0">Please select an ingredient</option>
 
           <% for each in ingredients %>
-              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+
+              <% if @name2 == each.name %>
+                  <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                  </option>
+              <% else %>
+                  <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+              <% end %>
           <% end %>
 
         </select>
 
-        <%= text_field_tag :quantity2, nil, placeholder:'Enter quantity'%>
+        <%= text_field_tag :quantity2, @quantity2, placeholder: 'Enter quantity' %>
       </section>
 
       <section>
@@ -49,12 +109,18 @@
           <option value="0">Please select an ingredient</option>
 
           <% for each in ingredients %>
-              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+
+              <% if @name3 == each.name %>
+                  <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                  </option>
+              <% else %>
+                  <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+              <% end %>
           <% end %>
 
         </select>
 
-        <%= text_field_tag :quantity3, nil, placeholder:'Enter quantity'%>
+        <%= text_field_tag :quantity3, @quantity3, placeholder: 'Enter quantity' %>
       </section>
 
       <section>
@@ -62,12 +128,17 @@
           <option value="0">Please select an ingredient</option>
 
           <% for each in ingredients %>
-              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+              <% if @name4 == each.name %>
+                  <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                  </option>
+              <% else %>
+                  <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+              <% end %>
           <% end %>
 
         </select>
 
-        <%= text_field_tag :quantity4, nil, placeholder:'Enter quantity'%>
+        <%= text_field_tag :quantity4, @quantity4, placeholder: 'Enter quantity' %>
       </section>
 
       <section>
@@ -75,14 +146,18 @@
           <option value="0">Please select an ingredient</option>
 
           <% for each in ingredients %>
-              <option value="<%= each.name %>"><%= each.name %>  (<%= each.serving_type%>) </option>
+              <% if @name5 == each.name %>
+                  <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                  </option>
+              <% else %>
+                  <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+              <% end %>
           <% end %>
 
         </select>
 
-        <%= text_field_tag :quantity5, nil, placeholder:'Enter quantity'%>
+        <%= text_field_tag :quantity5, @quantity5, placeholder: 'Enter quantity' %>
       </section>
-
 
     </div>
 
@@ -92,27 +167,66 @@
 <% end %>
 
 
-<% unless @results.empty? %>
-    <div class="row">
+<% unless flash['error'] %>
 
-      <section>
-        <h2>Ingredients:</h2>
-        <% for meal in @meals %>
-            <p><%= meal[0] %> - <%= meal[1] %> <%= meal[2] %></p>
-        <% end %>
-      </section>
 
-      <section>
-        <h2>Nutrient totals:</h2>
+    <% unless @totals.nil? or @totals.empty? %>
 
-        <p> Proteins - <%= @results[:prots] %> g</p>
+        <div>
+          <% if @totals[:prots] < @target[:prots] %>
+              <h1>Eat more Meat!</h1>
+          <% elsif @totals[:prots] > @target[:prots] %>
+              <h1 style="color: #730E15">Too much Meat!</h1>
+          <% end %>
 
-        <p> Carbs - <%= @results[:carbs] %> g</p>
+          <% if @totals[:carbs] < @target[:carbs] %>
+              <section><h1>Eat more Carbs!</h1></section>
+          <% elsif @totals[:carbs] > @target[:carbs] %>
+              <h1 style="color: #730E15">Too much Carbs!</h1>
+          <% end %>
 
-        <p> Fats - <%= @results[:fats] %> g</p>
-      </section>
+          <% if @totals[:fats] < @target[:fats]/2 %>
+              <section><h1>Eat more Fats!</h1></section>
+          <% elsif @totals[:fats] > @target[:fats] %>
+              <h1 style="color: #730E15">Too much Fats!</h1>
+          <% end %>
+        </div>
 
-    </div>
+        <div class="row">
+          <section>
+            <h2>Ingredients:</h2>
+            <% for meal in @meals %>
+                <p><%= meal[0] %> - <%= meal[1] %><%= meal[2] %></p>
+            <% end %>
+          </section>
+
+          <section>
+            <h2>Nutrient totals:</h2>
+
+            <p> Proteins - <%= @totals[:prots] %>g</p>
+
+            <p> Carbs - <%= @totals[:carbs] %>g</p>
+
+            <p> Fats - <%= @totals[:fats] %>g</p>
+          </section>
+
+
+          <% unless @target.nil? %>
+              <section>
+                <h2>Target intake for you:</h2>
+
+                <p> Proteins - <%= @target[:prots] %>g</p>
+
+                <p> Carbs - <%= @target[:carbs] %>g</p>
+
+                <p> Fats - <%= @target[:fats]/2 %>g to <%= @target[:fats] %>g</p>
+
+              </section>
+          <% end %>
+
+        </div>
+
+    <% end %>
+
 <% end %>
-
 
