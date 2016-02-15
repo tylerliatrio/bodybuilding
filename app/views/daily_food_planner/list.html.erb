@@ -1,5 +1,7 @@
-<h1>Ingredients from database</h1>
-<% for each in Ingredient.all.order('name ASC')%>
-    <%= each.name %>: proteins - <%= each.prots %> g, carbs - <%= each.carbs %> g, fats - <%= each.fats %> g
-    <br>
-<% end %>
+<h1 style="text-align: center">Ingredients from database</h1>
+<div style="margin-left: 5%">
+  <% for each in Ingredient.all.order('name ASC') %>
+      <%= each.name %>: proteins - <%= each.prots %> g, carbs - <%= each.carbs %> g, fats - <%= each.fats %> g
+      <br>
+  <% end %>
+</div>

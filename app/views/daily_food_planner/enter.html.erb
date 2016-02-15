@@ -1,4 +1,4 @@
-<h1>Add an ingredient to database</h1>
+<h1 style="text-align: center">Add an ingredient to database</h1>
 <% if flash['message'].nil? and flash['entry'] == true %>
     <% each = Ingredient.last %>
     <h2>Added <%= each.name %></h2>
@@ -55,9 +55,9 @@
     <br>
     <br>
 
-    <%= submit_tag 'Submit', id: 'submit' %>
+    <span style="margin-left: 20%"> <%= submit_tag 'Submit', id: 'submit' %></span>
 
-    <%= submit_tag 'Delete last entry', id: 'delete_record' %>
+    <span style="margin-left: 20%"><%= submit_tag 'Delete last entry', id: 'delete_record' %></span>
 
     <!--<%= submit_tag 'DB reset', id: 'db_reset' %>-->
 

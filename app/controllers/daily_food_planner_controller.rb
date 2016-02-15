@@ -45,6 +45,10 @@ class DailyFoodPlannerController < ApplicationController
       @target = Hash.new
 
       @weight = Float(params['weight']) unless params['weight'].blank?
+
+      @kg_weight = true if params['weight_units'] == 'kg'
+      @lb_weight = true if params['weight_units'] == 'lb'
+
       @body_type = params['body_type'] unless params['body_type'].blank?
 
       unless params['ingredient0'] == '0'
@@ -122,11 +126,7 @@ class DailyFoodPlannerController < ApplicationController
           carbsDose = 2
         end
 
-        if @weight > 120 # convert to kilos if it looks like user input is in lbs
-          kiloWeight = @weight/2.20462
-        else
-          kiloWeight = @weight
-        end
+        if @lb_weight then kiloWeight = @weight/2.20462 else kiloWeight = @weight end
 
         @target[:prots] = (kiloWeight * protsDose).round(0)
         @target[:carbs] = (kiloWeight * carbsDose).round(0)
