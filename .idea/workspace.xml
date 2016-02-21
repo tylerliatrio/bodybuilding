@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="de12444d-a14f-48e1-a27f-317cd6a910c3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/my.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/my.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" afterPath="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/daily_food_planner/list.html.erb" afterPath="$PROJECT_DIR$/app/views/daily_food_planner/list.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" afterPath="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
     </list>
     <ignored path="bodybuilding.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,8 +17,8 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/bodybuilding@routes__bodybuilding.coverage" NAME="routes: bodybuilding Coverage Results" MODIFIED="1455422707234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="bodybuilding" />
-    <SUITE FILE_PATH="coverage/bodybuilding@Development__bodybuilding.coverage" NAME="Development: bodybuilding Coverage Results" MODIFIED="1455507078855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="bodybuilding" />
+    <SUITE FILE_PATH="coverage/bodybuilding@routes__bodybuilding.coverage" NAME="routes: bodybuilding Coverage Results" MODIFIED="1456085155320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="bodybuilding" />
+    <SUITE FILE_PATH="coverage/bodybuilding@Development__bodybuilding.coverage" NAME="Development: bodybuilding Coverage Results" MODIFIED="1456085171421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="bodybuilding" />
     <SUITE FILE_PATH="coverage/bodybuilding@db_migrate__bodybuilding.coverage" NAME="db:migrate: bodybuilding Coverage Results" MODIFIED="1455391480867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="bodybuilding" />
     <SUITE FILE_PATH="coverage/bodybuilding@db_create__bodybuilding.coverage" NAME="db:create: bodybuilding Coverage Results" MODIFIED="1455391470806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="bodybuilding" />
   </component>
@@ -37,21 +31,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="daily_food_planner_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="daily_food_planner_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.30368763">
+              <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
               <folding>
                 <element signature="e#59#992#0" expanded="false" />
                 <element signature="e#101#986#0" expanded="false" />
                 <element signature="e#503#978#1" expanded="false" />
                 <element signature="e#542#806#0" expanded="false" />
                 <element signature="e#816#968#0" expanded="false" />
+                <element signature="e#996#10264#0" expanded="false" />
+                <element signature="e#1010#10258#2" expanded="false" />
+                <element signature="e#1520#1795#0" expanded="false" />
+                <element signature="e#1604#1785#0" expanded="false" />
+                <element signature="e#1803#2078#0" expanded="false" />
+                <element signature="e#1887#2068#0" expanded="false" />
+                <element signature="e#2086#2361#0" expanded="false" />
+                <element signature="e#2170#2351#0" expanded="false" />
+                <element signature="e#2369#2644#0" expanded="false" />
                 <element signature="e#2453#2634#0" expanded="false" />
+                <element signature="e#2652#2927#0" expanded="false" />
                 <element signature="e#2736#2917#0" expanded="false" />
+                <element signature="e#2935#3210#0" expanded="false" />
                 <element signature="e#3019#3200#0" expanded="false" />
+                <element signature="e#3282#4043#0" expanded="false" />
+                <element signature="e#3414#3619#0" expanded="false" />
+                <element signature="e#3629#3706#0" expanded="false" />
                 <element signature="e#4051#10250#0" expanded="false" />
+                <element signature="e#4082#5100#0" expanded="false" />
                 <element signature="e#4197#4990#0" expanded="false" />
                 <element signature="e#5110#6128#0" expanded="false" />
                 <element signature="e#5225#6018#0" expanded="false" />
@@ -65,37 +74,6 @@
                 <element signature="e#9337#10130#0" expanded="false" />
                 <element signature="e#10268#10282#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plan.html.erb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3986014">
-              <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-              <folding>
-                <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#section#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#section#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#section#2;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#section#3;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#section#4;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#section#5;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="e#6014#8378#0#ruby" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/my.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0689654">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -123,14 +101,15 @@
         <option value="$PROJECT_DIR$/app/controllers/controller.rb" />
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
         <option value="$PROJECT_DIR$/app/views/daily_food_planner/list.html.erb" />
         <option value="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/main.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/my.css" />
+        <option value="$PROJECT_DIR$/app/views/daily_food_planner/google9e43b57411a1c029.html.erb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" />
       </list>
     </option>
   </component>
@@ -176,6 +155,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -205,57 +186,35 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bodybuilding" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bodybuilding" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bodybuilding" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bodybuilding" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="initializers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="environments" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -335,50 +294,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bodybuilding" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,6 +305,11 @@
     <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
   </component>
   <component name="RunManager" selected="Rails.Development: bodybuilding">
     <configuration default="false" name="db:migrate: bodybuilding" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
@@ -613,14 +535,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3651613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3651613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -631,7 +554,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -657,18 +579,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#section#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#3;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#4;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#5;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#6014#8378#0#ruby" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -682,10 +593,25 @@
             <element signature="e#503#978#1" expanded="false" />
             <element signature="e#542#806#0" expanded="false" />
             <element signature="e#816#968#0" expanded="false" />
+            <element signature="e#996#10264#0" expanded="false" />
+            <element signature="e#1010#10258#2" expanded="false" />
+            <element signature="e#1520#1795#0" expanded="false" />
+            <element signature="e#1604#1785#0" expanded="false" />
+            <element signature="e#1803#2078#0" expanded="false" />
+            <element signature="e#1887#2068#0" expanded="false" />
+            <element signature="e#2086#2361#0" expanded="false" />
+            <element signature="e#2170#2351#0" expanded="false" />
+            <element signature="e#2369#2644#0" expanded="false" />
             <element signature="e#2453#2634#0" expanded="false" />
+            <element signature="e#2652#2927#0" expanded="false" />
             <element signature="e#2736#2917#0" expanded="false" />
+            <element signature="e#2935#3210#0" expanded="false" />
             <element signature="e#3019#3200#0" expanded="false" />
+            <element signature="e#3282#4043#0" expanded="false" />
+            <element signature="e#3414#3619#0" expanded="false" />
+            <element signature="e#3629#3706#0" expanded="false" />
             <element signature="e#4051#10250#0" expanded="false" />
+            <element signature="e#4082#5100#0" expanded="false" />
             <element signature="e#4197#4990#0" expanded="false" />
             <element signature="e#5110#6128#0" expanded="false" />
             <element signature="e#5225#6018#0" expanded="false" />
@@ -713,18 +639,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#section#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#3;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#4;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#5;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#6014#8378#0#ruby" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -745,10 +660,25 @@
             <element signature="e#503#978#1" expanded="false" />
             <element signature="e#542#806#0" expanded="false" />
             <element signature="e#816#968#0" expanded="false" />
+            <element signature="e#996#10264#0" expanded="false" />
+            <element signature="e#1010#10258#2" expanded="false" />
+            <element signature="e#1520#1795#0" expanded="false" />
+            <element signature="e#1604#1785#0" expanded="false" />
+            <element signature="e#1803#2078#0" expanded="false" />
+            <element signature="e#1887#2068#0" expanded="false" />
+            <element signature="e#2086#2361#0" expanded="false" />
+            <element signature="e#2170#2351#0" expanded="false" />
+            <element signature="e#2369#2644#0" expanded="false" />
             <element signature="e#2453#2634#0" expanded="false" />
+            <element signature="e#2652#2927#0" expanded="false" />
             <element signature="e#2736#2917#0" expanded="false" />
+            <element signature="e#2935#3210#0" expanded="false" />
             <element signature="e#3019#3200#0" expanded="false" />
+            <element signature="e#3282#4043#0" expanded="false" />
+            <element signature="e#3414#3619#0" expanded="false" />
+            <element signature="e#3629#3706#0" expanded="false" />
             <element signature="e#4051#10250#0" expanded="false" />
+            <element signature="e#4082#5100#0" expanded="false" />
             <element signature="e#4197#4990#0" expanded="false" />
             <element signature="e#5110#6128#0" expanded="false" />
             <element signature="e#5225#6018#0" expanded="false" />
@@ -776,18 +706,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="145" column="28" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#section#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#3;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#4;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#5;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#6014#8378#0#ruby" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -801,10 +720,25 @@
             <element signature="e#503#978#1" expanded="false" />
             <element signature="e#542#806#0" expanded="false" />
             <element signature="e#816#968#0" expanded="false" />
+            <element signature="e#996#10264#0" expanded="false" />
+            <element signature="e#1010#10258#2" expanded="false" />
+            <element signature="e#1520#1795#0" expanded="false" />
+            <element signature="e#1604#1785#0" expanded="false" />
+            <element signature="e#1803#2078#0" expanded="false" />
+            <element signature="e#1887#2068#0" expanded="false" />
+            <element signature="e#2086#2361#0" expanded="false" />
+            <element signature="e#2170#2351#0" expanded="false" />
+            <element signature="e#2369#2644#0" expanded="false" />
             <element signature="e#2453#2634#0" expanded="false" />
+            <element signature="e#2652#2927#0" expanded="false" />
             <element signature="e#2736#2917#0" expanded="false" />
+            <element signature="e#2935#3210#0" expanded="false" />
             <element signature="e#3019#3200#0" expanded="false" />
+            <element signature="e#3282#4043#0" expanded="false" />
+            <element signature="e#3414#3619#0" expanded="false" />
+            <element signature="e#3629#3706#0" expanded="false" />
             <element signature="e#4051#10250#0" expanded="false" />
+            <element signature="e#4082#5100#0" expanded="false" />
             <element signature="e#4197#4990#0" expanded="false" />
             <element signature="e#5110#6128#0" expanded="false" />
             <element signature="e#5225#6018#0" expanded="false" />
@@ -832,18 +766,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#section#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#3;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#4;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#5;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#6014#8378#0#ruby" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -851,18 +774,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#section#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#3;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#4;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#5;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#6014#8378#0#ruby" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -883,10 +795,25 @@
             <element signature="e#503#978#1" expanded="false" />
             <element signature="e#542#806#0" expanded="false" />
             <element signature="e#816#968#0" expanded="false" />
+            <element signature="e#996#10264#0" expanded="false" />
+            <element signature="e#1010#10258#2" expanded="false" />
+            <element signature="e#1520#1795#0" expanded="false" />
+            <element signature="e#1604#1785#0" expanded="false" />
+            <element signature="e#1803#2078#0" expanded="false" />
+            <element signature="e#1887#2068#0" expanded="false" />
+            <element signature="e#2086#2361#0" expanded="false" />
+            <element signature="e#2170#2351#0" expanded="false" />
+            <element signature="e#2369#2644#0" expanded="false" />
             <element signature="e#2453#2634#0" expanded="false" />
+            <element signature="e#2652#2927#0" expanded="false" />
             <element signature="e#2736#2917#0" expanded="false" />
+            <element signature="e#2935#3210#0" expanded="false" />
             <element signature="e#3019#3200#0" expanded="false" />
+            <element signature="e#3282#4043#0" expanded="false" />
+            <element signature="e#3414#3619#0" expanded="false" />
+            <element signature="e#3629#3706#0" expanded="false" />
             <element signature="e#4051#10250#0" expanded="false" />
+            <element signature="e#4082#5100#0" expanded="false" />
             <element signature="e#4197#4990#0" expanded="false" />
             <element signature="e#5110#6128#0" expanded="false" />
             <element signature="e#5225#6018#0" expanded="false" />
@@ -977,13 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08179959">
           <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/html5up-hyperspace/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="208" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1107,52 +1027,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-          <folding>
-            <element signature="e#59#992#0" expanded="false" />
-            <element signature="e#101#986#0" expanded="false" />
-            <element signature="e#503#978#1" expanded="false" />
-            <element signature="e#542#806#0" expanded="false" />
-            <element signature="e#816#968#0" expanded="false" />
-            <element signature="e#2453#2634#0" expanded="false" />
-            <element signature="e#2736#2917#0" expanded="false" />
-            <element signature="e#3019#3200#0" expanded="false" />
-            <element signature="e#4051#10250#0" expanded="false" />
-            <element signature="e#4197#4990#0" expanded="false" />
-            <element signature="e#5110#6128#0" expanded="false" />
-            <element signature="e#5225#6018#0" expanded="false" />
-            <element signature="e#6138#7156#0" expanded="false" />
-            <element signature="e#6253#7046#0" expanded="false" />
-            <element signature="e#7166#8184#0" expanded="false" />
-            <element signature="e#7281#8074#0" expanded="false" />
-            <element signature="e#8194#9212#0" expanded="false" />
-            <element signature="e#8309#9102#0" expanded="false" />
-            <element signature="e#9222#10240#0" expanded="false" />
-            <element signature="e#9337#10130#0" expanded="false" />
-            <element signature="e#10268#10282#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/list.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11188811">
           <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1160,11 +1038,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16783217">
           <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding>
-            <element signature="e#4#30#0#HTML" expanded="true" />
-            <element signature="e#1500#1524#0#HTML" expanded="true" />
-            <element signature="e#1585#1609#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1172,7 +1045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33286715">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,7 +1058,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/my.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0689654">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
@@ -1194,19 +1066,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3986014">
+        <state vertical-scroll-proportion="1.5625">
           <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1735358">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/google9e43b57411a1c029.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="48" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30368763">
+          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#section#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#3;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#4;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#section#5;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#6014#8378#0#ruby" expanded="false" />
+            <element signature="e#59#992#0" expanded="false" />
+            <element signature="e#101#986#0" expanded="false" />
+            <element signature="e#503#978#1" expanded="false" />
+            <element signature="e#542#806#0" expanded="false" />
+            <element signature="e#816#968#0" expanded="false" />
+            <element signature="e#996#10264#0" expanded="false" />
+            <element signature="e#1010#10258#2" expanded="false" />
+            <element signature="e#1520#1795#0" expanded="false" />
+            <element signature="e#1604#1785#0" expanded="false" />
+            <element signature="e#1803#2078#0" expanded="false" />
+            <element signature="e#1887#2068#0" expanded="false" />
+            <element signature="e#2086#2361#0" expanded="false" />
+            <element signature="e#2170#2351#0" expanded="false" />
+            <element signature="e#2369#2644#0" expanded="false" />
+            <element signature="e#2453#2634#0" expanded="false" />
+            <element signature="e#2652#2927#0" expanded="false" />
+            <element signature="e#2736#2917#0" expanded="false" />
+            <element signature="e#2935#3210#0" expanded="false" />
+            <element signature="e#3019#3200#0" expanded="false" />
+            <element signature="e#3282#4043#0" expanded="false" />
+            <element signature="e#3414#3619#0" expanded="false" />
+            <element signature="e#3629#3706#0" expanded="false" />
+            <element signature="e#4051#10250#0" expanded="false" />
+            <element signature="e#4082#5100#0" expanded="false" />
+            <element signature="e#4197#4990#0" expanded="false" />
+            <element signature="e#5110#6128#0" expanded="false" />
+            <element signature="e#5225#6018#0" expanded="false" />
+            <element signature="e#6138#7156#0" expanded="false" />
+            <element signature="e#6253#7046#0" expanded="false" />
+            <element signature="e#7166#8184#0" expanded="false" />
+            <element signature="e#7281#8074#0" expanded="false" />
+            <element signature="e#8194#9212#0" expanded="false" />
+            <element signature="e#8309#9102#0" expanded="false" />
+            <element signature="e#9222#10240#0" expanded="false" />
+            <element signature="e#9337#10130#0" expanded="false" />
+            <element signature="e#10268#10282#0" expanded="false" />
           </folding>
         </state>
       </provider>
