@@ -9,7 +9,7 @@
         Enter your body weight:
         <%= text_field_tag :weight, @weight %>
         <%= radio_button_tag :weight_units, 'kg', @kg_weight %> Kgs
-        <%= radio_button_tag :weight_units, 'lb', @lb_weight %> Lbs
+        <%= radio_button_tag :weight_units, 'lb', @lb_weight , :checked => 'lb'%> Lbs
       </div>
 
       <div id="body_type">
