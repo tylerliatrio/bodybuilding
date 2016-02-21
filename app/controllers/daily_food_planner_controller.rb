@@ -1,4 +1,9 @@
 class DailyFoodPlannerController < ApplicationController
+
+  def is_number?(string)
+    true if Float(string) rescue false
+  end
+
   def enter
     flash['entry'] = false
 
@@ -57,7 +62,13 @@ class DailyFoodPlannerController < ApplicationController
         if params['quantity0'].blank?
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
-          @quantity0 = Integer(params['quantity0'])
+
+          if is_number?(params['quantity0'])
+            @quantity0 = Integer(params['quantity0'])
+          else
+            flash['error'] = 'Error: Quantity can be only a number!'
+          end
+
         end
       end
 
@@ -67,7 +78,11 @@ class DailyFoodPlannerController < ApplicationController
         if params['quantity1'].blank?
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
-          @quantity1 = Integer(params['quantity1'])
+          if is_number?(params['quantity1'])
+            @quantity1 = Integer(params['quantity1'])
+          else
+            flash['error'] = 'Error: Quantity can be only a number!'
+          end
         end
       end
 
@@ -77,7 +92,11 @@ class DailyFoodPlannerController < ApplicationController
         if params['quantity2'].blank?
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
-          @quantity2 = Integer(params['quantity2'])
+          if is_number?(params['quantity2'])
+            @quantity2 = Integer(params['quantity2'])
+          else
+            flash['error'] = 'Error: Quantity can be only a number!'
+          end
         end
       end
 
@@ -87,7 +106,11 @@ class DailyFoodPlannerController < ApplicationController
         if params['quantity3'].blank?
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
-          @quantity3 = Integer(params['quantity3'])
+          if is_number?(params['quantity3'])
+            @quantity3 = Integer(params['quantity3'])
+          else
+            flash['error'] = 'Error: Quantity can be only a number!'
+          end
         end
       end
 
@@ -97,7 +120,11 @@ class DailyFoodPlannerController < ApplicationController
         if params['quantity4'].blank?
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
-          @quantity4 = Integer(params['quantity4'])
+          if is_number?(params['quantity4'])
+            @quantity4 = Integer(params['quantity4'])
+          else
+            flash['error'] = 'Error: Quantity can be only a number!'
+          end
         end
       end
 
@@ -107,7 +134,11 @@ class DailyFoodPlannerController < ApplicationController
         if params['quantity5'].blank?
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
-          @quantity5 = Integer(params['quantity5'])
+          if is_number?(params['quantity5'])
+            @quantity5 = Integer(params['quantity5'])
+          else
+            flash['error'] = 'Error: Quantity can be only a number!'
+          end
         end
       end
 
@@ -126,7 +157,11 @@ class DailyFoodPlannerController < ApplicationController
           carbsDose = 2
         end
 
-        if @lb_weight then kiloWeight = @weight/2.20462 else kiloWeight = @weight end
+        if @lb_weight then
+          kiloWeight = @weight/2.20462
+        else
+          kiloWeight = @weight
+        end
 
         @target[:prots] = (kiloWeight * protsDose).round(0)
         @target[:carbs] = (kiloWeight * carbsDose).round(0)
@@ -136,6 +171,7 @@ class DailyFoodPlannerController < ApplicationController
         flash['error'] = 'Please enter your weight and select your body type!' if params['body_type'].blank? or params['weight'].blank?
       end
 
+      # calculate if no errors
       unless flash['error']
 
         unless params['ingredient0'] == '0'
@@ -240,6 +276,7 @@ class DailyFoodPlannerController < ApplicationController
           @meals << [params['ingredient5'], params['quantity5'], selectedIngredient.serving_type]
         end
       end
+
     end
   end
 
