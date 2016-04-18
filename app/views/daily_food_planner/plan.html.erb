@@ -1,154 +1,169 @@
-<h1 style="text-align: center">Daily food intake planner</h1>
+<div class="page-header">
+  <h1> Daily food intake planner</h1>
+</div>
 
-<% if not flash['error'].nil? %>
-
-<div class="alert alert-danger"><%= flash['error'] %></div>
+<% if not flash['error'].blank? %>
+    <div class="alert alert-danger"><%= flash['error'] %></div>
 <% end %>
 
 <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
     <div id="user_input">
 
-      <%= label_tag 'Enter your body weight in pounds:' %>
-      <%= text_field_tag :weight, @weight, placeholder: 'i.e. 185' %>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Enter your body, lbs:</span>
+        <input type="text" name="weight" value="<%= @weight %>" class="form-control" placeholder="i.e. 185'" aria-describedby="basic-addon1">
+      </div>
+
       <br>
-      <%= label_tag 'How many grams of proteins per kilo' %>
-      <%= text_field_tag :target_prots, @target_prots, placeholder: 'i.e. 2' %>
-      <br>
-      <%= label_tag 'How many grams of carbs per kilo' %>
-      <%= text_field_tag :target_carbs, @target_carbs, placeholder: 'i.e 5' %>
-      <br>
-      <%= label_tag 'How many grams of fats per kilo' %>
-      <%= text_field_tag :target_fats, @target_fats, placeholder: 'i.e. 1' %>
+      <div class="panel panel-primary" style="text-align: center">
+        <div class="panel-heading"> Nutrient target amounts</div>
 
-    </div>
+          <div class="panel-body" style="text-align: left">
 
-    <br>
-    <div>
-      <h2 style="text-align: center"> Select ingredients you will use today</h2>
-
-      <div id="ingredient_selection">
-
-        <% ingredients = Ingredient.all.order('name ASC') %>
-
-        <section class="ingredient">
-          <select name="ingredient0">
-            <option value="0">Select an ingredient</option>
-
-            <% for each in ingredients %>
-
-                <% if @name0 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
-                    </option>
-                <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
-                <% end %>
-
-            <% end %>
-          </select>
-
-          <%= text_field_tag :quantity0, @quantity0, placeholder: 'Enter quantity' %>
-        </section>
-
-        <section class="ingredient">
-          <select name="ingredient1">
-            <option value="0">Select an ingredient</option>
-
-            <% for each in ingredients %>
-
-                <% if @name1 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
-                    </option>
-                <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
-                <% end %>
-            <% end %>
-
-          </select>
-
-          <%= text_field_tag :quantity1, @quantity1, placeholder: 'Enter quantity' %>
-        </section>
-
-        <section class="ingredient">
-          <select name="ingredient2">
-            <option value="0">Select an ingredient</option>
-
-            <% for each in ingredients %>
-
-                <% if @name2 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
-                    </option>
-                <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
-                <% end %>
-            <% end %>
-
-          </select>
-
-          <%= text_field_tag :quantity2, @quantity2, placeholder: 'Enter quantity' %>
-        </section>
-
-        <section class="ingredient">
-          <select name="ingredient3">
-            <option value="0">Select an ingredient</option>
-
-            <% for each in ingredients %>
-
-                <% if @name3 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
-                    </option>
-                <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
-                <% end %>
-            <% end %>
-
-          </select>
-
-          <%= text_field_tag :quantity3, @quantity3, placeholder: 'Enter quantity' %>
-        </section>
-
-        <section class="ingredient">
-          <select name="ingredient4">
-            <option value="0">Select an ingredient</option>
-
-            <% for each in ingredients %>
-                <% if @name4 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
-                    </option>
-                <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
-                <% end %>
-            <% end %>
-
-          </select>
-
-          <%= text_field_tag :quantity4, @quantity4, placeholder: 'Enter quantity' %>
-        </section>
-
-        <section class="ingredient">
-          <select name="ingredient5">
-            <option value="0">Select an ingredient</option>
-
-            <% for each in ingredients %>
-                <% if @name5 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
-                    </option>
-                <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
-                <% end %>
-            <% end %>
-
-          </select>
-
-          <%= text_field_tag :quantity5, @quantity5, placeholder: 'Enter quantity' %>
-        </section>
-
+            <div class="input-group" style="width: ">
+              <span class="input-group-addon" id="basic-addon1">Proteins, grams/kilo</span>
+              <input type="text" name="target_prots" value="<%=@target_prots%>" class="form-control" placeholder="i.e. 2" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Carbs, grams/kilo</span>
+              <input type="text" name="target_carbs" value="<%=@target_carbs%>" class="form-control" placeholder="i.e. 5'" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Fats, grams/kilo</span>
+              <input type="text" name="target_fats" value="<%=@target_fats%>" class="form-control" placeholder="i.e. 1'" aria-describedby="basic-addon1">
+            </div>
+          </div>
       </div>
     </div>
+
+    <div style="  padding-top: 1em;padding-left: 1em;width: 95%">
+      <div class="panel panel-primary">
+         <div class="panel-heading"> Select ingredients you will use today</div>
+
+            <div class="panel-body">
+
+              <% ingredients = Ingredient.all.order('name ASC') %>
+
+              <section class="ingredient">
+                <select name="ingredient0">
+                  <option value="0">Select an ingredient</option>
+
+                  <% for each in ingredients %>
+
+                      <% if @name0 == each.name %>
+                          <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                          </option>
+                      <% else %>
+                          <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                      <% end %>
+
+                  <% end %>
+                </select>
+
+                <%= text_field_tag :quantity0, @quantity0, placeholder: 'Enter quantity' %>
+              </section>
+
+              <section class="ingredient">
+                <select name="ingredient1">
+                  <option value="0">Select an ingredient</option>
+
+                  <% for each in ingredients %>
+
+                      <% if @name1 == each.name %>
+                          <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                          </option>
+                      <% else %>
+                          <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                      <% end %>
+                  <% end %>
+
+                </select>
+
+                <%= text_field_tag :quantity1, @quantity1, placeholder: 'Enter quantity' %>
+              </section>
+
+              <section class="ingredient">
+                <select name="ingredient2">
+                  <option value="0">Select an ingredient</option>
+
+                  <% for each in ingredients %>
+
+                      <% if @name2 == each.name %>
+                          <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                          </option>
+                      <% else %>
+                          <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                      <% end %>
+                  <% end %>
+
+                </select>
+
+                <%= text_field_tag :quantity2, @quantity2, placeholder: 'Enter quantity' %>
+              </section>
+
+              <section class="ingredient">
+                <select name="ingredient3">
+                  <option value="0">Select an ingredient</option>
+
+                  <% for each in ingredients %>
+
+                      <% if @name3 == each.name %>
+                          <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                          </option>
+                      <% else %>
+                          <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                      <% end %>
+                  <% end %>
+
+                </select>
+
+                <%= text_field_tag :quantity3, @quantity3, placeholder: 'Enter quantity' %>
+              </section>
+
+              <section class="ingredient">
+                <select name="ingredient4">
+                  <option value="0">Select an ingredient</option>
+
+                  <% for each in ingredients %>
+                      <% if @name4 == each.name %>
+                          <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                          </option>
+                      <% else %>
+                          <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                      <% end %>
+                  <% end %>
+
+                </select>
+
+                <%= text_field_tag :quantity4, @quantity4, placeholder: 'Enter quantity' %>
+              </section>
+
+              <section class="ingredient">
+                <select name="ingredient5">
+                  <option value="0">Select an ingredient</option>
+
+                  <% for each in ingredients %>
+                      <% if @name5 == each.name %>
+                          <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                          </option>
+                      <% else %>
+                          <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                      <% end %>
+                  <% end %>
+
+                </select>
+
+                <%= text_field_tag :quantity5, @quantity5, placeholder: 'Enter quantity' %>
+              </section>
+
+            </div>
+          </div>
+      </div>
     <br>
 
-    <div style="text-align: center">
-      <%= submit_tag 'Submit', class: "btn btn-primary btn-lg" %>
-    </div>
+    <%= submit_tag 'Submit', class: "btn btn-primary btn-lg" %>
 <% end %>
 
 <% unless flash['error'] %>

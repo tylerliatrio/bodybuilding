@@ -1,4 +1,7 @@
-<h1 style="text-align: center">Add an ingredient to database</h1>
+<div class="page-header">
+  <h1>Add an ingredient</h1>
+</div>
+
 <% if flash['message'].nil? and flash['entry'] == true %>
     <% each = Ingredient.last %>
     <h2>Added <%= each.name %></h2>
@@ -8,13 +11,15 @@
     carbs - <%= each.carbs %> g,
     fats - <%= each.fats %> g,
     cals - <%= each.cals %>
-<% else %>
-    <%= flash['message'] %>
+<% elsif not flash['message'].blank? %>
+    <div class="alert alert-danger">
+      <%= flash['message'] %>
+    </div>
 <% end %>
 
 <%= form_for daily_food_planner_enter_path, method: 'POST' do %>
 
-    <div class="row">
+    <div style="text-align: left; margin-left: 1em">
       <section>
         <%= label_tag :name, 'Ingredient title ' %>
         <%= text_field_tag :name %>

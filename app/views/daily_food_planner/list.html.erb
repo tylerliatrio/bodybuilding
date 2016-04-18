@@ -1,5 +1,8 @@
-<h1 style="text-align: center">Ingredients from database</h1>
-<div style="margin-left: 5%">
+<div class="page-header">
+  <h1> Ingredients list</h1>
+</div>
+
+<div style="text-align: left; margin-left: 1em; width: 95%">
   <% for each in Ingredient.all.order('name ASC') %>
       <%= each.name %>: proteins - <%= each.prots %> g, carbs - <%= each.carbs %> g, fats - <%= each.fats %> g
       <hr>
