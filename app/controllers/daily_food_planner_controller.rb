@@ -51,10 +51,27 @@ class DailyFoodPlannerController < ApplicationController
 
       @weight = Float(params['weight']) unless params['weight'].blank?
 
-      @kg_weight = true if params['weight_units'] == 'kg'
-      @lb_weight = true if params['weight_units'] == 'lb'
 
-      @body_type = params['body_type'] unless params['body_type'].blank?
+      # show at least targets even if no meals are entered yet
+      if not (params['target_prots'].blank? or
+          params['target_carbs'].blank? or
+          params['target_fats'].blank? or
+          params['weight'].blank? or flash['error'])
+
+        @target_prots = Integer(params['target_prots'])
+        @target_carbs = Integer(params['target_carbs'])
+        @target_fats = Integer(params['target_fats'])
+
+
+        kiloWeight = @weight/2.20462
+
+        @target[:prots] = (kiloWeight * @target_prots).round(0)
+        @target[:carbs] = (kiloWeight * @target_carbs).round(0)
+        @target[:fats] = (kiloWeight * @target_fats).round(0)
+
+      else
+        flash['error'] = 'Please enter your weight and select your body type!' if params['body_type'].blank? or params['weight'].blank?
+      end
 
       unless params['ingredient0'] == '0'
         @name0 = params['ingredient0']
@@ -142,34 +159,6 @@ class DailyFoodPlannerController < ApplicationController
         end
       end
 
-
-      # show at least targets even if no meals are entered yet
-      unless params['body_type'].blank? or params['weight'].blank? or flash['error']
-
-        protsDose = 2
-        fatsDose = 1
-
-        if params['body_type'] == 'gain'
-          carbsDose = 6
-        elsif params['body_type'] == 'keep'
-          carbsDose = 4
-        elsif params['body_type'] == 'loose'
-          carbsDose = 2
-        end
-
-        if @lb_weight then
-          kiloWeight = @weight/2.20462
-        else
-          kiloWeight = @weight
-        end
-
-        @target[:prots] = (kiloWeight * protsDose).round(0)
-        @target[:carbs] = (kiloWeight * carbsDose).round(0)
-        @target[:fats] = (kiloWeight * fatsDose).round(0)
-
-      else
-        flash['error'] = 'Please enter your weight and select your body type!' if params['body_type'].blank? or params['weight'].blank?
-      end
 
       # calculate if no errors
       unless flash['error']

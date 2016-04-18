@@ -21,8 +21,8 @@
       </section>
 
       <section>
-      <%= label_tag :serving_type, 'Serving units (g, ml, tbs, etc)' %>
-      <%= text_field_tag :serving_type, 'g' %>
+        <%= label_tag :serving_type, 'Serving units (g, ml, tbs, etc)' %>
+        <%= text_field_tag :serving_type, 'g' %>
       </section>
 
       <section>
@@ -55,10 +55,14 @@
     <br>
     <br>
 
-    <span style="margin-left: 20%"> <%= submit_tag 'Submit', id: 'submit' %></span>
-
-    <span style="margin-left: 20%"><%= submit_tag 'Delete last entry', id: 'delete_record' %></span>
-
+    <div style="text-align: center">
+      <span class="enter_btn">
+        <%= submit_tag 'Submit', id: 'submit', class: "btn btn-primary btn-lg" %>
+      </span>
+      <span class="enter_btn">
+        <%= submit_tag 'Delete last entry', id: 'delete_record', class: "btn btn-primary btn-lg" %>
+      </span>
+    </div>
     <!--<%= submit_tag 'DB reset', id: 'db_reset' %>-->
 
 <% end %>

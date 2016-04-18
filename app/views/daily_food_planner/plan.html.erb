@@ -1,59 +1,36 @@
 <h1 style="text-align: center">Daily food intake planner</h1>
 
-<h3 style="color: red"><%= flash['error'] %></h3>
+<% if not flash['error'].nil? %>
+
+<div class="alert alert-danger"><%= flash['error'] %></div>
+<% end %>
 
 <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
-    <div class="row">
+    <div id="user_input">
 
-      <div id="boby_weight">
-        Enter your body weight:
-        <%= text_field_tag :weight, @weight %>
-        <%= radio_button_tag :weight_units, 'kg', @kg_weight %> Kgs
-        <%= radio_button_tag :weight_units, 'lb', @lb_weight , :checked => 'lb'%> Lbs
-      </div>
+      <%= label_tag 'Enter your body weight in pounds:' %>
+      <%= text_field_tag :weight, @weight, placeholder: 'i.e. 185' %>
+      <br>
+      <%= label_tag 'How many grams of proteins per kilo' %>
+      <%= text_field_tag :target_prots, @target_prots, placeholder: 'i.e. 2' %>
+      <br>
+      <%= label_tag 'How many grams of carbs per kilo' %>
+      <%= text_field_tag :target_carbs, @target_carbs, placeholder: 'i.e 5' %>
+      <br>
+      <%= label_tag 'How many grams of fats per kilo' %>
+      <%= text_field_tag :target_fats, @target_fats, placeholder: 'i.e. 1' %>
 
-      <div id="body_type">
-        Select your body type:
-
-        <div class="cc-selector">
-
-          <% if @body_type == 'gain' %>
-              <input checked id="gain" type="radio" name="body_type" value="gain"/>
-              <label class="drinkcard-cc gain" for="gain"></label>
-
-          <% else %>
-              <input id="gain" type="radio" name="body_type" value="gain"/>
-              <label class="drinkcard-cc gain" for="gain"></label>
-          <% end %>
-
-          <% if @body_type == 'keep' %>
-              <input checked id="keep" type="radio" name="body_type" value="keep"/>
-              <label class="drinkcard-cc keep" for="keep"></label>
-          <% else %>
-              <input id="keep" type="radio" name="body_type" value="keep"/>
-              <label class="drinkcard-cc keep" for="keep"></label>
-          <% end %>
-
-          <% if @body_type == 'loose' %>
-              <input checked id="loose" type="radio" name="body_type" value="loose"/>
-              <label class="drinkcard-cc loose" for="loose"></label>
-          <% else %>
-              <input id="loose" type="radio" name="body_type" value="loose"/>
-              <label class="drinkcard-cc loose" for="loose"></label>
-          <% end %>
-
-        </div>
-      </div>
     </div>
 
     <br>
     <div>
       <h2 style="text-align: center"> Select ingredients you will use today</h2>
-      <div class="row">
+
+      <div id="ingredient_selection">
 
         <% ingredients = Ingredient.all.order('name ASC') %>
 
-        <section>
+        <section class="ingredient">
           <select name="ingredient0">
             <option value="0">Select an ingredient</option>
 
@@ -72,7 +49,7 @@
           <%= text_field_tag :quantity0, @quantity0, placeholder: 'Enter quantity' %>
         </section>
 
-        <section>
+        <section class="ingredient">
           <select name="ingredient1">
             <option value="0">Select an ingredient</option>
 
@@ -91,7 +68,7 @@
           <%= text_field_tag :quantity1, @quantity1, placeholder: 'Enter quantity' %>
         </section>
 
-        <section>
+        <section class="ingredient">
           <select name="ingredient2">
             <option value="0">Select an ingredient</option>
 
@@ -110,7 +87,7 @@
           <%= text_field_tag :quantity2, @quantity2, placeholder: 'Enter quantity' %>
         </section>
 
-        <section>
+        <section class="ingredient">
           <select name="ingredient3">
             <option value="0">Select an ingredient</option>
 
@@ -129,7 +106,7 @@
           <%= text_field_tag :quantity3, @quantity3, placeholder: 'Enter quantity' %>
         </section>
 
-        <section>
+        <section class="ingredient">
           <select name="ingredient4">
             <option value="0">Select an ingredient</option>
 
@@ -147,7 +124,7 @@
           <%= text_field_tag :quantity4, @quantity4, placeholder: 'Enter quantity' %>
         </section>
 
-        <section>
+        <section class="ingredient">
           <select name="ingredient5">
             <option value="0">Select an ingredient</option>
 
@@ -169,12 +146,12 @@
     </div>
     <br>
 
-   <span style="margin-left: 43%" ><%= submit_tag 'Submit', id: 'submit' %></span>
+    <div style="text-align: center">
+      <%= submit_tag 'Submit', class: "btn btn-primary btn-lg" %>
+    </div>
 <% end %>
 
-
 <% unless flash['error'] %>
-
 
     <% unless @totals.nil? or @totals.empty? %>
 
@@ -209,7 +186,7 @@
             </div>
         <% end %>
 
-        <div class="row">
+        <div>
 
           <% unless @meals.empty? %>
               <section>
@@ -232,21 +209,16 @@
           <% end %>
 
           <% unless @target.nil? %>
-              <section>
-                <h2>Target intake for you:</h2>
+              <h2>Target intake for you:</h2>
 
-                <p> Proteins - <%= @target[:prots] %>g</p>
+              <p> Proteins - <%= @target[:prots] %>g</p>
 
-                <p> Carbs - <%= @target[:carbs] %>g</p>
+              <p> Carbs - <%= @target[:carbs] %>g</p>
 
-                <p> Fats - <%= @target[:fats]/2 %>g to <%= @target[:fats] %>g</p>
+              <p> Fats - <%= @target[:fats]/2 %>g to <%= @target[:fats] %>g</p>
 
-              </section>
           <% end %>
 
         </div>
-
     <% end %>
-
 <% end %>
-
