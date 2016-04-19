@@ -3,14 +3,16 @@
 </div>
 
 <% if flash['message'].nil? and flash['entry'] == true %>
-    <% each = Ingredient.last %>
-    <h2>Added <%= each.name %></h2>
-    units - <%= each.units %>,
-    serving size - <%= each.serving_size %> <%= each.units %>,
-    proteins - <%= each.prots %> g,
-    carbs - <%= each.carbs %> g,
-    fats - <%= each.fats %> g,
-    cals - <%= each.cals %>
+    <div class="alert alert-success">
+      <% each = Ingredient.last %>
+      <h2>Added <%= each.name %></h2>
+      units - <%= each.units %>,
+      serving size - <%= each.serving_size %> <%= each.units %>,
+      proteins - <%= each.prots %> g,
+      carbs - <%= each.carbs %> g,
+      fats - <%= each.fats %> g,
+      cals - <%= each.cals %>
+    </div>
 <% elsif not flash['message'].blank? %>
     <div class="alert alert-danger">
       <%= flash['message'] %>
