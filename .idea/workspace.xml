@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de12444d-a14f-48e1-a27f-317cd6a910c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/my.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/my.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" afterPath="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" afterPath="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" />
     </list>
     <ignored path="bodybuilding.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,47 +32,20 @@
     <splitter split-orientation="horizontal" split-proportion="0.6333333">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="daily_food_planner_controller.rb" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#131#1064#0" expanded="false" />
-                    <element signature="e#6199#7217#0" expanded="false" />
-                    <element signature="e#7227#8245#0" expanded="false" />
-                    <element signature="e#8255#9273#0" expanded="false" />
-                    <element signature="e#9283#10301#0" expanded="false" />
-                    <element signature="e#10311#11329#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Gemfile">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="-24.137932">
-                  <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+                  <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="plan.html.erb" pinned="false" current-in-tab="true">
+          <file leaf-file-name="plan.html.erb" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.47204968">
+                <state vertical-scroll-proportion="-13.103448">
                   <caret line="158" column="34" selection-start-line="158" selection-start-column="34" selection-end-line="158" selection-end-column="34" />
                   <folding>
                     <element signature="e#598#624#0#HTML" expanded="true" />
@@ -87,17 +58,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="enter.html.erb" pinned="false" current-in-tab="false">
+          <file leaf-file-name="enter.html.erb" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-22.931034">
-                  <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+                <state vertical-scroll-proportion="0.2795031">
+                  <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
                   <folding>
-                    <element signature="e#665#721#0#HTML" expanded="true" />
-                    <element signature="e#804#828#0#HTML" expanded="true" />
-                    <element signature="e#864#879#0#HTML" expanded="true" />
-                    <element signature="e#2717#2753#0#HTML" expanded="true" />
-                    <element signature="e#2860#2897#0#HTML" expanded="true" />
+                    <element signature="e#665#728#0#HTML" expanded="true" />
+                    <element signature="e#811#835#0#HTML" expanded="true" />
+                    <element signature="e#871#886#0#HTML" expanded="true" />
+                    <element signature="e#2724#2760#0#HTML" expanded="true" />
+                    <element signature="e#2867#2904#0#HTML" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -110,8 +81,8 @@
           <file leaf-file-name="my.css.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/my.css.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6459627">
-                  <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+                <state vertical-scroll-proportion="0.42236024">
+                  <caret line="17" column="12" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -158,9 +129,9 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/my.css.scss" />
         <option value="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
       </list>
     </option>
   </component>
@@ -1085,39 +1056,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.137932">
-          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.931034">
-          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
-          <folding>
-            <element signature="e#665#721#0#HTML" expanded="true" />
-            <element signature="e#804#828#0#HTML" expanded="true" />
-            <element signature="e#864#879#0#HTML" expanded="true" />
-            <element signature="e#2717#2753#0#HTML" expanded="true" />
-            <element signature="e#2860#2897#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/my.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6459627">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47204968">
+        <state vertical-scroll-proportion="-13.103448">
           <caret line="158" column="34" selection-start-line="158" selection-start-column="34" selection-end-line="158" selection-end-column="34" />
           <folding>
             <element signature="e#598#624#0#HTML" expanded="true" />
@@ -1125,6 +1066,36 @@
             <element signature="e#787#802#0#HTML" expanded="true" />
             <element signature="e#1734#1789#0#HTML" expanded="true" />
             <element signature="e#1956#1980#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.137932">
+          <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/my.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42236024">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2795031">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding>
+            <element signature="e#665#728#0#HTML" expanded="true" />
+            <element signature="e#811#835#0#HTML" expanded="true" />
+            <element signature="e#871#886#0#HTML" expanded="true" />
+            <element signature="e#2724#2760#0#HTML" expanded="true" />
+            <element signature="e#2867#2904#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
