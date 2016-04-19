@@ -5,8 +5,8 @@
 <% if flash['message'].nil? and flash['entry'] == true %>
     <% each = Ingredient.last %>
     <h2>Added <%= each.name %></h2>
-    serving type - <%= each.serving_type %>,
-    serving size - <%= each.serving_size %> <%= each.serving_type %>,
+    units - <%= each.units %>,
+    serving size - <%= each.serving_size %> <%= each.units %>,
     proteins - <%= each.prots %> g,
     carbs - <%= each.carbs %> g,
     fats - <%= each.fats %> g,
@@ -32,7 +32,7 @@
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Serving units </span>
-          <input type="text" name="serving_type" class="form-control" placeholder="i.e. g, ml, lbs, tbs, scoop etc" aria-describedby="basic-addon1">
+          <input type="text" name="units" class="form-control" placeholder="i.e. g, ml, lbs, tbs, scoop etc" aria-describedby="basic-addon1">
         </div>
         <br>
 

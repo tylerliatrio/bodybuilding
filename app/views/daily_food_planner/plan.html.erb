@@ -21,21 +21,21 @@
 
         <div class="panel-body" style="text-align: left">
 
-          <div class="input-group" >
+          <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Proteins, grams/kilo</span>
-            <input type="text" name="target_prots" value="<%= @target_prots %>" class="form-control" placeholder="i.e. 2" aria-describedby="basic-addon1">
+            <input type="text" name="target_prots" value="<%= @target_prots_per_kilo %>" class="form-control" placeholder="i.e. 2" aria-describedby="basic-addon1">
           </div>
           <br>
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Carbs, grams/kilo</span>
-            <input type="text" name="target_carbs" value="<%= @target_carbs %>" class="form-control" placeholder="i.e. 5" aria-describedby="basic-addon1">
+            <input type="text" name="target_carbs" value="<%= @target_carbs_per_kilo %>" class="form-control" placeholder="i.e. 5" aria-describedby="basic-addon1">
           </div>
           <br>
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Fats, grams/kilo</span>
-            <input type="text" name="target_fats" value="<%= @target_fats %>" class="form-control" placeholder="i.e. 1" aria-describedby="basic-addon1">
+            <input type="text" name="target_fats" value="<%= @target_fats_per_kilo %>" class="form-control" placeholder="i.e. 1" aria-describedby="basic-addon1">
           </div>
         </div>
       </div>
@@ -56,10 +56,10 @@
             <% for each in ingredients %>
 
                 <% if @name0 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
                     </option>
                 <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
 
             <% end %>
@@ -74,10 +74,10 @@
             <% for each in ingredients %>
 
                 <% if @name1 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
                     </option>
                 <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
 
@@ -91,10 +91,10 @@
             <% for each in ingredients %>
 
                 <% if @name2 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
                     </option>
                 <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
 
@@ -108,10 +108,10 @@
             <% for each in ingredients %>
 
                 <% if @name3 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
                     </option>
                 <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
 
@@ -124,10 +124,10 @@
 
             <% for each in ingredients %>
                 <% if @name4 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
                     </option>
                 <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
 
@@ -140,10 +140,10 @@
 
             <% for each in ingredients %>
                 <% if @name5 == each.name %>
-                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
                     </option>
                 <% else %>
-                    <option value="<%= each.name %>"><%= each.name %> (<%= each.serving_type %>)</option>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
 
@@ -166,30 +166,55 @@
         <% unless @meals.empty? %>
             <div>
               <hr>
-              <% if @totals[:prots] < @target[:prots] %>
-                  <h2 style="color: wheat">Eat more of animal derived Proteins! </h2>
-                  <h4>Great sources are Beef, Chicken Breast, Tuna, Turkey, Salmon, Eggs </h4>
-              <% elsif @totals[:prots] > @target[:prots] %>
-                  <h2 style="color: #730E15">Too much Proteins!</h2>
+
+              <% if @totals[:prots] < @target[:prots] * 0.95%>
+                  <div class="alert alert-info">
+                    <h2>Eat more of animal derived Proteins! </h2>
+                    <h4>Great sources are Beef, Chicken Breast, Tuna, Turkey, Salmon, Eggs </h4>
+                  </div>
+              <% elsif @totals[:prots] > @target[:prots] * 1.05%>
+                  <div class="alert alert-danger">
+                    <h2>Too much Protein!</h2>
+                  </div>
+              <%else%>
+                  <div class="alert alert-success">
+                    <h2>Protein are looking good!</h2>
+                  </div>
               <% end %>
 
               <hr>
 
-              <% if @totals[:carbs] < @target[:carbs] %>
-                  <h2 style="color: wheat">Eat more Carbs with low glycemic index!</h2>
-                  <h4>Great sources are Buckwheat, Basmati Rice, Old Fashioned Oats, Pasta, Beans</h4>
-              <% elsif @totals[:carbs] > @target[:carbs] %>
-                  <h2 style="color: red">Too much Carbs!</h2>
+              <% if @totals[:carbs] < @target[:carbs] * 0.95%>
+                  <div class="alert alert-info">
+                    <h2>Eat more Carbs with low glycemic index!</h2>
+                    <h4>Great sources are Buckwheat, Basmati Rice, Old Fashioned Oats, Pasta, Beans</h4>
+                  </div>
+              <% elsif @totals[:carbs] > @target[:carbs] * 1.05%>
+                  <div class="alert alert-danger">
+                    <h2>Too much Carbs!</h2>
+                  </div>
+              <%else%>
+                  <div class="alert alert-success">
+                    <h2>Carbs are looking good!</h2>
+                  </div>
               <% end %>
 
               <hr>
 
-              <% if @totals[:fats] < @target[:fats]/2 %>
-                  <h2 style="color: wheat">Eat more of healthy Fats!</h2>
-                  <h4>Great sources are Avocado, Nuts, Olive Oil, Peanut Butter</h4>
+              <% if @totals[:fats] < @target[:fats] * 0.6 %>
+                  <div class="alert alert-info">
+                    <h2>Eat more of healthy Fats!</h2>
+                    <h4>Great sources are Avocado, Nuts, Olive Oil, Peanut Butter</h4>
+                  </div>
               <% elsif @totals[:fats] > @target[:fats] %>
-                  <h2 style="color: #730E15">Too much Fats!</h2>
-              <% end %>
+                  <div class="alert alert-danger">
+                    <h2>Too much Fats!</h2>
+                  </div>
+              <%else%>
+                  <div class="alert alert-success">
+                    <h2>Fats are looking good!</h2>
+                  </div>
+            <% end %>
               <hr>
             </div>
         <% end %>
@@ -206,25 +231,17 @@
 
               <section>
                 <h2>Nutrient totals:</h2>
-
-                <p> Proteins - <%= @totals[:prots] %>g</p>
-
-                <p> Carbs - <%= @totals[:carbs] %>g</p>
-
-                <p> Fats - <%= @totals[:fats] %>g</p>
+                <p> Proteins - <%= @totals[:prots].round(0) %>g</p>
+                <p> Carbs - <%= @totals[:carbs].round(0) %>g</p>
+                <p> Fats - <%= @totals[:fats].round(0) %>g</p>
               </section>
-
           <% end %>
 
           <% unless @target.nil? %>
               <h2>Target intake for you:</h2>
-
-              <p> Proteins - <%= @target[:prots] %>g</p>
-
-              <p> Carbs - <%= @target[:carbs] %>g</p>
-
-              <p> Fats - <%= @target[:fats] %>g</p>
-
+              <p> Proteins - <%= @target[:prots].round(0) %>g</p>
+              <p> Carbs - <%= @target[:carbs].round(0) %>g</p>
+              <p> Fats - <%= @target[:fats].round(0) %>g</p>
           <% end %>
 
         </div>
