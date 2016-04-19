@@ -50,7 +50,7 @@
           <% ingredients = Ingredient.all.order('name ASC') %>
 
 
-          <select name="ingredient0">
+          <select name="ingredient0" class="select">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -68,7 +68,7 @@
           <%= text_field_tag :quantity0, @quantity0, placeholder: 'Enter quantity' %>
 
 
-          <select name="ingredient1">
+          <select name="ingredient1" class="select">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -85,7 +85,7 @@
 
           <%= text_field_tag :quantity1, @quantity1, placeholder: 'Enter quantity' %>
 
-          <select name="ingredient2">
+          <select name="ingredient2" class="select">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -102,7 +102,7 @@
 
           <%= text_field_tag :quantity2, @quantity2, placeholder: 'Enter quantity' %>
 
-          <select name="ingredient3">
+          <select name="ingredient3" class="select">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -119,7 +119,7 @@
 
           <%= text_field_tag :quantity3, @quantity3, placeholder: 'Enter quantity' %>
 
-          <select name="ingredient4">
+          <select name="ingredient4" class="select">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -135,7 +135,7 @@
 
           <%= text_field_tag :quantity4, @quantity4, placeholder: 'Enter quantity' %>
 
-          <select name="ingredient5">
+          <select name="ingredient5" class="select">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>

@@ -1,7 +1,6 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 
-
 #user_input{
   text-align: left;
   padding-top: 1em;
@@ -9,8 +8,14 @@
   width: 95%;
 }
 
+.select{
+  width: 40%;
+  font-size: 2em;
+}
+
 .page{
   text-align: center;
+  width: 100%;
 }
 
 #ingredient_selection{
