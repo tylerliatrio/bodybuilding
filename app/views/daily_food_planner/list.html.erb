@@ -2,7 +2,7 @@
   <h1> Ingredients list</h1>
 </div>
 
-<div style="text-align: left; margin-left: 1em; width: 95%">
+<div style="text-align: left; ">
   <% for each in Ingredient.all.order('name ASC') %>
       <%= each.name %>: proteins - <%= each.prots %> g, carbs - <%= each.carbs %> g, fats - <%= each.fats %> g
       <hr>
