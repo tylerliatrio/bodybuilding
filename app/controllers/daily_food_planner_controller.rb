@@ -81,7 +81,7 @@ class DailyFoodPlannerController < ApplicationController
         else
 
           if is_number?(params['quantity0'])
-            @quantity0 = Integer(params['quantity0'])
+            @quantity0 = Float(params['quantity0'])
           else
             flash['error'] = 'Error: Quantity can be only a number!'
           end
@@ -96,7 +96,7 @@ class DailyFoodPlannerController < ApplicationController
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
           if is_number?(params['quantity1'])
-            @quantity1 = Integer(params['quantity1'])
+            @quantity1 = Float(params['quantity1'])
           else
             flash['error'] = 'Error: Quantity can be only a number!'
           end
@@ -110,7 +110,7 @@ class DailyFoodPlannerController < ApplicationController
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
           if is_number?(params['quantity2'])
-            @quantity2 = Integer(params['quantity2'])
+            @quantity2 = Float(params['quantity2'])
           else
             flash['error'] = 'Error: Quantity can be only a number!'
           end
@@ -124,7 +124,7 @@ class DailyFoodPlannerController < ApplicationController
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
           if is_number?(params['quantity3'])
-            @quantity3 = Integer(params['quantity3'])
+            @quantity3 = Float(params['quantity3'])
           else
             flash['error'] = 'Error: Quantity can be only a number!'
           end
@@ -138,7 +138,7 @@ class DailyFoodPlannerController < ApplicationController
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
           if is_number?(params['quantity4'])
-            @quantity4 = Integer(params['quantity4'])
+            @quantity4 = Float(params['quantity4'])
           else
             flash['error'] = 'Error: Quantity can be only a number!'
           end
@@ -152,7 +152,7 @@ class DailyFoodPlannerController < ApplicationController
           flash['error'] = 'Please enter quantity for selected ingredient'
         else
           if is_number?(params['quantity5'])
-            @quantity5 = Integer(params['quantity5'])
+            @quantity5 = Float(params['quantity5'])
           else
             flash['error'] = 'Error: Quantity can be only a number!'
           end
@@ -171,6 +171,11 @@ class DailyFoodPlannerController < ApplicationController
             @totals[:carbs] += selectedIngredient.carbs * @quantity0 / selectedIngredient.serving_size
             @totals[:fats] += selectedIngredient.fats * @quantity0 / selectedIngredient.serving_size
             @totals[:cals] += selectedIngredient.cals * @quantity0 / selectedIngredient.serving_size
+          elsif selectedIngredient.serving_type == 'lb'
+            @totals[:prots] += selectedIngredient.prots * 4 * @quantity0
+            @totals[:carbs] += selectedIngredient.carbs * 4 * @quantity0
+            @totals[:fats] += selectedIngredient.fats * 4 * @quantity0
+            @totals[:cals] += selectedIngredient.cals * 4 * @quantity0
           else
             @totals[:prots] += selectedIngredient.prots * @quantity0
             @totals[:carbs] += selectedIngredient.carbs * @quantity0
