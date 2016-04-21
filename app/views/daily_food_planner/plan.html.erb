@@ -11,7 +11,7 @@
 
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Enter your body, lbs:</span>
-        <input type="text" name="weight" value="<%= @weight %>" class="form-control" placeholder="i.e. 185" aria-describedby="basic-addon1">
+        <input type="number" name="weight" value="<%= @weight %>" class="form-control" placeholder="i.e. 185" aria-describedby="basic-addon1">
       </div>
 
       <br>
@@ -23,19 +23,19 @@
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Proteins, grams/kilo</span>
-            <input type="text" name="target_prots" value="<%= @target_prots_per_kilo %>" class="form-control" placeholder="i.e. 2" aria-describedby="basic-addon1">
+            <input type="number" name="target_prots" value="<%= @target_prots_per_kilo %>" class="form-control" placeholder="Between 1 and 3" aria-describedby="basic-addon1">
           </div>
           <br>
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Carbs, grams/kilo</span>
-            <input type="text" name="target_carbs" value="<%= @target_carbs_per_kilo %>" class="form-control" placeholder="i.e. 5" aria-describedby="basic-addon1">
+            <input type="number" name="target_carbs" value="<%= @target_carbs_per_kilo %>" class="form-control" placeholder="Between 1 and 7" aria-describedby="basic-addon1">
           </div>
           <br>
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Fats, grams/kilo</span>
-            <input type="text" name="target_fats" value="<%= @target_fats_per_kilo %>" class="form-control" placeholder="i.e. 1" aria-describedby="basic-addon1">
+            <input type="number" name="target_fats" value="<%= @target_fats_per_kilo %>" class="form-control" placeholder="Between 0.5 and 1" aria-describedby="basic-addon1">
           </div>
         </div>
       </div>
