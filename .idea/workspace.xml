@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de12444d-a14f-48e1-a27f-317cd6a910c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" afterPath="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" afterPath="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
     </list>
     <ignored path="bodybuilding.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,21 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="plan.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plan.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22360249">
+            <state vertical-scroll-proportion="-6.206897">
               <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="enter.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="enter.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.344828">
-              <caret line="67" column="14" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.6708075">
+              <caret line="61" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -116,8 +116,8 @@
         <option value="$PROJECT_DIR$/db/migrate/20160419035436_change_serving_size.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160419035704_rename_serving_size_to_units.rb" />
         <option value="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
         <option value="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
       </list>
     </option>
   </component>
@@ -1034,18 +1034,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.344828">
-          <caret line="67" column="14" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+        <state vertical-scroll-proportion="-6.206897">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22360249">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.6708075">
+          <caret line="61" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
           <folding />
         </state>
       </provider>
