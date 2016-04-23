@@ -148,6 +148,68 @@
 
           <input type="number" name="quantity5" class="hidden" value="<%= @quantity5 %>" placeholder="Enter quantity">
 
+          <select name="ingredient6" class="select hidden">
+            <option value="0">Select an ingredient</option>
+
+            <% for each in ingredients %>
+                <% if @name6 == each.name %>
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
+                    </option>
+                <% else %>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
+                <% end %>
+            <% end %>
+          </select>
+
+          <input type="number" name="quantity6" class="hidden" value="<%= @quantity6 %>" placeholder="Enter quantity">
+
+          <select name="ingredient7" class="select hidden">
+            <option value="0">Select an ingredient</option>
+
+            <% for each in ingredients %>
+                <% if @name7 == each.name %>
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
+                    </option>
+                <% else %>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
+                <% end %>
+            <% end %>
+          </select>
+
+          <input type="number" name="quantity7" class="hidden" value="<%= @quantity7 %>" placeholder="Enter quantity">
+
+          <select name="ingredient8" class="select hidden">
+            <option value="0">Select an ingredient</option>
+
+            <% for each in ingredients %>
+                <% if @name8 == each.name %>
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
+                    </option>
+                <% else %>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
+                <% end %>
+            <% end %>
+          </select>
+
+          <input type="number" name="quantity8" class="hidden" value="<%= @quantity8 %>" placeholder="Enter quantity">
+
+
+          <select name="ingredient9" class="select hidden">
+            <option value="0">Select an ingredient</option>
+
+            <% for each in ingredients %>
+                <% if @name9 == each.name %>
+                    <option selected="selected" value="<%= each.name %>"><%= each.name %> (<%= each.units %>)
+                    </option>
+                <% else %>
+                    <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
+                <% end %>
+            <% end %>
+          </select>
+
+          <input type="number" name="quantity9" class="hidden" value="<%= @quantity9 %>" placeholder="Enter quantity">
+
+
           <div>
             <input type="button" style="position: relative ; left: 90%" class="btn btn-default btn-lg" name="add_ingredient" value="+">
           </div>
@@ -286,6 +348,22 @@
     if ($("input[name='quantity5']").val() != "") {
       $("select[name = 'ingredient5']").removeClass('hidden');
       $("input[name='quantity5']").removeClass('hidden');
+    }
+    if ($("input[name='quantity6']").val() != "") {
+      $("select[name = 'ingredient6']").removeClass('hidden');
+      $("input[name='quantity6']").removeClass('hidden');
+    }
+    if ($("input[name='quantity7']").val() != "") {
+      $("select[name = 'ingredient7']").removeClass('hidden');
+      $("input[name='quantity7']").removeClass('hidden');
+    }
+    if ($("input[name='quantity8']").val() != "") {
+      $("select[name = 'ingredient8']").removeClass('hidden');
+      $("input[name='quantity8']").removeClass('hidden');
+    }
+    if ($("input[name='quantity9']").val() != "") {
+      $("select[name = 'ingredient9']").removeClass('hidden');
+      $("input[name='quantity9']").removeClass('hidden');
     }
 
     $("input[name='add_ingredient']").on('click', function () {
