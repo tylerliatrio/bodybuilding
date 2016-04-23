@@ -65,7 +65,7 @@ class DailyFoodPlannerController < ApplicationController
         @target[:fats] = (kiloWeight * @target_fats_per_kilo).round(0)
 
       else
-        flash['error'] = 'Please enter your weight and select your body type!' if params['body_type'].blank? or params['weight'].blank?
+        flash['error'] = 'Please enter your body weight.' if params['weight'].blank?
       end
 
       # getting quantities
