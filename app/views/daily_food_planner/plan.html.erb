@@ -52,7 +52,7 @@
               <% ingredients = Ingredient.all.order('name ASC') %>
 
               <% if @quantities[i].nil? then
-                   css = 'hidden';
+                   css = ' hidden';
                  else
                    css = ''
                  end %>
@@ -61,7 +61,7 @@
                  end %>
 
               <div style="margin-top: 1em; text-decoration: none">
-                <select name="ingredient<%= i %>" class="select <%= css %>">
+                <select name="ingredient<%= i %>" class="select<%= css %>">
                   <option value="0">Choose ...</option>
 
                   <% for ingredient in ingredients %>
@@ -77,7 +77,7 @@
                   <% end %>
                 </select>
 
-                <input type="number" class="quantity <%= css %>" name="quantity<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity">
+                <input type="number" class="quantity<%= css %>" name="quantity<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity">
 
               </div>
           <% end %>
@@ -188,7 +188,7 @@
   $(function () {
 
     $("input[name='add_ingredient_button']").on('click', function () {
-      var visible_selects_count = $("select[class='select ']").length;
+      var visible_selects_count = $("select[class='select']").length;
       var index_of_the_last_visible_field = visible_selects_count - 1;
       var last_quantity_name = 'quantity' + index_of_the_last_visible_field.toString();
       var last_quantity_value = $("input[name=" + last_quantity_name + "]").val();
