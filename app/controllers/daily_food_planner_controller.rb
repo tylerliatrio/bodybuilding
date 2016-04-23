@@ -34,20 +34,19 @@ class DailyFoodPlannerController < ApplicationController
   end
 
   def plan
+    @names = Hash.new
+    @quantities = Hash.new
 
     if params['commit'] == 'Submit'
       @meals = Array.new
       @totals = Hash.new
-
+      @target = Hash.new
+      @weight = Float(params['weight']) unless params['weight'].blank?
       flash['error'] = nil
-
       @totals[:prots] = 0
       @totals[:carbs] = 0
       @totals[:fats] = 0
       @totals[:cals] = 0
-
-      @target = Hash.new
-      @weight = Float(params['weight']) unless params['weight'].blank?
 
       # targets
       if not (params['target_prots'].blank? or
@@ -70,240 +69,38 @@ class DailyFoodPlannerController < ApplicationController
       end
 
       # getting quantities
-      unless params['ingredient0'] == '0'
-        @name0 = params['ingredient0']
+      for i in 0..9
+        ingredient_name = params['ingredient'+ String(i)]
 
-        if params['quantity0'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name0
-        else
+        unless ingredient_name == '0'
+          quantity = params['quantity' + String(i)]
+          @names[i] = ingredient_name
 
-          if is_number?(params['quantity0'])
-            @quantity0 = Float(params['quantity0'])
+          if quantity.blank?
+            flash['error'] = 'Please enter quantity for '+ @names[i]
           else
-            flash['error'] = 'Error: Quantity can be only a number!'
-          end
 
-        end
-      end
+            if is_number?(quantity)
+              @quantities[i] = Float(quantity)
+            else
+              flash['error'] = 'Error: Quantity can be only a number!'
+            end
 
-      unless params['ingredient1'] == '0'
-        @name1 = params['ingredient1']
-
-        if params['quantity1'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name1
-        else
-          if is_number?(params['quantity1'])
-            @quantity1 = Float(params['quantity1'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
           end
         end
-      end
 
-      unless params['ingredient2'] == '0'
-        @name2 = params['ingredient2']
-
-        if params['quantity2'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name2
-        else
-          if is_number?(params['quantity2'])
-            @quantity2 = Float(params['quantity2'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
+        # calculate if no errors
+        unless flash['error']
+          unless ingredient_name == '0'
+            selectedIngredient = Ingredient.where(name: @names[i]).first
+            @totals[:prots] += selectedIngredient.prots * @quantities[i] / selectedIngredient.serving_size
+            @totals[:carbs] += selectedIngredient.carbs * @quantities[i] / selectedIngredient.serving_size
+            @totals[:fats] += selectedIngredient.fats * @quantities[i] / selectedIngredient.serving_size
+            @totals[:cals] += selectedIngredient.cals * @quantities[i] / selectedIngredient.serving_size
+            @meals << [ingredient_name, quantity, selectedIngredient.units]
           end
         end
-      end
 
-      unless params['ingredient3'] == '0'
-        @name3 = params['ingredient3']
-
-        if params['quantity3'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name3
-        else
-          if is_number?(params['quantity3'])
-            @quantity3 = Float(params['quantity3'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
-          end
-        end
-      end
-
-      unless params['ingredient4'] == '0'
-        @name4 = params['ingredient4']
-
-        if params['quantity4'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name4
-        else
-          if is_number?(params['quantity4'])
-            @quantity4 = Float(params['quantity4'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
-          end
-        end
-      end
-
-      unless params['ingredient5'] == '0'
-        @name5 = params['ingredient5']
-
-        if params['quantity5'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name5
-        else
-          if is_number?(params['quantity5'])
-            @quantity5 = Float(params['quantity5'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
-          end
-        end
-      end
-
-      unless params['ingredient6'] == '0'
-        @name6 = params['ingredient6']
-
-        if params['quantity6'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name6
-        else
-          if is_number?(params['quantity6'])
-            @quantity6 = Float(params['quantity6'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
-          end
-        end
-      end
-
-      unless params['ingredient7'] == '0'
-        @name7 = params['ingredient7']
-
-        if params['quantity7'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name7
-        else
-          if is_number?(params['quantity7'])
-            @quantity7 = Float(params['quantity7'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
-          end
-        end
-      end
-
-      unless params['ingredient8'] == '0'
-        @name8 = params['ingredient8']
-
-        if params['quantity8'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name8
-        else
-          if is_number?(params['quantity8'])
-            @quantity8 = Float(params['quantity8'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
-          end
-        end
-      end
-
-      unless params['ingredient9'] == '0'
-        @name9 = params['ingredient9']
-
-        if params['quantity9'].blank?
-          flash['error'] = 'Please enter quantity for '+ @name9
-        else
-          if is_number?(params['quantity9'])
-            @quantity9 = Float(params['quantity9'])
-          else
-            flash['error'] = 'Error: Quantity can be only a number!'
-          end
-        end
-      end
-
-
-      # calculate if no errors
-      unless flash['error']
-        unless params['ingredient0'] == '0'
-          selectedIngredient = Ingredient.where(name: @name0).first
-          @totals[:prots] += selectedIngredient.prots * @quantity0 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity0 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity0 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity0 / selectedIngredient.serving_size
-          @meals << [params['ingredient0'], params['quantity0'], selectedIngredient.units]
-        end
-
-        unless params['ingredient1'] == '0'
-          selectedIngredient = Ingredient.where(name: @name1).first
-          @totals[:prots] += selectedIngredient.prots * @quantity1 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity1 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity1 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity1 / selectedIngredient.serving_size
-          @meals << [params['ingredient1'], params['quantity1'], selectedIngredient.units]
-        end
-
-        unless params['ingredient2'] == '0'
-          selectedIngredient = Ingredient.where(name: @name2).first
-          @totals[:prots] += selectedIngredient.prots * @quantity2 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity2 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity2 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity2 / selectedIngredient.serving_size
-          @meals << [params['ingredient2'], params['quantity2'], selectedIngredient.units]
-        end
-
-        unless params['ingredient3'] == '0'
-          selectedIngredient = Ingredient.where(name: @name3).first
-          @totals[:prots] += selectedIngredient.prots * @quantity3 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity3 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity3 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity3 / selectedIngredient.serving_size
-          @meals << [params['ingredient3'], params['quantity3'], selectedIngredient.units]
-        end
-
-        unless params['ingredient4'] == '0'
-          selectedIngredient = Ingredient.where(name: @name4).first
-          @totals[:prots] += selectedIngredient.prots * @quantity4 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity4 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity4 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity4 / selectedIngredient.serving_size
-          @meals << [params['ingredient4'], params['quantity4'], selectedIngredient.units]
-        end
-
-        unless params['ingredient5'] == '0'
-          selectedIngredient = Ingredient.where(name: @name5).first
-          @totals[:prots] += selectedIngredient.prots * @quantity5 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity5 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity5 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity5 / selectedIngredient.serving_size
-          @meals << [params['ingredient5'], params['quantity5'], selectedIngredient.units]
-        end
-
-        unless params['ingredient6'] == '0'
-          selectedIngredient = Ingredient.where(name: @name6).first
-          @totals[:prots] += selectedIngredient.prots * @quantity6 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity6 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity6 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity6 / selectedIngredient.serving_size
-          @meals << [params['ingredient6'], params['quantity6'], selectedIngredient.units]
-        end
-
-        unless params['ingredient7'] == '0'
-          selectedIngredient = Ingredient.where(name: @name7).first
-          @totals[:prots] += selectedIngredient.prots * @quantity7 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity7 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity7 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity7 / selectedIngredient.serving_size
-          @meals << [params['ingredient7'], params['quantity7'], selectedIngredient.units]
-        end
-
-        unless params['ingredient8'] == '0'
-          selectedIngredient = Ingredient.where(name: @name8).first
-          @totals[:prots] += selectedIngredient.prots * @quantity8 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity8 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity8 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity8 / selectedIngredient.serving_size
-          @meals << [params['ingredient8'], params['quantity8'], selectedIngredient.units]
-        end
-
-        unless params['ingredient9'] == '0'
-          selectedIngredient = Ingredient.where(name: @name9).first
-          @totals[:prots] += selectedIngredient.prots * @quantity9 / selectedIngredient.serving_size
-          @totals[:carbs] += selectedIngredient.carbs * @quantity9 / selectedIngredient.serving_size
-          @totals[:fats] += selectedIngredient.fats * @quantity9 / selectedIngredient.serving_size
-          @totals[:cals] += selectedIngredient.cals * @quantity9 / selectedIngredient.serving_size
-          @meals << [params['ingredient9'], params['quantity9'], selectedIngredient.units]
-        end
       end
     end
   end
