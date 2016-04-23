@@ -6,6 +6,11 @@
     <div class="alert alert-danger"><%= flash['error'] %></div>
 <% end %>
 
+<% if not flash['message'].blank? %>
+    <div class="alert alert-success"><%= flash['message'] %></div>
+<% end %>
+
+
 <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
     <div id="user_input">
 
@@ -96,90 +101,59 @@
 <% unless flash['error'] %>
     <% unless @totals.nil? or @totals.empty? %>
         <% unless @meals.empty? %>
-            <div>
-              <hr>
+            <div >
+              <h2>Totals by nutrient:</h2>
 
-              <% if @totals[:prots] < @target[:prots] * 0.95 %>
-                  <div class="alert alert-info">
-                    <h2>Eat more of animal derived Proteins! </h2>
-                    <h4>Great sources are Beef, Chicken Breast, Tuna, Turkey, Salmon, Eggs </h4>
-                  </div>
-              <% elsif @totals[:prots] > @target[:prots] * 1.05 %>
-                  <div class="alert alert-danger">
-                    <h2>Too much Protein!</h2>
-                  </div>
-              <% else %>
-                  <div class="alert alert-success">
-                    <h2>Protein are looking good!</h2>
-                  </div>
-              <% end %>
+              <% percent_prots = @totals[:prots]*100/@target[:prots] %>
+              <div class="progress" >
+                <div class="progress-bar progress-bar-info" role="progressbar" style="width: <%= percent_prots%>%;">
+                  <span ><%= @totals[:prots] %>g </span>
+                </div>
+              </div>
 
-              <hr>
 
-              <% if @totals[:carbs] < @target[:carbs] * 0.95 %>
-                  <div class="alert alert-info">
-                    <h2>Eat more Carbs with low glycemic index!</h2>
-                    <h4>Great sources are Buckwheat, Basmati Rice, Old Fashioned Oats, Pasta, Beans</h4>
-                  </div>
-              <% elsif @totals[:carbs] > @target[:carbs] * 1.05 %>
-                  <div class="alert alert-danger">
-                    <h2>Too much Carbs!</h2>
-                  </div>
-              <% else %>
-                  <div class="alert alert-success">
-                    <h2>Carbs are looking good!</h2>
-                  </div>
-              <% end %>
+              <% percent_carbs = @totals[:carbs]*100/@target[:carbs] %>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width: <%= percent_carbs%>%;">
+                  <span ><%= @totals[:carbs] %>g</span>
+                </div>
+              </div>
 
-              <hr>
 
-              <% if @totals[:fats] < @target[:fats] * 0.6 %>
-                  <div class="alert alert-info">
-                    <h2>Eat more of healthy Fats!</h2>
-                    <h4>Great sources are Avocado, Nuts, Olive Oil, Peanut Butter</h4>
-                  </div>
-              <% elsif @totals[:fats] > @target[:fats] %>
-                  <div class="alert alert-danger">
-                    <h2>Too much Fats!</h2>
-                  </div>
-              <% else %>
-                  <div class="alert alert-success">
-                    <h2>Fats are looking good!</h2>
-                  </div>
-              <% end %>
-              <hr>
+              <% percent_fats = @totals[:fats]*100/@target[:fats] %>
+              <div class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar"  style="width: <%= percent_fats%>%;">
+                  <span ><%= @totals[:fats] %>g</span>
+                </div>
+              </div>
+
             </div>
         <% end %>
 
         <div>
           <% unless @meals.empty? %>
               <section>
-                <h2>Ingredients:</h2>
+                <h2>Ingredients used:</h2>
                 <% for meal in @meals %>
                     <p><%= meal[0] %> - <%= meal[1] %><%= meal[2] %></p>
                 <% end %>
               </section>
 
-              <section>
-                <h2>Nutrient totals:</h2>
-
-                <p> Proteins - <%= @totals[:prots].round(0) %>g</p>
-
-                <p> Carbs - <%= @totals[:carbs].round(0) %>g</p>
-
-                <p> Fats - <%= @totals[:fats].round(0) %>g</p>
-              </section>
+              <!--<section>-->
+                <!--<h2>Nutrient totals:</h2>-->
+                <!--<p> Proteins - <%= @totals[:prots].round(0) %>g</p>-->
+                <!--<p> Carbs - <%= @totals[:carbs].round(0) %>g</p>-->
+                <!--<p> Fats - <%= @totals[:fats].round(0) %>g</p>-->
+              <!--</section>-->
           <% end %>
 
-          <% unless @target.nil? %>
-              <h2>Target intake for you:</h2>
+          <!--<% unless @target.nil? %>-->
+              <!--<h2>Target intake for you:</h2>-->
+              <!--<p> Proteins - <%= @target[:prots].round(0) %>g</p>-->
+              <!--<p> Carbs - <%= @target[:carbs].round(0) %>g</p>-->
+              <!--<p> Fats - <%= @target[:fats].round(0) %>g</p>-->
+          <!--<% end %>-->
 
-              <p> Proteins - <%= @target[:prots].round(0) %>g</p>
-
-              <p> Carbs - <%= @target[:carbs].round(0) %>g</p>
-
-              <p> Fats - <%= @target[:fats].round(0) %>g</p>
-          <% end %>
         </div>
     <% end %>
 <% end %>

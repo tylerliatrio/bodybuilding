@@ -6,6 +6,7 @@ class DailyFoodPlannerController < ApplicationController
 
   def enter
     flash['entry'] = false
+    flash['message'] = false
 
     if not params['name'].blank?
 
@@ -34,6 +35,9 @@ class DailyFoodPlannerController < ApplicationController
   end
 
   def plan
+    flash['entry'] = false
+    flash['message'] = false
+
     @names = Hash.new
     @quantities = Hash.new
 
@@ -71,11 +75,18 @@ class DailyFoodPlannerController < ApplicationController
         @target[:fats] = (kiloWeight * @target_fats_per_kilo).round(0)
       end
 
+
+
+      flash['error'] = 'Select at least one ingredient' if params['ingredient0']
+
+
       # getting quantities
       for i in 0..9
         ingredient_name = params['ingredient'+ String(i)]
 
-        unless ingredient_name == '0'
+        if ingredient_name == '0'
+
+        else
           quantity = params['quantity' + String(i)]
           @names[i] = ingredient_name
 
@@ -85,22 +96,26 @@ class DailyFoodPlannerController < ApplicationController
 
             if is_number?(quantity)
               @quantities[i] = Float(quantity)
+
+              selectedIngredient = Ingredient.where(name: @names[i]).first
+              @totals[:prots] += selectedIngredient.prots * @quantities[i] / selectedIngredient.serving_size
+              @totals[:carbs] += selectedIngredient.carbs * @quantities[i] / selectedIngredient.serving_size
+              @totals[:fats] += selectedIngredient.fats * @quantities[i] / selectedIngredient.serving_size
+              @totals[:cals] += selectedIngredient.cals * @quantities[i] / selectedIngredient.serving_size
+
+              @totals[:prots] = @totals[:prots].round(0)
+              @totals[:carbs] = @totals[:carbs].round(0)
+              @totals[:fats] = @totals[:fats].round(0)
+              @totals[:cals] = @totals[:cals].round(0)
+
+              @meals << [ingredient_name, quantity, selectedIngredient.units]
+              flash['message'] = 'Success! Scroll down to see the results.'
+              flash['error'] = false
+
             else
               flash['error'] = 'Error: Quantity can be only a number!'
             end
 
-          end
-        end
-
-        # calculate if no errors
-        unless flash['error']
-          unless ingredient_name == '0'
-            selectedIngredient = Ingredient.where(name: @names[i]).first
-            @totals[:prots] += selectedIngredient.prots * @quantities[i] / selectedIngredient.serving_size
-            @totals[:carbs] += selectedIngredient.carbs * @quantities[i] / selectedIngredient.serving_size
-            @totals[:fats] += selectedIngredient.fats * @quantities[i] / selectedIngredient.serving_size
-            @totals[:cals] += selectedIngredient.cals * @quantities[i] / selectedIngredient.serving_size
-            @meals << [ingredient_name, quantity, selectedIngredient.units]
           end
         end
 
@@ -109,5 +124,7 @@ class DailyFoodPlannerController < ApplicationController
   end
 
   def list
+    flash['entry'] = false
+    flash['message'] = false
   end
 end
