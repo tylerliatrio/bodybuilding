@@ -64,7 +64,7 @@ class DailyFoodPlannerController < ApplicationController
       if params['weight'].blank?
         flash['error'] = 'Please enter your body weight.'
       else
-        @weight = params['weight']
+        @weight = Float(params['weight'])
         kiloWeight = @weight/2.20462
         @target[:prots] = (kiloWeight * @target_prots_per_kilo).round(0)
         @target[:carbs] = (kiloWeight * @target_carbs_per_kilo).round(0)
