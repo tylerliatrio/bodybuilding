@@ -10,7 +10,7 @@
     <div id="user_input">
 
       <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Enter your body, lbs:</span>
+        <span class="input-group-addon" id="basic-addon1">Enter your weight, lbs:</span>
         <input type="number" name="weight" value="<%= @weight %>" class="form-control" placeholder="i.e. 185" aria-describedby="basic-addon1">
       </div>
 
@@ -49,7 +49,6 @@
 
           <% ingredients = Ingredient.all.order('name ASC') %>
 
-
           <select name="ingredient0" class="select">
             <option value="0">Select an ingredient</option>
 
@@ -67,7 +66,7 @@
 
           <input type="number" name="quantity0" value="<%= @quantity0 %>" placeholder="Enter quantity">
 
-          <select name="ingredient1" class="select">
+          <select name="ingredient1" class="select hidden">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -82,9 +81,9 @@
 
           </select>
 
-          <input type="number" name="quantity1" value="<%= @quantity1 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity1" class="hidden" value="<%= @quantity1 %>" placeholder="Enter quantity">
 
-          <select name="ingredient2" class="select">
+          <select name="ingredient2" class="select hidden">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -99,9 +98,9 @@
 
           </select>
 
-          <input type="number" name="quantity2" value="<%= @quantity2 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity2" class="hidden" value="<%= @quantity2 %>" placeholder="Enter quantity">
 
-          <select name="ingredient3" class="select">
+          <select name="ingredient3" class="select hidden">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -116,9 +115,9 @@
 
           </select>
 
-          <input type="number" name="quantity3" value="<%= @quantity3 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity3" class="hidden" value="<%= @quantity3 %>" placeholder="Enter quantity">
 
-          <select name="ingredient4" class="select">
+          <select name="ingredient4" class="select hidden">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -132,9 +131,9 @@
 
           </select>
 
-          <input type="number" name="quantity4" value="<%= @quantity4 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity4" class="hidden" value="<%= @quantity4 %>" placeholder="Enter quantity">
 
-          <select name="ingredient5" class="select">
+          <select name="ingredient5" class="select hidden">
             <option value="0">Select an ingredient</option>
 
             <% for each in ingredients %>
@@ -145,15 +144,18 @@
                     <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
-
           </select>
 
-          <input type="number" name="quantity5" value="<%= @quantity5 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity5" class="hidden" value="<%= @quantity5 %>" placeholder="Enter quantity">
+
+          <div>
+            <input type="button" style="position: relative ; left: 90%" class="btn btn-default btn-lg" name="add_ingredient" value="+">
+          </div>
 
         </div>
+
       </div>
     </div>
-    <br>
 
     <%= submit_tag 'Submit', class: "btn btn-primary btn-lg" %>
 <% end %>
@@ -166,16 +168,16 @@
             <div>
               <hr>
 
-              <% if @totals[:prots] < @target[:prots] * 0.95%>
+              <% if @totals[:prots] < @target[:prots] * 0.95 %>
                   <div class="alert alert-info">
                     <h2>Eat more of animal derived Proteins! </h2>
                     <h4>Great sources are Beef, Chicken Breast, Tuna, Turkey, Salmon, Eggs </h4>
                   </div>
-              <% elsif @totals[:prots] > @target[:prots] * 1.05%>
+              <% elsif @totals[:prots] > @target[:prots] * 1.05 %>
                   <div class="alert alert-danger">
                     <h2>Too much Protein!</h2>
                   </div>
-              <%else%>
+              <% else %>
                   <div class="alert alert-success">
                     <h2>Protein are looking good!</h2>
                   </div>
@@ -183,16 +185,16 @@
 
               <hr>
 
-              <% if @totals[:carbs] < @target[:carbs] * 0.95%>
+              <% if @totals[:carbs] < @target[:carbs] * 0.95 %>
                   <div class="alert alert-info">
                     <h2>Eat more Carbs with low glycemic index!</h2>
                     <h4>Great sources are Buckwheat, Basmati Rice, Old Fashioned Oats, Pasta, Beans</h4>
                   </div>
-              <% elsif @totals[:carbs] > @target[:carbs] * 1.05%>
+              <% elsif @totals[:carbs] > @target[:carbs] * 1.05 %>
                   <div class="alert alert-danger">
                     <h2>Too much Carbs!</h2>
                   </div>
-              <%else%>
+              <% else %>
                   <div class="alert alert-success">
                     <h2>Carbs are looking good!</h2>
                   </div>
@@ -209,11 +211,11 @@
                   <div class="alert alert-danger">
                     <h2>Too much Fats!</h2>
                   </div>
-              <%else%>
+              <% else %>
                   <div class="alert alert-success">
                     <h2>Fats are looking good!</h2>
                   </div>
-            <% end %>
+              <% end %>
               <hr>
             </div>
         <% end %>
@@ -230,19 +232,78 @@
 
               <section>
                 <h2>Nutrient totals:</h2>
+
                 <p> Proteins - <%= @totals[:prots].round(0) %>g</p>
+
                 <p> Carbs - <%= @totals[:carbs].round(0) %>g</p>
+
                 <p> Fats - <%= @totals[:fats].round(0) %>g</p>
               </section>
           <% end %>
 
           <% unless @target.nil? %>
               <h2>Target intake for you:</h2>
+
               <p> Proteins - <%= @target[:prots].round(0) %>g</p>
+
               <p> Carbs - <%= @target[:carbs].round(0) %>g</p>
+
               <p> Fats - <%= @target[:fats].round(0) %>g</p>
           <% end %>
 
         </div>
     <% end %>
 <% end %>
+
+<script>
+  $(function () {
+
+    if ($("input[name='quantity0']").val() != "") {
+      $("select[name = 'ingredient0']").removeClass('hidden');
+      $("input[name='quantity0']").removeClass('hidden');
+    }
+
+    if ($("input[name='quantity1']").val() != "") {
+      $("select[name = 'ingredient1']").removeClass('hidden');
+      $("input[name='quantity1']").removeClass('hidden');
+    }
+
+    if ($("input[name='quantity2']").val() != "") {
+      $("select[name = 'ingredient2']").removeClass('hidden');
+      $("input[name='quantity2']").removeClass('hidden');
+    }
+
+    if ($("input[name='quantity3']").val() != "") {
+      $("select[name = 'ingredient3']").removeClass('hidden');
+      $("input[name='quantity3']").removeClass('hidden');
+    }
+
+    if ($("input[name='quantity4']").val() != "") {
+      $("select[name = 'ingredient4']").removeClass('hidden');
+      $("input[name='quantity4']").removeClass('hidden');
+    }
+
+    if ($("input[name='quantity5']").val() != "") {
+      $("select[name = 'ingredient5']").removeClass('hidden');
+      $("input[name='quantity5']").removeClass('hidden');
+    }
+
+    $("input[name='add_ingredient']").on('click', function () {
+
+      var visible_selects_count = $("select[class='select']").length;
+
+      var last_quantity_name = 'quantity' + (visible_selects_count - 1).toString();
+
+      var last_quantity_value = $("input[name=" + last_quantity_name + "]").val();
+
+      if (last_quantity_value != '') {
+        var select_name = 'ingredient' + visible_selects_count.toString();
+        var input_name = 'quantity' + visible_selects_count.toString();
+
+        $("select[name=" + select_name + "]").removeClass('hidden');
+        $("input[name=" + input_name + "]").removeClass('hidden');
+      }
+    })
+
+  });
+</script>
