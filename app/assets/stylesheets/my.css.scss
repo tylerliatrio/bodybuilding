@@ -7,8 +7,7 @@
 }
 
 .select{
-  width: 90%;
-  font-size: 1.5em;
+  font-size: large;
 }
 
 .page{
@@ -18,10 +17,17 @@
   margin-bottom: 3em;
 }
 
-#ingredient_selection{
-  font-size: 1.5em;
+#add_ingredient_button{
+  padding-top: 0;
+  position: relative ;
+  left: 85%;
+  font-size: 2em;
+  font-weight: bold;
 }
 
-.ingredient{
-  padding-bottom: 1em;
+@media all and (max-width: 667px) {
+  .select{
+    font-size: large;
+    width: 60%;
+  }
 }

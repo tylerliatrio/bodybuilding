@@ -50,7 +50,7 @@
           <% ingredients = Ingredient.all.order('name ASC') %>
 
           <select name="ingredient0" class="select">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Select an ingredient</option>
 
             <% for each in ingredients %>
 
@@ -60,14 +60,12 @@
                 <% else %>
                     <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
-
             <% end %>
           </select>
-
           <input type="number" name="quantity0" value="<%= @quantity0 %>" placeholder="Enter quantity">
 
           <select name="ingredient1" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Select an ingredient</option>
 
             <% for each in ingredients %>
 
@@ -78,9 +76,7 @@
                     <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
-
           </select>
-
           <input type="number" name="quantity1" class="hidden" value="<%= @quantity1 %>" placeholder="Enter quantity">
 
           <select name="ingredient2" class="select hidden">
@@ -95,9 +91,7 @@
                     <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
-
           </select>
-
           <input type="number" name="quantity2" class="hidden" value="<%= @quantity2 %>" placeholder="Enter quantity">
 
           <select name="ingredient3" class="select hidden">
@@ -112,9 +106,7 @@
                     <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
-
           </select>
-
           <input type="number" name="quantity3" class="hidden" value="<%= @quantity3 %>" placeholder="Enter quantity">
 
           <select name="ingredient4" class="select hidden">
@@ -128,9 +120,7 @@
                     <option value="<%= each.name %>"><%= each.name %> (<%= each.units %>)</option>
                 <% end %>
             <% end %>
-
           </select>
-
           <input type="number" name="quantity4" class="hidden" value="<%= @quantity4 %>" placeholder="Enter quantity">
 
           <select name="ingredient5" class="select hidden">
@@ -145,7 +135,6 @@
                 <% end %>
             <% end %>
           </select>
-
           <input type="number" name="quantity5" class="hidden" value="<%= @quantity5 %>" placeholder="Enter quantity">
 
           <select name="ingredient6" class="select hidden">
@@ -160,7 +149,6 @@
                 <% end %>
             <% end %>
           </select>
-
           <input type="number" name="quantity6" class="hidden" value="<%= @quantity6 %>" placeholder="Enter quantity">
 
           <select name="ingredient7" class="select hidden">
@@ -175,7 +163,6 @@
                 <% end %>
             <% end %>
           </select>
-
           <input type="number" name="quantity7" class="hidden" value="<%= @quantity7 %>" placeholder="Enter quantity">
 
           <select name="ingredient8" class="select hidden">
@@ -190,9 +177,7 @@
                 <% end %>
             <% end %>
           </select>
-
           <input type="number" name="quantity8" class="hidden" value="<%= @quantity8 %>" placeholder="Enter quantity">
-
 
           <select name="ingredient9" class="select hidden">
             <option value="0">Select an ingredient</option>
@@ -206,12 +191,10 @@
                 <% end %>
             <% end %>
           </select>
-
           <input type="number" name="quantity9" class="hidden" value="<%= @quantity9 %>" placeholder="Enter quantity">
 
-
           <div>
-            <input type="button" style="position: relative ; left: 90%" class="btn btn-default btn-lg" name="add_ingredient" value="+">
+            <input type="button" id="add_ingredient_button" class="btn btn-default btn-lg" name="add_ingredient_button" value="+">
           </div>
 
         </div>
@@ -223,9 +206,7 @@
 <% end %>
 
 <% unless flash['error'] %>
-
     <% unless @totals.nil? or @totals.empty? %>
-
         <% unless @meals.empty? %>
             <div>
               <hr>
@@ -283,7 +264,6 @@
         <% end %>
 
         <div>
-
           <% unless @meals.empty? %>
               <section>
                 <h2>Ingredients:</h2>
@@ -312,7 +292,6 @@
 
               <p> Fats - <%= @target[:fats].round(0) %>g</p>
           <% end %>
-
         </div>
     <% end %>
 <% end %>
@@ -366,12 +345,9 @@
       $("input[name='quantity9']").removeClass('hidden');
     }
 
-    $("input[name='add_ingredient']").on('click', function () {
-
+    $("input[name='add_ingredient_button']").on('click', function () {
       var visible_selects_count = $("select[class='select']").length;
-
       var last_quantity_name = 'quantity' + (visible_selects_count - 1).toString();
-
       var last_quantity_value = $("input[name=" + last_quantity_name + "]").val();
 
       if (last_quantity_value != '') {
@@ -382,6 +358,5 @@
         $("input[name=" + input_name + "]").removeClass('hidden');
       }
     })
-
   });
 </script>
