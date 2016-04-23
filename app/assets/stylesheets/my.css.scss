@@ -6,8 +6,9 @@
   padding-top: 1em;
 }
 
-.select{
-  font-size: large;
+select{
+  font-size: 1.3em;
+  border-radius: 3px;
 }
 
 .page{
@@ -18,6 +19,7 @@
 }
 
 #add_ingredient_button{
+  margin-top: 0.5em;
   padding-top: 0;
   position: relative ;
   left: 85%;
@@ -27,7 +29,13 @@
 
 @media all and (max-width: 667px) {
   .select{
-    font-size: large;
-    width: 60%;
+    width: 45%;
   }
+  .quantity{
+    width: 40%;
+    margin-top: 0.3em;
+    margin-left: 0.5em;
+    border-radius: 2px;
+  }
+
 }

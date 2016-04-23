@@ -50,7 +50,7 @@
           <% ingredients = Ingredient.all.order('name ASC') %>
 
           <select name="ingredient0" class="select">
-            <option value="0" >Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
 
@@ -62,10 +62,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity0" value="<%= @quantity0 %>" placeholder="Enter quantity">
+          <input type="number" class="quantity" name="quantity0" value="<%= @quantity0 %>" placeholder="Enter quantity">
 
           <select name="ingredient1" class="select hidden">
-            <option value="0" >Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
 
@@ -77,10 +77,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity1" class="hidden" value="<%= @quantity1 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity1" class="quantity hidden" value="<%= @quantity1 %>" placeholder="Enter quantity">
 
           <select name="ingredient2" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
 
@@ -92,10 +92,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity2" class="hidden" value="<%= @quantity2 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity2" class="quantity hidden" value="<%= @quantity2 %>" placeholder="Enter quantity">
 
           <select name="ingredient3" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
 
@@ -107,10 +107,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity3" class="hidden" value="<%= @quantity3 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity3" class="quantity hidden" value="<%= @quantity3 %>" placeholder="Enter quantity">
 
           <select name="ingredient4" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
                 <% if @name4 == each.name %>
@@ -121,10 +121,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity4" class="hidden" value="<%= @quantity4 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity4" class="quantity hidden" value="<%= @quantity4 %>" placeholder="Enter quantity">
 
           <select name="ingredient5" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
                 <% if @name5 == each.name %>
@@ -135,10 +135,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity5" class="hidden" value="<%= @quantity5 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity5" class="quantity hidden" value="<%= @quantity5 %>" placeholder="Enter quantity">
 
           <select name="ingredient6" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
                 <% if @name6 == each.name %>
@@ -149,10 +149,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity6" class="hidden" value="<%= @quantity6 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity6" class="quantity hidden" value="<%= @quantity6 %>" placeholder="Enter quantity">
 
           <select name="ingredient7" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
                 <% if @name7 == each.name %>
@@ -163,10 +163,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity7" class="hidden" value="<%= @quantity7 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity7" class="quantity hidden" value="<%= @quantity7 %>" placeholder="Enter quantity">
 
           <select name="ingredient8" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
                 <% if @name8 == each.name %>
@@ -177,10 +177,10 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity8" class="hidden" value="<%= @quantity8 %>" placeholder="Enter quantity">
+          <input type="number"  name="quantity8" class="quantity hidden" value="<%= @quantity8 %>" placeholder="Enter quantity">
 
           <select name="ingredient9" class="select hidden">
-            <option value="0">Select an ingredient</option>
+            <option value="0" >Ingredient</option>
 
             <% for each in ingredients %>
                 <% if @name9 == each.name %>
@@ -191,7 +191,7 @@
                 <% end %>
             <% end %>
           </select>
-          <input type="number" name="quantity9" class="hidden" value="<%= @quantity9 %>" placeholder="Enter quantity">
+          <input type="number" name="quantity9" class="quantity hidden" value="<%= @quantity9 %>" placeholder="Enter quantity">
 
           <div>
             <input type="button" id="add_ingredient_button" class="btn btn-default btn-lg" name="add_ingredient_button" value="+">
