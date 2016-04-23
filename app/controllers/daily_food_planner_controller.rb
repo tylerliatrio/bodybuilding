@@ -41,31 +41,34 @@ class DailyFoodPlannerController < ApplicationController
       @meals = Array.new
       @totals = Hash.new
       @target = Hash.new
-      @weight = Float(params['weight']) unless params['weight'].blank?
+
       flash['error'] = nil
       @totals[:prots] = 0
       @totals[:carbs] = 0
       @totals[:fats] = 0
       @totals[:cals] = 0
 
-      # targets
-      if not (params['target_prots'].blank? or
-          params['target_carbs'].blank? or
-          params['target_fats'].blank? or
-          params['weight'].blank? or flash['error'])
+      unless params['target_prots_per_kilo'].blank?
+        @target_prots_per_kilo = Float(params['target_prots_per_kilo'])
+      end
 
-        @target_prots_per_kilo = Float(params['target_prots'])
-        @target_carbs_per_kilo = Float(params['target_carbs'])
-        @target_fats_per_kilo = Float(params['target_fats'])
+      unless params['target_carbs_per_kilo'].blank?
+        @target_carbs_per_kilo = Float(params['target_carbs_per_kilo'])
+      end
 
+      unless params['target_fats_per_kilo'].blank?
+        @target_fats_per_kilo = Float(params['target_fats_per_kilo'])
+      end
+
+
+      if params['weight'].blank?
+        flash['error'] = 'Please enter your body weight.'
+      else
+        @weight = params['weight']
         kiloWeight = @weight/2.20462
-
         @target[:prots] = (kiloWeight * @target_prots_per_kilo).round(0)
         @target[:carbs] = (kiloWeight * @target_carbs_per_kilo).round(0)
         @target[:fats] = (kiloWeight * @target_fats_per_kilo).round(0)
-
-      else
-        flash['error'] = 'Please enter your body weight.' if params['weight'].blank?
       end
 
       # getting quantities
@@ -77,7 +80,7 @@ class DailyFoodPlannerController < ApplicationController
           @names[i] = ingredient_name
 
           if quantity.blank?
-            flash['error'] = 'Please enter quantity for '+ @names[i]
+            flash['error'] = 'Please enter quantity for ' + @names[i]
           else
 
             if is_number?(quantity)
