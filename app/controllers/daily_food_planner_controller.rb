@@ -43,7 +43,6 @@ class DailyFoodPlannerController < ApplicationController
     @quantities = Hash.new
 
     if params['commit'] == 'Submit'
-      @meals = Array.new
       @totals = Hash.new
       @target = Hash.new
 
@@ -115,7 +114,6 @@ class DailyFoodPlannerController < ApplicationController
               @totals[:fats] = @totals[:fats].round(0)
               @totals[:cals] = @totals[:cals].round(0)
 
-              @meals << [ingredient_name, quantity, selectedIngredient.units]
               flash['message'] = 'Success! Scroll down to see the results.'
               flash[:errors] = nil
 

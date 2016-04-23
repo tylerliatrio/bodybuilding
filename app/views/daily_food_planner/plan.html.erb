@@ -101,69 +101,53 @@
 <% end %>
 
 
-<%
-   overdose_progress_bar_css = 'progress-bar-striped active'
-   overdose_label_css = 'color: red; font-weight: bold; font-size: larger'
-%>
-
 <% unless flash[:errors] %>
-    <% unless @totals.nil? or @totals.empty? %>
-        <% unless @meals.empty? %>
-            <div>
-              <h2>Totals by nutrient:</h2>
+    <%
+       overdose_progress_bar_css = 'progress-bar-striped active'
+       overdose_label_css = 'color: red; font-weight: bold; font-size: larger'
+    %>
 
-              <% percent_prots = @totals[:prots]*100/@target[:prots] %>
-              <% if percent_prots > 100
-                   prots_pb_css = overdose_progress_bar_css
-                   prots_pb_label_css =  overdose_label_css
-                 end %>
 
-              <div class="progress">
-                <div class="progress-bar progress-bar-info <%= prots_pb_css %>" role="progressbar" style="width: <%= percent_prots%>%; min-width: 2em">
-                 <span style="<%= prots_pb_label_css %>" > <%= percent_prots %>%</span>
-                </div>
-              </div>
+    <div>
+      <h2>Totals by nutrient:</h2>
 
-              <% percent_carbs = @totals[:carbs]*100/@target[:carbs] %>
-              <% if percent_carbs > 100
-                   carbs_pb_css = overdose_progress_bar_css
-                   carbs_pb_label_css =  overdose_label_css
-                 end %>
+      <% percent_prots = @totals[:prots]*100/@target[:prots] %>
+      <% if percent_prots > 100
+           prots_pb_css = overdose_progress_bar_css
+           prots_pb_label_css = overdose_label_css
+         end %>
 
-              <div class="progress">
-                <div class="progress-bar progress-bar-success <%=carbs_pb_css%> " role="progressbar" style="width: <%= percent_carbs%>%; min-width: 2em">
-                  <span style="<%= carbs_pb_label_css %>" > <%= percent_carbs %>%</span>
-                </div>
-              </div>
-
-              <% percent_fats = @totals[:fats]*100/@target[:fats] %>
-              <% if percent_fats > 100
-                   fats_pb_css = overdose_progress_bar_css
-                   fats_pb_label_css = overdose_label_css
-                 end %>
-
-              <div class="progress">
-                <div class="progress-bar progress-bar-warning <%=fats_pb_css%> " role="progressbar" style="width: <%= percent_fats%>%; min-width: 2em">
-                  <span style="<%= fats_pb_label_css %>" > <%= percent_fats %>%</span>
-                </div>
-              </div>
-
-            </div>
-        <% end %>
-
-        <div>
-          <% unless @meals.empty? %>
-              <section>
-                <h2>Ingredients used:</h2>
-                <% for meal in @meals %>
-                    <p><%= meal[0] %> - <%= meal[1] %><%= meal[2] %></p>
-                <% end %>
-              </section>
-
-          <% end %>
-
+      <div class="progress">
+        <div class="progress-bar progress-bar-info <%= prots_pb_css %>" role="progressbar" style="width: <%= percent_prots%>%; min-width: 2em">
+          <span style="<%= prots_pb_label_css %>"> <%= percent_prots %>%</span>
         </div>
-    <% end %>
+      </div>
+
+      <% percent_carbs = @totals[:carbs]*100/@target[:carbs] %>
+      <% if percent_carbs > 100
+           carbs_pb_css = overdose_progress_bar_css
+           carbs_pb_label_css = overdose_label_css
+         end %>
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-success <%= carbs_pb_css %> " role="progressbar" style="width: <%= percent_carbs%>%; min-width: 2em">
+          <span style="<%= carbs_pb_label_css %>"> <%= percent_carbs %>%</span>
+        </div>
+      </div>
+
+      <% percent_fats = @totals[:fats]*100/@target[:fats] %>
+      <% if percent_fats > 100
+           fats_pb_css = overdose_progress_bar_css
+           fats_pb_label_css = overdose_label_css
+         end %>
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-warning <%= fats_pb_css %> " role="progressbar" style="width: <%= percent_fats%>%; min-width: 2em">
+          <span style="<%= fats_pb_label_css %>"> <%= percent_fats %>%</span>
+        </div>
+      </div>
+
+    </div>
 <% end %>
 
 <script>
