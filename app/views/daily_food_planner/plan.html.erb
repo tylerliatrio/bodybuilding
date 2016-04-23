@@ -2,8 +2,10 @@
   <h1> Daily food intake planner</h1>
 </div>
 
-<% if not flash['error'].blank? %>
-    <div class="alert alert-danger"><%= flash['error'] %></div>
+<% if not flash[:errors].blank? %>
+    <% for error in flash[:errors] %>
+      <div class="alert alert-danger"><%= error %></div>
+    <% end %>
 <% end %>
 
 <% if not flash['message'].blank? %>
@@ -22,7 +24,7 @@
       <br>
 
       <div class="panel panel-primary" style="text-align: center">
-        <div class="panel-heading"> Enter nutrient target amounts</div>
+        <div class="panel-heading"> Enter nutrient targets</div>
 
         <div class="panel-body" style="text-align: left">
 
@@ -139,20 +141,7 @@
                 <% end %>
               </section>
 
-              <!--<section>-->
-                <!--<h2>Nutrient totals:</h2>-->
-                <!--<p> Proteins - <%= @totals[:prots].round(0) %>g</p>-->
-                <!--<p> Carbs - <%= @totals[:carbs].round(0) %>g</p>-->
-                <!--<p> Fats - <%= @totals[:fats].round(0) %>g</p>-->
-              <!--</section>-->
           <% end %>
-
-          <!--<% unless @target.nil? %>-->
-              <!--<h2>Target intake for you:</h2>-->
-              <!--<p> Proteins - <%= @target[:prots].round(0) %>g</p>-->
-              <!--<p> Carbs - <%= @target[:carbs].round(0) %>g</p>-->
-              <!--<p> Fats - <%= @target[:fats].round(0) %>g</p>-->
-          <!--<% end %>-->
 
         </div>
     <% end %>
