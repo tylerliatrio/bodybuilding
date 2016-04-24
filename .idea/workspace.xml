@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de12444d-a14f-48e1-a27f-317cd6a910c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" />
     </list>
     <ignored path="bodybuilding.iws" />
@@ -44,11 +43,10 @@
       <file leaf-file-name="daily_food_planner_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7580645">
-              <caret line="96" column="93" selection-start-line="96" selection-start-column="93" selection-end-line="96" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.83870965">
+              <caret line="96" column="90" selection-start-line="96" selection-start-column="90" selection-end-line="96" selection-end-column="90" />
               <folding>
                 <element signature="e#60#127#0" expanded="false" />
-                <element signature="e#4552#4618#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -654,7 +652,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#60#127#0" expanded="false" />
-            <element signature="e#4552#4618#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1008,11 +1005,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7580645">
-          <caret line="96" column="93" selection-start-line="96" selection-start-column="93" selection-end-line="96" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.83870965">
+          <caret line="96" column="90" selection-start-line="96" selection-start-column="90" selection-end-line="96" selection-end-column="90" />
           <folding>
             <element signature="e#60#127#0" expanded="false" />
-            <element signature="e#4552#4618#0" expanded="false" />
           </folding>
         </state>
       </provider>
