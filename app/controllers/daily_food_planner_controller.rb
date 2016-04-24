@@ -5,131 +5,162 @@ class DailyFoodPlannerController < ApplicationController
   end
 
   def enter
-    flash['entry'] = false
-    flash['message'] = false
+    flash[:errors] = []
+    flash[:message] = false
 
-    if not params['name'].blank?
+    if params['commit'] == 'Submit'
 
-      flash['message'] = nil
-
-      Ingredient.create(name: params['name'], units: params['units'], serving_size: params['serving_size'],
-                        prots: Integer(params['prots']), carbs: Integer(params['carbs']), fats: Integer(params['fats']),
-                        cals: Integer(params['cals']))
-      flash['entry'] = true
-    else
-
-      if not params['commit'].blank?
-        if params['commit'] == 'Delete last entry' and Ingredient.count > 0
-          flash['message'] = 'Removed ' + Ingredient.last.name + '!'
-          Ingredient.last.destroy
-        else
-          flash['message'] = 'Nothing to remove. Database is empty.'
-        end
-
-        if params['commit'] == 'DB reset'
-          flash['message'] = 'Database is reset!'
-          Ingredient.destroy_all if Ingredient.count > 0
-        end
+      if params['title'].blank?
+        flash[:errors] << 'Please enter Ingredient Title'
+      else
+        @title = params['title']
       end
+
+      if params['units'].blank?
+        flash[:errors] << 'Please enter Units'
+      else
+        @units = params['units']
+      end
+
+      if params['serving_size'].blank?
+        flash[:errors] << 'Please enter Serving Size'
+      else
+        @serving_size = params['serving_size']
+      end
+
+      if params['prots'].blank?
+        flash[:errors] << 'Please enter Protein per serving'
+      else
+        @prots = params['prots']
+      end
+      if params['carbs'].blank?
+        flash[:errors] << 'Please enter Carbs per serving'
+      else
+        @carbs = params['carbs']
+      end
+      if params['fats'].blank?
+        flash[:errors] << 'Please enter Fats per serving'
+      else
+        @fats = params['fats']
+      end
+      if params['cals'].blank?
+        flash[:errors] << 'Please enter Calories per serving'
+      else
+        @cals = params['cals']
+      end
+
+      if flash[:errors].blank?
+        Ingredient.create(name: params['title'], units: params['units'], serving_size: params['serving_size'],
+                          prots: Integer(params['prots']), carbs: Integer(params['carbs']), fats: Integer(params['fats']),
+                          cals: Integer(params['cals']))
+        @added_item = true
+      end
+
     end
   end
 
   def plan
-    flash['entry'] = false
     flash[:errors] = []
-    flash['message'] = false
+    flash[:message] = false
 
-    @names = Hash.new
+    @ingredient_name = Hash.new
     @quantities = Hash.new
 
     if params['commit'] == 'Submit'
-      @totals = Hash.new
-      @target = Hash.new
-
-      @totals[:prots] = 0
-      @totals[:carbs] = 0
-      @totals[:fats] = 0
-      @totals[:cals] = 0
 
       if params['weight'].blank?
-        flash[:errors] << 'Error: Please enter your body weight.'
+        flash[:errors] << ' Please enter your body weight.'
       else
         @weight = Float(params['weight'])
         kiloWeight = @weight/2.20462
       end
 
       if params['target_prots_per_kilo'].blank?
-        flash[:errors] << 'Error: Enter your Protein target.'
+        flash[:errors] << ' Enter your Protein target.'
       else
         @target_prots_per_kilo = Float(params['target_prots_per_kilo'])
       end
 
       if params['target_carbs_per_kilo'].blank?
-        flash[:errors] << 'Error: Enter your Carbs target.'
+        flash[:errors] << ' Enter your Carbs target.'
       else
         @target_carbs_per_kilo = Float(params['target_carbs_per_kilo'])
       end
 
       if params['target_fats_per_kilo'].blank?
-        flash[:errors] << 'Error: Enter your Fats target.'
+        flash[:errors] << ' Enter your Fats target.'
       else
         @target_fats_per_kilo = Float(params['target_fats_per_kilo'])
       end
 
 
       if @target_carbs_per_kilo and @target_fats_per_kilo and @target_prots_per_kilo
+        @target = Hash.new
+
         @target[:prots] = (kiloWeight * @target_prots_per_kilo).round(0)
         @target[:carbs] = (kiloWeight * @target_carbs_per_kilo).round(0)
         @target[:fats] = (kiloWeight * @target_fats_per_kilo).round(0)
       end
 
-      flash[:errors] << 'Error: Select at least one ingredient.' if params['ingredient0'] == '0'
+      flash[:errors] << ' Select at least one ingredient.' if params['ingredient0'] == '0'
 
-      # getting quantities
+
+      # getting quantities for ingredients
       for i in 0..9
-
         ingredient_name = params['ingredient'+ String(i)]
-
         if ingredient_name == '0'
 
         else
           quantity = params['quantity' + String(i)]
-          @names[i] = ingredient_name
-
+          @ingredient_name[i] = ingredient_name
           if quantity.blank?
-            flash[:errors] << 'Error: Please enter quantity for ' + @names[i]
+            flash[:errors] << ' Please enter quantity for ' + @ingredient_name[i]
           else
-
             if is_number?(quantity)
               @quantities[i] = Float(quantity)
 
-              selectedIngredient = Ingredient.where(name: @names[i]).first
-              @totals[:prots] += selectedIngredient.prots * @quantities[i] / selectedIngredient.serving_size
-              @totals[:carbs] += selectedIngredient.carbs * @quantities[i] / selectedIngredient.serving_size
-              @totals[:fats] += selectedIngredient.fats * @quantities[i] / selectedIngredient.serving_size
-              @totals[:cals] += selectedIngredient.cals * @quantities[i] / selectedIngredient.serving_size
-
-              @totals[:prots] = @totals[:prots].round(0)
-              @totals[:carbs] = @totals[:carbs].round(0)
-              @totals[:fats] = @totals[:fats].round(0)
-              @totals[:cals] = @totals[:cals].round(0)
-
-              flash['message'] = 'Success! Scroll down to see the results.'
-              flash[:errors] = nil
 
             else
-              flash[:errors] << 'Error: Quantity can be only a number.'
+              flash[:errors] << ' Quantity can be only a number.'
             end
 
           end
         end
+      end
+
+
+      if flash[:errors].blank?
+        @totals = Hash.new
+
+        @totals[:prots] = 0
+        @totals[:carbs] = 0
+        @totals[:fats] = 0
+        @totals[:cals] = 0
+
+        for i in 0..9
+
+          unless @ingredient_name[i].blank?
+
+            selectedIngredient = Ingredient.where(name: @ingredient_name[i]).first
+
+            @totals[:prots] += selectedIngredient.prots * @quantities[i] / selectedIngredient.serving_size
+            @totals[:carbs] += selectedIngredient.carbs * @quantities[i] / selectedIngredient.serving_size
+            @totals[:fats] += selectedIngredient.fats * @quantities[i] / selectedIngredient.serving_size
+            @totals[:cals] += selectedIngredient.cals * @quantities[i] / selectedIngredient.serving_size
+
+          end
+        end
+
+        flash[:message] = 'Success! Scroll down to see the results.'
+        flash[:errors] = []
 
       end
+
     end
   end
 
   def list
-    flash['entry'] = false
-    flash['message'] = false
+    flash[:message] = false
+    flash[:errors] = []
   end
 end

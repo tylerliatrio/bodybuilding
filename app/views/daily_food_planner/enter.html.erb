@@ -2,7 +2,7 @@
   <h1>Add an ingredient</h1>
 </div>
 
-<% if flash['message'].nil? and flash['entry'] == true %>
+<% if flash[:errors].blank? and @added_item %>
     <div class="alert alert-success">
       <% each = Ingredient.last %>
       <h2>Added <%= each.name %></h2>
@@ -13,10 +13,10 @@
       fats - <%= each.fats %> g,
       cals - <%= each.cals %>
     </div>
-<% elsif not flash['message'].blank? %>
-    <div class="alert alert-danger">
-      <%= flash['message'] %>
-    </div>
+<% else %>
+    <% for error in flash[:errors] %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% end %>
 <% end %>
 
 <%= form_for daily_food_planner_enter_path, method: 'POST' do %>
@@ -28,53 +28,48 @@
 
         <div class="input-group" style="width: ">
           <span class="input-group-addon" id="basic-addon1">Ingredient title</span>
-          <input type="text" name="name" class="form-control" placeholder="i.e New York steak" aria-describedby="basic-addon1">
+          <input type="text" name="title" value="<%= @title %>" class="form-control" placeholder="i.e New York steak" aria-describedby="basic-addon1">
         </div>
         <br>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Serving units </span>
-          <input type="text" name="units" class="form-control" placeholder="i.e. g, ml, lbs, tbs, scoop etc" aria-describedby="basic-addon1">
+          <input type="text" name="units" value="<%= @units %>" class="form-control" placeholder="i.e. g, ml, lbs, tbs, scoop etc" aria-describedby="basic-addon1">
         </div>
         <br>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Serving size</span>
-          <input type="number" name="serving_size" class="form-control" placeholder="i.e 1" aria-describedby="basic-addon1">
+          <input type="number" name="serving_size" value="<%= @serving_size %>" class="form-control" placeholder="i.e 1" aria-describedby="basic-addon1">
         </div>
         <br>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Proteins, g/serving</span>
-          <input type="number" name="prots" class="form-control" placeholder="i.e 25" aria-describedby="basic-addon1">
+          <input type="number" name="prots" value="<%= @prots %>" class="form-control" placeholder="i.e 25" aria-describedby="basic-addon1">
         </div>
         <br>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Carbs, g/serving</span>
-          <input type="number" name="carbs" class="form-control" placeholder="i.e 45" aria-describedby="basic-addon1">
+          <input type="number" name="carbs" value="<%= @carbs %>" class="form-control" placeholder="i.e 45" aria-describedby="basic-addon1">
         </div>
         <br>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Fats, g/serving</span>
-          <input type="number" name="fats" class="form-control" placeholder="i.e 5" aria-describedby="basic-addon1">
+          <input type="number" name="fats" value="<%= @fats %>" class="form-control" placeholder="i.e 5" aria-describedby="basic-addon1">
         </div>
         <br>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Calories, cals/serving</span>
-          <input type="number" name="cals" class="form-control" placeholder="i.e 45" aria-describedby="basic-addon1">
+          <input type="number" name="cals" value="<%= @cals %>" class="form-control" placeholder="i.e 45" aria-describedby="basic-addon1">
         </div>
       </div>
     </div>
 
-    <span style="position: absolute; left: 5%">
+    <span style="text-align: center">
         <%= submit_tag 'Submit', id: 'submit', class: "btn btn-primary btn-lg" %>
     </span>
-
-    <span style="position: absolute; right: 5%">
-        <%= submit_tag 'Delete last entry', id: 'delete_record', class: "btn btn-primary btn-lg" %>
-    </span>
-
 <% end %>
