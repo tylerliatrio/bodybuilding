@@ -94,7 +94,7 @@ class DailyFoodPlannerController < ApplicationController
       end
 
 
-      if @target_carbs_per_kilo and @target_fats_per_kilo and @target_prots_per_kilo
+      if @target_carbs_per_kilo and @target_fats_per_kilo and @target_prots_per_kilo and not params['weight'].blank?
         @target = Hash.new
 
         @target[:prots] = (kiloWeight * @target_prots_per_kilo).round(0)
