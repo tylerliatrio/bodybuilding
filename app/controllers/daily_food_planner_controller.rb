@@ -60,6 +60,14 @@ class DailyFoodPlannerController < ApplicationController
   end
 
   def plan
+
+    gon.ingredients = Ingredient.all
+
+    @ingredients = Array.new
+    @ingredients << Ingredient.where("prots > ?", 0).order('name ASC')
+    @ingredients << Ingredient.where("carbs > ? AND prots < ?", 10, 15).order('name ASC')
+    @ingredients << Ingredient.where("fats > ?", 10).order('name ASC')
+
     flash[:errors] = []
     flash[:message] = false
 
@@ -100,13 +108,15 @@ class DailyFoodPlannerController < ApplicationController
         @target[:prots] = (kiloWeight * @target_prots_per_kilo).round(0)
         @target[:carbs] = (kiloWeight * @target_carbs_per_kilo).round(0)
         @target[:fats] = (kiloWeight * @target_fats_per_kilo).round(0)
+
+        gon.targets
       end
 
       flash[:errors] << ' Select at least one ingredient.' if params['ingredient0'] == '0'
 
 
       # getting quantities for ingredients
-      for i in 0..9
+      for i in 0..8
         ingredient_name = params['ingredient'+ String(i)]
         if ingredient_name == '0'
 
@@ -137,7 +147,7 @@ class DailyFoodPlannerController < ApplicationController
         @totals[:fats] = 0
         @totals[:cals] = 0
 
-        for i in 0..9
+        for i in 0..8
 
           unless @ingredient_name[i].blank?
 

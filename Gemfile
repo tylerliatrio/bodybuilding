@@ -7,6 +7,8 @@ gem 'kaminari'
 
 gem 'bootstrap-sass'
 
+gem 'gon'
+
 gem 'rollbar', '~> 2.8.0'
 
 gem 'oj', '~> 2.12.14'

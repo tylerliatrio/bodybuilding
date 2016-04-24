@@ -55,10 +55,11 @@
         </div>
 
         <div class="panel-body" style="text-align: left">
-          <% for i in 0..9 %>
-              <% ingredients = Ingredient.all.order('name ASC') %>
 
-              <% if  @quantities[i].nil? then
+          Protein sources
+          <% for i in 0..2 %>
+
+              <% if @quantities[i].nil? then
                    select_css = ' hidden';
                  else
                    select_css = ''
@@ -68,10 +69,10 @@
                  end %>
 
               <div style="margin-top: 1em; text-decoration: none">
-                <select name="ingredient<%= i %>" class="select<%= select_css %>">
+                <select name="ingredient<%= i %>" id="protein_select<%= i %>" class="select<%= select_css %> protein" onchange="quantity(this)">
                   <option value="0">Choose ...</option>
 
-                  <% for ingredient in ingredients %>
+                  <% for ingredient in @ingredients[0] %>
                       <% if ingredient.name == @ingredient_name[i] %>
                           <option value="<%= ingredient.name %>" selected>
                             <%= ingredient.name %> (<%= ingredient.units %>)
@@ -84,14 +85,89 @@
                   <% end %>
                 </select>
 
-                <input type="number" class="quantity<%= select_css %>" name="quantity<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity">
+                <input type="number" class="quantity<%= select_css %>" id="protein_quantity_input<%= i %>" name="quantity<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="1000" step="any">
 
               </div>
           <% end %>
 
-          <div>
-            <input type="button" id="add_ingredient_button" class="btn btn-default btn-lg" name="add_ingredient_button" value="+">
-          </div>
+          <!--<div>-->
+            <!--<input type="button" id="add_protein_button" class="btn btn-default btn-lg" value="+">-->
+          <!--</div>-->
+
+          Carbs sources
+          <% for i in 3..5 %>
+
+              <% if @quantities[i].nil? then
+                   select_css = ' hidden';
+                 else
+                   select_css = ''
+                 end %>
+              <% if i == 3 then
+                   select_css = ''
+                 end %>
+
+              <div style="margin-top: 1em; text-decoration: none">
+                <select id="carbs_select<%= i %>" name="ingredient<%= i %>" class="select<%= select_css %> carbs" onchange="quantity(this)">
+                  <option value="0">Choose ...</option>
+
+                  <% for ingredient in @ingredients[1] %>
+                      <% if ingredient.name == @ingredient_name[i] %>
+                          <option value="<%= ingredient.name %>" selected>
+                            <%= ingredient.name %> (<%= ingredient.units %>)
+                          </option>
+                      <% else %>
+                          <option value="<%= ingredient.name %>">
+                            <%= ingredient.name %> (<%= ingredient.units %>)
+                          </option>
+                      <% end %>
+                  <% end %>
+                </select>
+
+                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="carbs_quantity_input<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="1000" step="any">
+
+              </div>
+          <% end %>
+
+          <!--<div>-->
+            <!--<input type="button" id="add_carbs_button" class="btn btn-default btn-lg" value="+">-->
+          <!--</div>-->
+
+          Fats sources
+          <% for i in 6..8 %>
+              <% if @quantities[i].nil? then
+                   select_css = ' hidden';
+                 else
+                   select_css = ''
+                 end %>
+              <% if i == 6 then
+                   select_css = ''
+                 end %>
+
+              <div style="margin-top: 1em; text-decoration: none">
+                <select id="fats_select<%= i %>" name="ingredient<%= i %>" class="select<%= select_css %> fats" onchange="quantity(this)">
+                  <option value="0">Choose ...</option>
+
+                  <% for ingredient in @ingredients[2] %>
+                      <% if ingredient.name == @ingredient_name[i] %>
+                          <option value="<%= ingredient.name %>" selected>
+                            <%= ingredient.name %> (<%= ingredient.units %>)
+                          </option>
+                      <% else %>
+                          <option value="<%= ingredient.name %>">
+                            <%= ingredient.name %> (<%= ingredient.units %>)
+                          </option>
+                      <% end %>
+                  <% end %>
+                </select>
+
+                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="fats_quantity_input<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="1000" step="any">
+
+              </div>
+          <% end %>
+
+          <!--<div>-->
+            <!--<input type="button" id="add_fats_button" class="btn btn-default btn-lg" value="+">-->
+          <!--</div>-->
 
         </div>
       </div>
@@ -100,16 +176,14 @@
     <%= submit_tag 'Submit', class: "btn btn-primary btn-lg" %>
 <% end %>
 
-
 <% if flash[:errors].blank? and @totals and @target %>
     <%
        overdose_progress_bar_css = 'progress-bar-striped active'
        overdose_label_css = 'color: red; font-weight: bold; font-size: larger'
     %>
 
-
     <div>
-      <h2>Totals by nutrient:</h2>
+      <h2>Totals vs Targets:</h2>
 
       <% percent_prots = @totals[:prots]*100/@target[:prots] %>
       <% if percent_prots > 100
@@ -118,7 +192,7 @@
          end %>
 
       <div class="progress">
-        <div class="progress-bar progress-bar-info <%= prots_pb_css %>" role="progressbar" style="width: <%= percent_prots%>%; min-width: 2em">
+        <div class="progress-bar progress-bar-info <%= prots_pb_css %>" role="progressbar" style="width: <%= percent_prots%>% ; min-width: 2em">
           <span style="<%= prots_pb_label_css %>"> <%= percent_prots&.round(0) %>%</span>
         </div>
       </div>
@@ -153,18 +227,94 @@
 <script>
   $(function () {
 
-    $("input[name='add_ingredient_button']").on('click', function () {
-      var visible_selects_count = $("select[class='select']").length;
+    $('select').change(function () {
+
+      var id =this.id;
+
+      var select_index = id.substr(id.length - 1);
+
+      var value_selected = this.value;
+      var ingredients = gon.ingredients;
+      var weight = parseInt($("input[name ='weight']").val())/ 2.20462;
+      var target_prots = parseInt($("input[name ='target_prots_per_kilo']").val());
+      var target_carbs = parseInt($("input[name ='target_carbs_per_kilo']").val());
+      var target_fats = parseInt($("input[name ='target_fats_per_kilo']").val());
+
+      var servings;
+      var quantity;
+      var type;
+      for (i = 0; i < ingredients.length; i++) {
+        if (value_selected == ingredients[i].name) {
+
+          if (id.indexOf("protein") >= 0){
+            type = 'protein';
+            servings = weight * target_prots / ingredients[i].prots ;
+            quantity = servings * ingredients[i].serving_size;
+          }
+          if (id.indexOf("carbs") >= 0){
+            type = 'carbs';
+            servings = weight * target_carbs / ingredients[i].carbs ;
+            quantity = servings * ingredients[i].serving_size;
+          }
+          if (id.indexOf("fats") >= 0){
+            type = 'fats';
+            servings = weight * target_fats / ingredients[i].fats ;
+            quantity = servings * ingredients[i].serving_size;
+          }
+
+          break;
+        }
+      }
+
+      $("input[id = " + type + "_quantity_input" + select_index + "]").val(quantity.toFixed(2));
+
+    });
+
+    $("input[id='add_protein_button']").on('click', function () {
+
+      var visible_selects_count = $("select[class='select protein']").length;
       var index_of_the_last_visible_field = visible_selects_count - 1;
-      var last_quantity_name = 'quantity' + index_of_the_last_visible_field.toString();
-      var last_quantity_value = $("input[name=" + last_quantity_name + "]").val();
+      var last_quantity_name = 'protein_quantity_input' + index_of_the_last_visible_field.toString();
+      var last_quantity_value = $("input[id=" + last_quantity_name + "]").val();
 
       if (last_quantity_value != '') {
-        var select_name = 'ingredient' + visible_selects_count.toString();
-        var input_name = 'quantity' + visible_selects_count.toString();
+        var select_name = 'protein_select' + visible_selects_count.toString();
+        var input_name = 'protein_quantity_input' + visible_selects_count.toString();
 
-        $("select[name=" + select_name + "]").removeClass('hidden');
-        $("input[name=" + input_name + "]").removeClass('hidden');
+        $("select[id=" + select_name + "]").removeClass('hidden');
+        $("input[id=" + input_name + "]").removeClass('hidden');
+      }
+    })
+
+    $("input[id='add_carbs_button']").on('click', function () {
+
+      var visible_selects_count = $("select[class='select carbs']").length;
+      var index_of_the_last_visible_field = visible_selects_count + 2;
+      var last_quantity_name = 'carbs_quantity_input' + index_of_the_last_visible_field.toString();
+      var last_quantity_value = $("input[id=" + last_quantity_name + "]").val();
+
+      if (last_quantity_value != '') {
+        var select_name = 'carbs_select' + (index_of_the_last_visible_field + 1).toString();
+        var input_name = 'carbs_quantity_input' + (index_of_the_last_visible_field + 1).toString();
+
+        $("select[id=" + select_name + "]").removeClass('hidden');
+        $("input[id=" + input_name + "]").removeClass('hidden');
+      }
+    })
+
+    $("input[id='add_fats_button']").on('click', function () {
+
+      var visible_selects_count = $("select[class='select fats']").length;
+      var index_of_the_last_visible_field = visible_selects_count + 5;
+      var last_quantity_name = 'fatss_quantity_input' + index_of_the_last_visible_field.toString();
+      var last_quantity_value = $("input[id=" + last_quantity_name + "]").val();
+
+      if (last_quantity_value != '') {
+        var select_name = 'fats_select' + (index_of_the_last_visible_field + 1).toString();
+        var input_name = 'fats_quantity_input' + (index_of_the_last_visible_field + 1).toString();
+
+        $("select[id=" + select_name + "]").removeClass('hidden');
+        $("input[id=" + input_name + "]").removeClass('hidden');
       }
     })
   });
