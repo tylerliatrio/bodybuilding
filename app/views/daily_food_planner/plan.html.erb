@@ -227,22 +227,6 @@
 <script>
   $(function () {
 
-    function getLiveProts() {
-//      var ingredients = gon.ingredients;
-//      var current_protein_ingredient = $("select#protein_select0").val();
-//      var current_protein_quantity = parseFloat($("input#protein_quantity_input0").val());
-//      var fats_per_serving;
-//      var serving_size;
-//      for (i = 0; i < ingredients.length; i++) {
-//        if (current_protein_ingredient == ingredients[i].name) {
-//          fats_per_serving = ingredients[i].fats;
-//          serving_size = ingredients[i].serving_size;
-//          break;
-//        }
-//      }
-//      return current_protein_quantity / serving_size * fats_per_serving;
-    }
-
     function getLiveCarbs() {
       var ingredients = gon.ingredients;
       var current_protein_ingredient = $("select#prots_select0").val();
@@ -318,8 +302,6 @@
     function calcFatsStillAllowed() {
       return calcTargetFats() - getLiveFats();
     }
-
-//    $("input[name='commit']").on('click', calcFatsStillAllowed());
 
     $('select').change(function () {
       var ingredients = gon.ingredients;

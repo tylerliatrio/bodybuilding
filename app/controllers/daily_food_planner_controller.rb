@@ -51,7 +51,7 @@ class DailyFoodPlannerController < ApplicationController
 
       if flash[:errors].blank?
         Ingredient.create(name: params['title'], units: params['units'], serving_size: params['serving_size'],
-                          prots: Integer(params['prots']), carbs: Integer(params['carbs']), fats: Integer(params['fats']),
+                          prots: Integer(params['prots']), carbs: Integer(params['carbs']), fats: Float(params['fats']),
                           cals: Integer(params['cals']))
         @added_item = true
       end
