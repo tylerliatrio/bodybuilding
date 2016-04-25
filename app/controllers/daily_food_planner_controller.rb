@@ -101,19 +101,12 @@ class DailyFoodPlannerController < ApplicationController
         @target_fats_per_kilo = Float(params['target_fats_per_kilo'])
       end
 
-
       if @target_carbs_per_kilo and @target_fats_per_kilo and @target_prots_per_kilo and @weight
         @target = Hash.new
-
         @target[:prots] = (kiloWeight * @target_prots_per_kilo).round(0)
         @target[:carbs] = (kiloWeight * @target_carbs_per_kilo).round(0)
         @target[:fats] = (kiloWeight * @target_fats_per_kilo).round(0)
-
-        gon.targets
       end
-
-      flash[:errors] << ' Select at least one ingredient.' if params['ingredient0'] == '0'
-
 
       # getting quantities for ingredients
       for i in 0..8
@@ -128,8 +121,6 @@ class DailyFoodPlannerController < ApplicationController
           else
             if is_number?(quantity)
               @quantities[i] = Float(quantity)
-
-
             else
               flash[:errors] << ' Quantity can be only a number.'
             end
@@ -138,34 +129,26 @@ class DailyFoodPlannerController < ApplicationController
         end
       end
 
-
       if flash[:errors].blank?
         @totals = Hash.new
-
         @totals[:prots] = 0
         @totals[:carbs] = 0
         @totals[:fats] = 0
         @totals[:cals] = 0
 
         for i in 0..8
-
           unless @ingredient_name[i].blank?
-
             selectedIngredient = Ingredient.where(name: @ingredient_name[i]).first
-
             @totals[:prots] += selectedIngredient.prots * @quantities[i] / selectedIngredient.serving_size
             @totals[:carbs] += selectedIngredient.carbs * @quantities[i] / selectedIngredient.serving_size
             @totals[:fats] += selectedIngredient.fats * @quantities[i] / selectedIngredient.serving_size
             @totals[:cals] += selectedIngredient.cals * @quantities[i] / selectedIngredient.serving_size
-
           end
         end
 
         flash[:message] = 'Success! Scroll down to see the results.'
         flash[:errors] = []
-
       end
-
     end
   end
 
