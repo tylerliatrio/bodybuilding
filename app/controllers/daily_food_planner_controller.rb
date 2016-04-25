@@ -33,16 +33,19 @@ class DailyFoodPlannerController < ApplicationController
       else
         @prots = params['prots']
       end
+
       if params['carbs'].blank?
         flash[:errors] << 'Please enter Carbs per serving'
       else
         @carbs = params['carbs']
       end
+
       if params['fats'].blank?
         flash[:errors] << 'Please enter Fats per serving'
       else
         @fats = params['fats']
       end
+
       if params['cals'].blank?
         flash[:errors] << 'Please enter Calories per serving'
       else
@@ -51,8 +54,8 @@ class DailyFoodPlannerController < ApplicationController
 
       if flash[:errors].blank?
         Ingredient.create(name: params['title'], units: params['units'], serving_size: params['serving_size'],
-                          prots: Integer(params['prots']), carbs: Integer(params['carbs']), fats: Float(params['fats']),
-                          cals: Integer(params['cals']))
+                          prots: Integer(@prots), carbs: Integer(@carbs), fats: Float(@fats),
+                          cals: Integer(@cals))
         @added_item = true
       end
 
