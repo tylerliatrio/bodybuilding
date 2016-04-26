@@ -86,6 +86,13 @@ class DailyFoodPlannerController < ApplicationController
         kiloWeight = @weight/2.20462
       end
 
+
+      if params['target_presets'].blank?
+
+      else
+        @target_presets = params['target_presets']
+      end
+
       if params['target_prots_per_kilo'].blank?
         flash[:errors] << ' Enter your Protein target.'
       else

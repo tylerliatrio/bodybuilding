@@ -28,14 +28,21 @@ select{
 }
 
 @media all and (max-width: 667px) {
-  .select{
-    width: 50%;
+  #target_presets{
+    margin-top: 0.5em;
+    font-size: 1.2em;
   }
+
+  .select{
+    width: 70%;
+    font-size: 1em;
+  }
+
   .quantity{
-    width: 40%;
+    width: 20%;
+    font-size: 0.9em;
     margin-top: 0.3em;
     margin-left: 0.5em;
     border-radius: 2px;
   }
-
 }
