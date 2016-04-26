@@ -122,7 +122,7 @@
                   <% end %>
                 </select>
 
-                <input type="number" class="quantity<%= select_css %>" id="prots_quantity_input<%= i %>" name="quantity<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="1000" step="any">
+                <input type="number" class="quantity<%= select_css %>" id="prots_quantity_input<%= i %>" name="quantity<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
 
               </div>
           <% end %>
@@ -162,7 +162,7 @@
                   <% end %>
                 </select>
 
-                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="carbs_quantity_input<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="1000" step="any">
+                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="carbs_quantity_input<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
 
               </div>
           <% end %>
@@ -201,7 +201,7 @@
                   <% end %>
                 </select>
 
-                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="fats_quantity_input<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="1000" step="any">
+                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="fats_quantity_input<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
 
               </div>
           <% end %>
