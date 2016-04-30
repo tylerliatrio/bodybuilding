@@ -28,36 +28,34 @@
 
         <div class="panel-body" style="text-align: left">
 
-
-
           <div>
             <span style="font-size: 1.2em">
              Suggested presets:
             </span>
 
-            <span >
-              <select id="target_presets" name="target_presets" >
+            <span>
+              <select id="target_presets" name="target_presets">
 
-                <% if @target_presets  %>
+                <% if @target_presets %>
                     <option value="0">Choose ...</option>
                     <% if @target_presets == 'cutting' %>
-                      <option value="cutting" selected>cutting</option>
-                      <option value="maintain" >maintain</option>
-                      <option value="bulking" >bulking</option>
+                        <option value="cutting" selected>cutting</option>
+                        <option value="maintain">maintain</option>
+                        <option value="bulking">bulking</option>
                     <% elsif @target_presets == 'maintain' %>
-                        <option value="cutting" >cutting</option>
+                        <option value="cutting">cutting</option>
                         <option value="maintain" selected>maintain</option>
-                        <option value="bulking" >bulking</option>
+                        <option value="bulking">bulking</option>
                     <% else %>
-                        <option value="cutting" >cutting</option>
-                        <option value="maintain" >maintain</option>
+                        <option value="cutting">cutting</option>
+                        <option value="maintain">maintain</option>
                         <option value="bulking" selected>bulking</option>
                     <% end %>
-                <%  else %>
+                <% else %>
                     <option value="0">Choose ...</option>
-                    <option value="cutting" >cutting</option>
-                    <option value="maintain" >maintain</option>
-                    <option value="bulking" >bulking</option>
+                    <option value="cutting">cutting</option>
+                    <option value="maintain">maintain</option>
+                    <option value="bulking">bulking</option>
                 <% end %>
 
               </select>
@@ -87,9 +85,7 @@
 
     <div style="padding-top: 1em">
       <div class="panel panel-primary">
-        <div class="panel-heading">
-          Select ingredients you will use today for cooking
-        </div>
+        <div class="panel-heading">Select ingredients you will use today for cooking</div>
 
         <div class="panel-body" style="text-align: left">
 
@@ -106,7 +102,7 @@
                  end %>
 
               <div style="text-decoration: none">
-                <select name="ingredient<%= i %>" id="prots_select<%= i %>" class="select<%= select_css %> protein">
+                <select name="ingredient<%= i %>" id="prots_select<%= i %>" class="select<%= select_css %> prots">
                   <option value="0">Choose ...</option>
 
                   <% for ingredient in @ingredients[0] %>
@@ -127,9 +123,9 @@
               </div>
           <% end %>
 
-          <!--<div>-->
-          <!--<input type="button" id="add_protein_button" class="btn btn-default btn-lg" value="+">-->
-          <!--</div>-->
+          <div>
+            <input type="button" id="add_protein_button" class="btn btn-default" value="+">
+          </div>
 
           <br>
 
@@ -146,7 +142,7 @@
                  end %>
 
               <div style="text-decoration: none">
-                <select id="carbs_select<%= i %>" name="ingredient<%= i %>" class="select<%= select_css %> carbs">
+                <select id="carbs_select<%= i-3 %>" name="ingredient<%= i %>" class="select<%= select_css %> carbs">
                   <option value="0">Choose ...</option>
 
                   <% for ingredient in @ingredients[1] %>
@@ -162,14 +158,14 @@
                   <% end %>
                 </select>
 
-                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="carbs_quantity_input<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
+                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="carbs_quantity_input<%= i-3 %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
 
               </div>
           <% end %>
 
-          <!--<div>-->
-          <!--<input type="button" id="add_carbs_button" class="btn btn-default btn-lg" value="+">-->
-          <!--</div>-->
+          <div>
+            <input type="button" id="add_carbs_button" class="btn btn-default" value="+">
+          </div>
 
           <br>
 
@@ -185,7 +181,7 @@
                  end %>
 
               <div style="text-decoration: none">
-                <select id="fats_select<%= i %>" name="ingredient<%= i %>" class="select<%= select_css %> fats">
+                <select id="fats_select<%= i-6 %>" name="ingredient<%= i %>" class="select<%= select_css %> fats">
                   <option value="0">Choose ...</option>
 
                   <% for ingredient in @ingredients[2] %>
@@ -201,14 +197,14 @@
                   <% end %>
                 </select>
 
-                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="fats_quantity_input<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
+                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="fats_quantity_input<%= i-6 %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
 
               </div>
           <% end %>
 
-          <!--<div>-->
-          <!--<input type="button" id="add_fats_button" class="btn btn-default btn-lg" value="+">-->
-          <!--</div>-->
+          <div>
+            <input type="button" id="add_fats_button" class="btn btn-default" value="+">
+          </div>
 
         </div>
       </div>
@@ -268,65 +264,44 @@
 <script>
   $(function () {
 
-    $('select#target_presets').change(function () {
-      var phase = $('select#target_presets').val();
+    function getLiveCarbs(ingredients) {
+      var proteinIngredients = getSelectValues('prots' , getNumberOfSelectsInGroup('prots'));
+      var totalCurrentCarbs = 0;
 
-      if (phase == 'cutting'){
-        $("input[name = 'target_prots_per_kilo']").val(2);
-        $("input[name = 'target_carbs_per_kilo']").val(2);
-        $("input[name = 'target_fats_per_kilo']").val(0.5);
-      }
-
-      if (phase == 'maintain'){
-        $("input[name = 'target_prots_per_kilo']").val(2);
-        $("input[name = 'target_carbs_per_kilo']").val(4);
-        $("input[name = 'target_fats_per_kilo']").val(0.5);
-      }
-
-      if (phase == 'bulking'){
-        $("input[name = 'target_prots_per_kilo']").val(2);
-        $("input[name = 'target_carbs_per_kilo']").val(5);
-        $("input[name = 'target_fats_per_kilo']").val(1);
-      }
-
-    });
-
-    function getLiveCarbs() {
-      var ingredients = gon.ingredients;
-      var current_protein_ingredient = $("select#prots_select0").val();
-
-      if (current_protein_ingredient != '0') {
-        var current_protein_quantity = parseFloat($("input#prots_quantity_input0").val());
-        var carbs_per_serving;
-        var serving_size;
-        for (i = 0; i < ingredients.length; i++) {
-          if (current_protein_ingredient == ingredients[i].name) {
-            carbs_per_serving = ingredients[i].carbs;
-            serving_size = ingredients[i].serving_size;
-            break;
+      if (proteinIngredients.length > 0) {
+        for (var n = 0; n < proteinIngredients.length; n++) {
+          var proteinIngredientQuantity = parseFloat($("input#prots_quantity_input" + n).val());
+          for (var i = 0; i < ingredients.length; i++) {
+            if (proteinIngredients[n] == ingredients[i].name) {
+              var carbsPerServing = ingredients[i].carbs;
+              var servingSize = ingredients[i].serving_size;
+              totalCurrentCarbs = totalCurrentCarbs + (proteinIngredientQuantity / servingSize) * carbsPerServing;
+              break;
+            }
           }
         }
-        return (current_protein_quantity / serving_size) * carbs_per_serving;
+        return totalCurrentCarbs;
       }
       return 0;
     }
 
-    function getLiveFats() {
-      var ingredients = gon.ingredients;
-      var current_protein_ingredient = $("select#prots_select0").val();
+    function getLiveFats(ingredients) {
+      var proteinIngredients = getSelectValues('prots' , getNumberOfSelectsInGroup('prots'));
+      var totalCurrentFats = 0;
 
-      if (current_protein_ingredient != '0') {
-        var current_protein_quantity = parseFloat($("input#prots_quantity_input0").val());
-        var fats_per_serving;
-        var serving_size;
-        for (i = 0; i < ingredients.length; i++) {
-          if (current_protein_ingredient == ingredients[i].name) {
-            fats_per_serving = ingredients[i].fats;
-            serving_size = ingredients[i].serving_size;
-            break;
+      if (proteinIngredients.length > 0) {
+        for (var n = 0; n < proteinIngredients.length; n++) {
+          var proteinIngredientQuantity = parseFloat($("input#prots_quantity_input" + n).val());
+          for (var i = 0; i < ingredients.length; i++) {
+            if (proteinIngredients[n] == ingredients[i].name) {
+               var fatsPerServing = ingredients[i].fats;
+               var servingSize = ingredients[i].serving_size;
+              totalCurrentFats = totalCurrentFats + (proteinIngredientQuantity / servingSize) * fatsPerServing;
+              break;
+            }
           }
         }
-        return (current_protein_quantity / serving_size) * fats_per_serving;
+        return totalCurrentFats;
       }
       return 0;
     }
@@ -359,62 +334,128 @@
       return readFatsTarget() * readWeight();
     }
 
-    function calcCarbsStillAllowed() {
-      return calcTargetCarbs() - getLiveCarbs();
+    function calcCarbsStillAllowed(ingredients) {
+      return calcTargetCarbs() - getLiveCarbs(ingredients);
     }
 
-    function calcFatsStillAllowed() {
-      return calcTargetFats() - getLiveFats();
+    function calcFatsStillAllowed(ingredients) {
+      return calcTargetFats() - getLiveFats(ingredients);
     }
+
+    function getIngredientType(id) {
+      if (id.indexOf("prots") >= 0) {
+        return 'prots';
+      }
+      if (id.indexOf("carbs") >= 0) {
+        return 'carbs';
+      }
+      if (id.indexOf("fats") >= 0) {
+        return 'fats';
+      }
+    }
+
+    function getIngredientInfo(ingredientName, ingredients) {
+      var ingredientInfo = [];
+
+      for (i = 0; i < ingredients.length; i++) {
+        if (ingredientName == ingredients[i].name) {
+          ingredientInfo.push(ingredients[i].prots);
+          ingredientInfo.push(ingredients[i].carbs);
+          ingredientInfo.push(ingredients[i].fats);
+          ingredientInfo.push(ingredients[i].serving_size);
+          return ingredientInfo;
+        }
+      }
+    }
+
+    function calcQuantity(ingredientType, ingredientName, numberOfSelectedIngredients, ingredients) {
+      var ingredientInfo = getIngredientInfo(ingredientName, ingredients);
+      var divider = 1 / numberOfSelectedIngredients;
+      var nutrientTarget;
+
+      if (ingredientType == 'prots') {
+        nutrientTarget = calcTargetProts() * divider;
+        return (nutrientTarget / ingredientInfo[0]) * ingredientInfo[3];
+      }
+      if (ingredientType == 'carbs') {
+        nutrientTarget = calcCarbsStillAllowed(ingredients) * divider;
+        return (nutrientTarget / ingredientInfo[1]) * ingredientInfo[3];
+      }
+      if (ingredientType == 'fats') {
+        nutrientTarget =  calcFatsStillAllowed(ingredients) * divider;
+        return (nutrientTarget / ingredientInfo[2]) * ingredientInfo[3];
+      }
+    }
+
+    function getNumberOfSelectsInGroup(ingredientType) {
+      if (ingredientType == 'prots') {
+        return $("select[class='select prots']").length;
+      }
+      if (ingredientType == 'carbs') {
+        return $("select[class='select carbs']").length;
+      }
+      if (ingredientType == 'fats') {
+        return $("select[class='select fats']").length;
+      }
+    }
+
+    function getSelectValues(ingredientType, count){
+      var arrayOfNames = [];
+      for (var i = 0; i < count; i++) {
+        var idName = ingredientType + '_select' + i;
+        var name = $("select[id="+ idName +"]").val();
+        arrayOfNames.push(name);
+      }
+      return arrayOfNames;
+    }
+
+    $('select#target_presets').change(function () {
+      var phase = $('select#target_presets').val();
+
+      if (phase == 'cutting') {
+        $("input[name = 'target_prots_per_kilo']").val(2);
+        $("input[name = 'target_carbs_per_kilo']").val(2);
+        $("input[name = 'target_fats_per_kilo']").val(0.5);
+      }
+
+      if (phase == 'maintain') {
+        $("input[name = 'target_prots_per_kilo']").val(2);
+        $("input[name = 'target_carbs_per_kilo']").val(4);
+        $("input[name = 'target_fats_per_kilo']").val(0.5);
+      }
+
+      if (phase == 'bulking') {
+        $("input[name = 'target_prots_per_kilo']").val(2);
+        $("input[name = 'target_carbs_per_kilo']").val(5);
+        $("input[name = 'target_fats_per_kilo']").val(1);
+      }
+
+    });
 
     $('select').change(function () {
       var ingredients = gon.ingredients;
       var id = this.id;
-      var select_index = id.substr(id.length - 1);
-      var value_selected = this.value;
-      var quantity;
-      var serving_size;
-      var nutrient_per_serving;
-      var type;
-      for (i = 0; i < ingredients.length; i++) {
-        if (value_selected == ingredients[i].name) {
+      var ingredientType = getIngredientType(id);
+      var selectIndex = id.substr(id.length - 1);
+      var selectValue = this.value;
+      var selectCount = getNumberOfSelectsInGroup(ingredientType);
+      var nutrientQuantity;
 
-          if (id.indexOf("prots") >= 0) {
-            type = 'prots';
-            nutrient_per_serving = ingredients[i].prots;
-          }
-          if (id.indexOf("carbs") >= 0) {
-            type = 'carbs';
-            nutrient_per_serving = ingredients[i].carbs;
-          }
-          if (id.indexOf("fats") >= 0) {
-            type = 'fats';
-            nutrient_per_serving = ingredients[i].fats;
-          }
-          serving_size = ingredients[i].serving_size;
-
-          break;
+      if (selectCount < 2) {
+        nutrientQuantity = calcQuantity(ingredientType, selectValue, 1, ingredients);
+        $("input[id = " + ingredientType + "_quantity_input" + selectIndex + "]").val(nutrientQuantity.toFixed(2));
+      } else {
+        var selectValues = getSelectValues(ingredientType, selectCount);
+        for (var i = 0; i < selectCount; i++) {
+          nutrientQuantity = calcQuantity(ingredientType, selectValues[i], selectCount, ingredients);
+          $("input[id = " + ingredientType + "_quantity_input" + i + "]").val(nutrientQuantity.toFixed(2));
         }
       }
-
-      if (type == 'prots') {
-        quantity = (calcTargetProts() / nutrient_per_serving) * serving_size;
-      }
-
-      if (type == 'carbs') {
-        quantity = (calcCarbsStillAllowed() / nutrient_per_serving) * serving_size;
-      }
-
-      if (type == 'fats') {
-        quantity = (calcFatsStillAllowed() / nutrient_per_serving) * serving_size;
-      }
-
-      $("input[id = " + type + "_quantity_input" + select_index + "]").val(quantity.toFixed(2));
     });
 
     $("input[id='add_protein_button']").on('click', function () {
 
-      var visible_selects_count = $("select[class='select protein']").length;
+      var visible_selects_count = $("select[class='select prots']").length;
       var index_of_the_last_visible_field = visible_selects_count - 1;
       var last_quantity_name = 'prots_quantity_input' + index_of_the_last_visible_field.toString();
       var last_quantity_value = $("input[id=" + last_quantity_name + "]").val();
@@ -426,38 +467,38 @@
         $("select[id=" + select_name + "]").removeClass('hidden');
         $("input[id=" + input_name + "]").removeClass('hidden');
       }
-    })
+    });
 
     $("input[id='add_carbs_button']").on('click', function () {
 
       var visible_selects_count = $("select[class='select carbs']").length;
-      var index_of_the_last_visible_field = visible_selects_count + 2;
+      var index_of_the_last_visible_field = visible_selects_count - 1;
       var last_quantity_name = 'carbs_quantity_input' + index_of_the_last_visible_field.toString();
       var last_quantity_value = $("input[id=" + last_quantity_name + "]").val();
 
       if (last_quantity_value != '') {
-        var select_name = 'carbs_select' + (index_of_the_last_visible_field + 1).toString();
-        var input_name = 'carbs_quantity_input' + (index_of_the_last_visible_field + 1).toString();
+        var select_name = 'carbs_select' + visible_selects_count.toString();
+        var input_name = 'carbs_quantity_input' + visible_selects_count.toString();
 
         $("select[id=" + select_name + "]").removeClass('hidden');
         $("input[id=" + input_name + "]").removeClass('hidden');
       }
-    })
+    });
 
     $("input[id='add_fats_button']").on('click', function () {
 
       var visible_selects_count = $("select[class='select fats']").length;
-      var index_of_the_last_visible_field = visible_selects_count + 5;
+      var index_of_the_last_visible_field = visible_selects_count - 1;
       var last_quantity_name = 'fatss_quantity_input' + index_of_the_last_visible_field.toString();
       var last_quantity_value = $("input[id=" + last_quantity_name + "]").val();
 
       if (last_quantity_value != '') {
-        var select_name = 'fats_select' + (index_of_the_last_visible_field + 1).toString();
-        var input_name = 'fats_quantity_input' + (index_of_the_last_visible_field + 1).toString();
+        var select_name = 'fats_select' + visible_selects_count.toString();
+        var input_name = 'fats_quantity_input' + visible_selects_count.toString();
 
         $("select[id=" + select_name + "]").removeClass('hidden');
         $("input[id=" + input_name + "]").removeClass('hidden');
       }
-    })
+    });
   });
 </script>
