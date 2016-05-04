@@ -127,6 +127,8 @@
             <input type="button" id="add_protein_button" class="btn btn-default" value="+">
           </div>
 
+          <div id="slider-range" class="hidden"></div>
+
           <br>
 
           Carbs sources
@@ -213,6 +215,10 @@
     <%= submit_tag 'Submit', class: "btn btn-primary btn-lg" %>
 <% end %>
 
+<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+
+
+
 <% if flash[:errors].blank? and @totals and @target %>
     <%
        overdose_progress_bar_css = 'progress-bar-striped active'
@@ -265,12 +271,13 @@
   $(function () {
 
     function getLiveCarbs(ingredients) {
-      var proteinIngredients = getSelectValues('prots' , getNumberOfSelectsInGroup('prots'));
+      var proteinIngredients = getSelectValues('prots', getNumberOfSelectsInGroup('prots'));
       var totalCurrentCarbs = 0;
 
       if (proteinIngredients.length > 0) {
         for (var n = 0; n < proteinIngredients.length; n++) {
           var proteinIngredientQuantity = parseFloat($("input#prots_quantity_input" + n).val());
+
           for (var i = 0; i < ingredients.length; i++) {
             if (proteinIngredients[n] == ingredients[i].name) {
               var carbsPerServing = ingredients[i].carbs;
@@ -286,7 +293,7 @@
     }
 
     function getLiveFats(ingredients) {
-      var proteinIngredients = getSelectValues('prots' , getNumberOfSelectsInGroup('prots'));
+      var proteinIngredients = getSelectValues('prots', getNumberOfSelectsInGroup('prots'));
       var totalCurrentFats = 0;
 
       if (proteinIngredients.length > 0) {
@@ -294,8 +301,8 @@
           var proteinIngredientQuantity = parseFloat($("input#prots_quantity_input" + n).val());
           for (var i = 0; i < ingredients.length; i++) {
             if (proteinIngredients[n] == ingredients[i].name) {
-               var fatsPerServing = ingredients[i].fats;
-               var servingSize = ingredients[i].serving_size;
+              var fatsPerServing = ingredients[i].fats;
+              var servingSize = ingredients[i].serving_size;
               totalCurrentFats = totalCurrentFats + (proteinIngredientQuantity / servingSize) * fatsPerServing;
               break;
             }
@@ -382,7 +389,7 @@
         return (nutrientTarget / ingredientInfo[1]) * ingredientInfo[3];
       }
       if (ingredientType == 'fats') {
-        nutrientTarget =  calcFatsStillAllowed(ingredients) * divider;
+        nutrientTarget = calcFatsStillAllowed(ingredients) * divider;
         return (nutrientTarget / ingredientInfo[2]) * ingredientInfo[3];
       }
     }
@@ -399,11 +406,11 @@
       }
     }
 
-    function getSelectValues(ingredientType, count){
+    function getSelectValues(ingredientType, count) {
       var arrayOfNames = [];
       for (var i = 0; i < count; i++) {
         var idName = ingredientType + '_select' + i;
-        var name = $("select[id="+ idName +"]").val();
+        var name = $("select[id=" + idName + "]").val();
         arrayOfNames.push(name);
       }
       return arrayOfNames;
@@ -445,6 +452,11 @@
         nutrientQuantity = calcQuantity(ingredientType, selectValue, 1, ingredients);
         $("input[id = " + ingredientType + "_quantity_input" + selectIndex + "]").val(nutrientQuantity.toFixed(2));
       } else {
+
+        if (ingredientType == 'prots' || ingredientType == 'carbs' || ingredientType == 'fats') {
+          $("#slider-range").removeClass('hidden');
+        }
+
         var selectValues = getSelectValues(ingredientType, selectCount);
         for (var i = 0; i < selectCount; i++) {
           nutrientQuantity = calcQuantity(ingredientType, selectValues[i], selectCount, ingredients);
@@ -453,8 +465,26 @@
       }
     });
 
-    $("input[id='add_protein_button']").on('click', function () {
+    //    $("input[id^='prots_quantity_input']").change( function(){
+    //      var ingredients = gon.ingredients;
+    //      var id = this.id;
+    //      var index = id.substr(id.length - 1);
+    //      var quantity = this.val;
+    //      var target = calcTargetProts();
+    //      var selectCount = getNumberOfSelectsInGroup('prots');
+    //      var selectValues = getSelectValues('prots', selectCount);
+    //
+    //      var ingredientInfo = getIngredientInfo('prots_select' + index, ingredients);
+    //      var protsFromChangedIngredient = ingredientInfo[0] * (quantity / ingredientInfo[3]);
+    //      var protsLeftToDistribute = target - protsFromChangedIngredient;
+    //
+    //      for (var i=1; i < selectCount; i++){
+    //        selectValues[i]
+    //      }
+    //
+    //    });
 
+    $("input[id='add_protein_button']").on('click', function () {
       var visible_selects_count = $("select[class='select prots']").length;
       var index_of_the_last_visible_field = visible_selects_count - 1;
       var last_quantity_name = 'prots_quantity_input' + index_of_the_last_visible_field.toString();
@@ -500,5 +530,19 @@
         $("input[id=" + input_name + "]").removeClass('hidden');
       }
     });
+  })
+  ;
+
+  $("#slider-range").slider({
+    range: true,
+    min: 0,
+    max: 500,
+    values: [75, 300],
+    slide: function (event, ui) {
+      $("#prots_quantity_input0").val(ui.values[0]);
+      $("#prots_quantity_input1").val(ui.values[1] - ui.values[0]);
+    }
   });
+
 </script>
+
