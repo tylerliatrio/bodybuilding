@@ -12,7 +12,6 @@
     <div class="alert alert-success"><%= flash[:message] %></div>
 <% end %>
 
-
 <%= form_for daily_food_planner_plan_path, method: 'POST' do %>
     <div id="user_input">
 
@@ -127,7 +126,8 @@
             <input type="button" id="add_protein_button" class="btn btn-default" value="+">
           </div>
 
-          <div id="slider-range" class="hidden"></div>
+          <div id="prots_slider2sources" class="hidden"></div>
+          <div id="prots_slider3sources" class="hidden"></div>
 
           <br>
 
@@ -169,6 +169,9 @@
             <input type="button" id="add_carbs_button" class="btn btn-default" value="+">
           </div>
 
+          <div id="carbs_slider2sources" class="hidden"></div>
+          <div id="carbs_slider3sources" class="hidden"></div>
+
           <br>
 
           Fats sources
@@ -208,15 +211,15 @@
             <input type="button" id="add_fats_button" class="btn btn-default" value="+">
           </div>
 
+          <div id="fats_slider2sources" class="hidden"></div>
+          <div id="fats_slider3sources" class="hidden"></div>
+
         </div>
       </div>
     </div>
 
-    <%= submit_tag 'Submit', class: "btn btn-primary btn-lg" %>
+    <%= submit_tag 'Verify', class: "btn btn-primary btn-lg" %>
 <% end %>
-
-<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-
 
 
 <% if flash[:errors].blank? and @totals and @target %>
@@ -375,9 +378,8 @@
       }
     }
 
-    function calcQuantity(ingredientType, ingredientName, numberOfSelectedIngredients, ingredients) {
+    function calcQuantity(ingredientType, ingredientName, divider, ingredients) {
       var ingredientInfo = getIngredientInfo(ingredientName, ingredients);
-      var divider = 1 / numberOfSelectedIngredients;
       var nutrientTarget;
 
       if (ingredientType == 'prots') {
@@ -453,36 +455,46 @@
         $("input[id = " + ingredientType + "_quantity_input" + selectIndex + "]").val(nutrientQuantity.toFixed(2));
       } else {
 
-        if (ingredientType == 'prots' || ingredientType == 'carbs' || ingredientType == 'fats') {
-          $("#slider-range").removeClass('hidden');
+        if (ingredientType == 'prots') {
+          if (selectCount == 2) {
+            $("#prots_slider2sources").removeClass('hidden');
+          }
+
+          if (selectCount == 3) {
+            $("#prots_slider2sources").addClass('hidden');
+            $("#prots_slider3sources").removeClass('hidden');
+          }
+        }
+
+        if (ingredientType == 'carbs') {
+          if (selectCount == 2) {
+            $("#carbs_slider2sources").removeClass('hidden');
+          }
+
+          if (selectCount == 3) {
+            $("#carbs_slider2sources").addClass('hidden');
+            $("#carbs_slider3sources").removeClass('hidden');
+          }
+        }
+
+        if (ingredientType == 'fats') {
+          if (selectCount == 2) {
+            $("#fats_slider2sources").removeClass('hidden');
+          }
+
+          if (selectCount == 3) {
+            $("#fats_slider2sources").addClass('hidden');
+            $("#fats_slider3sources").removeClass('hidden');
+          }
         }
 
         var selectValues = getSelectValues(ingredientType, selectCount);
         for (var i = 0; i < selectCount; i++) {
-          nutrientQuantity = calcQuantity(ingredientType, selectValues[i], selectCount, ingredients);
+          nutrientQuantity = calcQuantity(ingredientType, selectValues[i], 1 / selectCount, ingredients);
           $("input[id = " + ingredientType + "_quantity_input" + i + "]").val(nutrientQuantity.toFixed(2));
         }
       }
     });
-
-    //    $("input[id^='prots_quantity_input']").change( function(){
-    //      var ingredients = gon.ingredients;
-    //      var id = this.id;
-    //      var index = id.substr(id.length - 1);
-    //      var quantity = this.val;
-    //      var target = calcTargetProts();
-    //      var selectCount = getNumberOfSelectsInGroup('prots');
-    //      var selectValues = getSelectValues('prots', selectCount);
-    //
-    //      var ingredientInfo = getIngredientInfo('prots_select' + index, ingredients);
-    //      var protsFromChangedIngredient = ingredientInfo[0] * (quantity / ingredientInfo[3]);
-    //      var protsLeftToDistribute = target - protsFromChangedIngredient;
-    //
-    //      for (var i=1; i < selectCount; i++){
-    //        selectValues[i]
-    //      }
-    //
-    //    });
 
     $("input[id='add_protein_button']").on('click', function () {
       var visible_selects_count = $("select[class='select prots']").length;
@@ -530,19 +542,140 @@
         $("input[id=" + input_name + "]").removeClass('hidden');
       }
     });
-  })
-  ;
 
-  $("#slider-range").slider({
-    range: true,
-    min: 0,
-    max: 500,
-    values: [75, 300],
-    slide: function (event, ui) {
-      $("#prots_quantity_input0").val(ui.values[0]);
-      $("#prots_quantity_input1").val(ui.values[1] - ui.values[0]);
-    }
+    $("#prots_slider2sources").slider({
+      range: false,
+      min: 0,
+      max: 100,
+      value: 50,
+      change: function( event, ui ) {
+        var ingredients = gon.ingredients;
+
+        var prots_quantity_input0 = $("#prots_quantity_input0");
+        var selectValue0 = $("#prots_select0").val();
+        var Quantity0 = calcQuantity('prots', selectValue0, ui.value / 100, ingredients);
+        prots_quantity_input0.val(Quantity0.toFixed(2));
+
+        var selectValue1 = $("#prots_select1").val();
+        var prots_quantity_input1 = $("#prots_quantity_input1");
+        var Quantity1 = calcQuantity('prots', selectValue1, (100 - ui.value) / 100, ingredients);
+        prots_quantity_input1.val(Quantity1.toFixed(2));
+      }
+    });
+
+    $("#prots_slider3sources").slider({
+      range: true,
+      min: 0,
+      max: 100,
+      values: [33.33, 66.66],
+      change: function( event, ui ) {
+        var ingredients = gon.ingredients;
+        var prots_quantity_input0 = $("#prots_quantity_input0");
+
+        var selectValue0 = $("#prots_select0").val();
+        var Quantity0 = calcQuantity('prots', selectValue0, ui.values[0] / 100, ingredients);
+        prots_quantity_input0.val(Quantity0.toFixed(2));
+
+        var prots_quantity_input1 = $("#prots_quantity_input1");
+        var selectValue1 = $("#prots_select1").val();
+        var Quantity1 = calcQuantity('prots', selectValue1, (ui.values[1] - ui.values[0]) / 100, ingredients);
+        prots_quantity_input1.val(Quantity1.toFixed(2));
+
+        var prots_quantity_input2 = $("#prots_quantity_input2");
+        var selectValue2 = $("#prots_select2").val();
+        var Quantity2 = calcQuantity('prots', selectValue2, (100 - ui.values[1]) / 100, ingredients);
+        prots_quantity_input2.val(Quantity2.toFixed(2));
+      }
+    });
+
+    $("#carbs_slider2sources").slider({
+      range: false,
+      min: 0,
+      max: 100,
+      value: 50,
+      change: function( event, ui ) {
+        var ingredients = gon.ingredients;
+
+        var carbs_quantity_input0 = $("#carbs_quantity_input0");
+        var selectValue0 = $("#carbs_select0").val();
+        var Quantity0 = calcQuantity('carbs', selectValue0, ui.value / 100, ingredients);
+        carbs_quantity_input0.val(Quantity0.toFixed(2));
+
+        var selectValue1 = $("#carbs_select1").val();
+        var carbs_quantity_input1 = $("#carbs_quantity_input1");
+        var Quantity1 = calcQuantity('carbs', selectValue1, (100 - ui.value) / 100, ingredients);
+        carbs_quantity_input1.val(Quantity1.toFixed(2));
+      }
+    });
+
+    $("#carbs_slider3sources").slider({
+      range: true,
+      min: 0,
+      max: 100,
+      values: [33.33, 66.66],
+      change: function( event, ui ) {
+        var ingredients = gon.ingredients;
+
+        var carbs_quantity_input0 = $("#carbs_quantity_input0");
+        var selectValue0 = $("#carbs_select0").val();
+        var Quantity0 = calcQuantity('carbs', selectValue0, ui.values[0] / 100, ingredients);
+        carbs_quantity_input0.val(Quantity0.toFixed(2));
+
+        var carbs_quantity_input1 = $("#carbs_quantity_input1");
+        var selectValue1 = $("#carbs_select1").val();
+        var Quantity1 = calcQuantity('carbs', selectValue1, (ui.values[1] - ui.values[0]) / 100, ingredients);
+        carbs_quantity_input1.val(Quantity1.toFixed(2));
+
+        var carbs_quantity_input2 = $("#carbs_quantity_input2");
+        var selectValue2 = $("#carbs_select2").val();
+        var Quantity2 = calcQuantity('carbs', selectValue2, (100 - ui.values[1]) / 100, ingredients);
+        carbs_quantity_input2.val(Quantity2.toFixed(2));
+      }
+    });
+
+    $("#fats_slider2sources").slider({
+      range: false,
+      min: 0,
+      max: 100,
+      value: 50,
+      change: function( event, ui ) {
+        var ingredients = gon.ingredients;
+
+        var fats_quantity_input0 = $("#fats_quantity_input0");
+        var selectValue0 = $("#fats_select0").val();
+        var Quantity0 = calcQuantity('fats', selectValue0, ui.value / 100, ingredients);
+        fats_quantity_input0.val(Quantity0.toFixed(2));
+
+        var selectValue1 = $("#fats_select1").val();
+        var fats_quantity_input1 = $("#fats_quantity_input1");
+        var Quantity1 = calcQuantity('fats', selectValue1, (100 - ui.value) / 100, ingredients);
+        fats_quantity_input1.val(Quantity1.toFixed(2));
+      }
+    });
+
+    $("#fats_slider3sources").slider({
+      range: true,
+      min: 0,
+      max: 100,
+      values: [33.33, 66.66],
+      change: function( event, ui ) {
+        var ingredients = gon.ingredients;
+
+        var fats_quantity_input0 = $("#fats_quantity_input0");
+        var selectValue0 = $("#fats_select0").val();
+        var Quantity0 = calcQuantity('fats', selectValue0, ui.values[0] / 100, ingredients);
+        fats_quantity_input0.val(Quantity0.toFixed(2));
+
+        var fats_quantity_input1 = $("#fats_quantity_input1");
+        var selectValue1 = $("#fats_select1").val();
+        var Quantity1 = calcQuantity('fats', selectValue1, (ui.values[1] - ui.values[0]) / 100, ingredients);
+        fats_quantity_input1.val(Quantity1.toFixed(2));
+
+        var fats_quantity_input2 = $("#fats_quantity_input2");
+        var selectValue2 = $("#fats_select2").val();
+        var Quantity2 = calcQuantity('fats', selectValue2, (100 - ui.values[1]) / 100, ingredients);
+        fats_quantity_input2.val(Quantity2.toFixed(2));
+      }
+    });
   });
-
 </script>
-

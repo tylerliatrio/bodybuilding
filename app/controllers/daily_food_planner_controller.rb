@@ -77,7 +77,7 @@ class DailyFoodPlannerController < ApplicationController
     @ingredient_name = Hash.new
     @quantities = Hash.new
 
-    if params['commit'] == 'Submit'
+    if params['commit'] == 'Verify'
 
       if params['weight'].blank?
         flash[:errors] << ' Please enter your body weight.'
