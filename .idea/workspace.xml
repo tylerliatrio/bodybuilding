@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de12444d-a14f-48e1-a27f-317cd6a910c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/my.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/my.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" afterPath="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
     </list>
@@ -31,73 +31,74 @@
     <favorites_list name="bodybuilding" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="plan.html.erb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.079503">
-              <caret line="654" column="0" selection-start-line="654" selection-start-column="0" selection-end-line="654" selection-end-column="0" />
-              <folding>
-                <element signature="e#75#224#0#ruby" expanded="false" />
-                <element signature="e#232#337#0#ruby" expanded="false" />
-                <element signature="e#8896#10692#0#ruby" expanded="false" />
-                <element signature="e#10764#11571#0#HTML" expanded="false" />
-                <element signature="e#11611#12410#0#HTML" expanded="false" />
-                <element signature="e#12443#12524#0#HTML" expanded="false" />
-                <element signature="e#12557#12637#0#HTML" expanded="false" />
-                <element signature="e#12669#12749#0#HTML" expanded="false" />
-                <element signature="e#12777#12853#0#HTML" expanded="false" />
-                <element signature="e#12886#12940#0#HTML" expanded="false" />
-                <element signature="e#12973#13027#0#HTML" expanded="false" />
-                <element signature="e#13059#13112#0#HTML" expanded="false" />
-                <element signature="e#13162#13229#0#HTML" expanded="false" />
-                <element signature="e#13278#13343#0#HTML" expanded="false" />
-                <element signature="e#13380#13595#0#HTML" expanded="false" />
-                <element signature="e#13657#14067#0#HTML" expanded="false" />
-                <element signature="e#14149#14812#0#HTML" expanded="false" />
-                <element signature="e#14869#15186#0#HTML" expanded="false" />
-                <element signature="e#15240#15494#0#HTML" expanded="false" />
-                <element signature="e#15546#16262#0#HTML" expanded="false" />
-                <element signature="e#16886#17173#0#HTML" expanded="false" />
-                <element signature="e#17214#17501#0#HTML" expanded="false" />
-                <element signature="e#17541#17825#0#HTML" expanded="false" />
-                <element signature="e#18253#18930#0#HTML" expanded="false" />
-                <element signature="e#18996#19674#0#HTML" expanded="false" />
-                <element signature="e#19739#20414#0#HTML" expanded="false" />
-                <element signature="e#20456#21161#0#HTML" expanded="false" />
-                <element signature="e#21203#22216#0#HTML" expanded="false" />
-                <element signature="e#22258#22963#0#HTML" expanded="false" />
-                <element signature="e#23005#24018#0#HTML" expanded="false" />
-                <element signature="e#24059#24754#0#HTML" expanded="false" />
-                <element signature="e#24795#25793#0#HTML" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.965517">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="daily_food_planner_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
-              <folding>
-                <element signature="e#60#127#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.63819444">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file leaf-file-name="plan.html.erb" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.2795031">
+                  <caret line="35" column="95" selection-start-line="35" selection-start-column="95" selection-end-line="35" selection-end-column="95" />
+                  <folding>
+                    <element signature="e#75#224#0#ruby" expanded="false" />
+                    <element signature="e#232#337#0#ruby" expanded="false" />
+                    <element signature="n#style#0;n#div#1;n#div#3;n#!!top" expanded="true" />
+                    <element signature="n#div#4;n#!!top" expanded="false" />
+                    <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#8;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
+                    <element signature="e#9064#10860#0#ruby" expanded="false" />
+                    <element signature="e#10932#11739#0#HTML" expanded="false" />
+                    <element signature="e#11779#13420#0#HTML" expanded="false" />
+                    <element signature="e#13453#13534#0#HTML" expanded="false" />
+                    <element signature="e#13567#13647#0#HTML" expanded="false" />
+                    <element signature="e#13679#13759#0#HTML" expanded="false" />
+                    <element signature="e#13787#13863#0#HTML" expanded="false" />
+                    <element signature="e#13896#13950#0#HTML" expanded="false" />
+                    <element signature="e#13983#14037#0#HTML" expanded="false" />
+                    <element signature="e#14069#14122#0#HTML" expanded="false" />
+                    <element signature="e#14172#14239#0#HTML" expanded="false" />
+                    <element signature="e#14288#14353#0#HTML" expanded="false" />
+                    <element signature="e#14390#14605#0#HTML" expanded="false" />
+                    <element signature="e#14667#15077#0#HTML" expanded="false" />
+                    <element signature="e#15159#15822#0#HTML" expanded="false" />
+                    <element signature="e#15879#16196#0#HTML" expanded="false" />
+                    <element signature="e#16250#16504#0#HTML" expanded="false" />
+                    <element signature="e#16556#17272#0#HTML" expanded="false" />
+                    <element signature="e#17311#19195#0#HTML" expanded="false" />
+                    <element signature="e#17896#18183#0#HTML" expanded="false" />
+                    <element signature="e#18224#18511#0#HTML" expanded="false" />
+                    <element signature="e#18551#18835#0#HTML" expanded="false" />
+                    <element signature="e#19263#19940#0#HTML" expanded="false" />
+                    <element signature="e#20006#20684#0#HTML" expanded="false" />
+                    <element signature="e#20749#21424#0#HTML" expanded="false" />
+                    <element signature="e#21466#22171#0#HTML" expanded="false" />
+                    <element signature="e#22213#23226#0#HTML" expanded="false" />
+                    <element signature="e#23268#23973#0#HTML" expanded="false" />
+                    <element signature="e#24015#25028#0#HTML" expanded="false" />
+                    <element signature="e#25069#25764#0#HTML" expanded="false" />
+                    <element signature="e#25805#26803#0#HTML" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="my.css.scss" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/my.css.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.39751554">
+                  <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="36" selection-end-column="14" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -137,9 +138,9 @@
         <option value="$PROJECT_DIR$/db/migrate/20160423002237_change_fats_type.rb" />
         <option value="$PROJECT_DIR$/app/views/daily_food_planner/enter.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/my.css.scss" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/my.css.scss" />
         <option value="$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb" />
       </list>
     </option>
@@ -962,13 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/my.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -989,15 +983,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.965517">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="-13.965517">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/daily_food_planner_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="1.8441247">
           <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
           <folding>
             <element signature="e#60#127#0" expanded="false" />
@@ -1005,43 +999,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/my.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39751554">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="36" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/daily_food_planner/plan.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.079503">
-          <caret line="654" column="0" selection-start-line="654" selection-start-column="0" selection-end-line="654" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2795031">
+          <caret line="35" column="95" selection-start-line="35" selection-start-column="95" selection-end-line="35" selection-end-column="95" />
           <folding>
             <element signature="e#75#224#0#ruby" expanded="false" />
             <element signature="e#232#337#0#ruby" expanded="false" />
-            <element signature="e#8896#10692#0#ruby" expanded="false" />
-            <element signature="e#10764#11571#0#HTML" expanded="false" />
-            <element signature="e#11611#12410#0#HTML" expanded="false" />
-            <element signature="e#12443#12524#0#HTML" expanded="false" />
-            <element signature="e#12557#12637#0#HTML" expanded="false" />
-            <element signature="e#12669#12749#0#HTML" expanded="false" />
-            <element signature="e#12777#12853#0#HTML" expanded="false" />
-            <element signature="e#12886#12940#0#HTML" expanded="false" />
-            <element signature="e#12973#13027#0#HTML" expanded="false" />
-            <element signature="e#13059#13112#0#HTML" expanded="false" />
-            <element signature="e#13162#13229#0#HTML" expanded="false" />
-            <element signature="e#13278#13343#0#HTML" expanded="false" />
-            <element signature="e#13380#13595#0#HTML" expanded="false" />
-            <element signature="e#13657#14067#0#HTML" expanded="false" />
-            <element signature="e#14149#14812#0#HTML" expanded="false" />
-            <element signature="e#14869#15186#0#HTML" expanded="false" />
-            <element signature="e#15240#15494#0#HTML" expanded="false" />
-            <element signature="e#15546#16262#0#HTML" expanded="false" />
-            <element signature="e#16886#17173#0#HTML" expanded="false" />
-            <element signature="e#17214#17501#0#HTML" expanded="false" />
-            <element signature="e#17541#17825#0#HTML" expanded="false" />
-            <element signature="e#18253#18930#0#HTML" expanded="false" />
-            <element signature="e#18996#19674#0#HTML" expanded="false" />
-            <element signature="e#19739#20414#0#HTML" expanded="false" />
-            <element signature="e#20456#21161#0#HTML" expanded="false" />
-            <element signature="e#21203#22216#0#HTML" expanded="false" />
-            <element signature="e#22258#22963#0#HTML" expanded="false" />
-            <element signature="e#23005#24018#0#HTML" expanded="false" />
-            <element signature="e#24059#24754#0#HTML" expanded="false" />
-            <element signature="e#24795#25793#0#HTML" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#div#4;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
+            <element signature="e#9064#10860#0#ruby" expanded="false" />
+            <element signature="e#10932#11739#0#HTML" expanded="false" />
+            <element signature="e#11779#13420#0#HTML" expanded="false" />
+            <element signature="e#13453#13534#0#HTML" expanded="false" />
+            <element signature="e#13567#13647#0#HTML" expanded="false" />
+            <element signature="e#13679#13759#0#HTML" expanded="false" />
+            <element signature="e#13787#13863#0#HTML" expanded="false" />
+            <element signature="e#13896#13950#0#HTML" expanded="false" />
+            <element signature="e#13983#14037#0#HTML" expanded="false" />
+            <element signature="e#14069#14122#0#HTML" expanded="false" />
+            <element signature="e#14172#14239#0#HTML" expanded="false" />
+            <element signature="e#14288#14353#0#HTML" expanded="false" />
+            <element signature="e#14390#14605#0#HTML" expanded="false" />
+            <element signature="e#14667#15077#0#HTML" expanded="false" />
+            <element signature="e#15159#15822#0#HTML" expanded="false" />
+            <element signature="e#15879#16196#0#HTML" expanded="false" />
+            <element signature="e#16250#16504#0#HTML" expanded="false" />
+            <element signature="e#16556#17272#0#HTML" expanded="false" />
+            <element signature="e#17311#19195#0#HTML" expanded="false" />
+            <element signature="e#17896#18183#0#HTML" expanded="false" />
+            <element signature="e#18224#18511#0#HTML" expanded="false" />
+            <element signature="e#18551#18835#0#HTML" expanded="false" />
+            <element signature="e#19263#19940#0#HTML" expanded="false" />
+            <element signature="e#20006#20684#0#HTML" expanded="false" />
+            <element signature="e#20749#21424#0#HTML" expanded="false" />
+            <element signature="e#21466#22171#0#HTML" expanded="false" />
+            <element signature="e#22213#23226#0#HTML" expanded="false" />
+            <element signature="e#23268#23973#0#HTML" expanded="false" />
+            <element signature="e#24015#25028#0#HTML" expanded="false" />
+            <element signature="e#25069#25764#0#HTML" expanded="false" />
+            <element signature="e#25805#26803#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>

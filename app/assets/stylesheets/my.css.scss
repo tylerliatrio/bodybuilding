@@ -6,31 +6,36 @@
   padding-top: 1em;
 }
 
-select{
-  font-size: 1.3em;
+.select{
+  font-size: 1.2em;
   border-radius: 3px;
 }
 
-.page{
+#page{
+  width: 500px;
   text-align: center;
   margin-right: 1em;
   margin-left: 1em;
   margin-bottom: 3em;
 }
 
-#add_ingredient_button{
-  margin-top: 0.5em;
+.add_ingredient_button{
+  margin-top: 0.3em;
   padding-top: 0;
   position: relative ;
-  left: 85%;
-  font-size: 2em;
+  font-size: 1em;
   font-weight: bold;
 }
 
 @media all and (max-width: 667px) {
+
+  #page{
+    width: auto;
+  }
+
   #target_presets{
-    margin-top: 0.5em;
-    font-size: 1.2em;
+    width: 35%;
+    font-size: 1.1em;
   }
 
   .select{
