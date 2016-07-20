@@ -64,22 +64,27 @@
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Proteins, grams/kilo</span>
-            <input type="number" name="target_prots_per_kilo" value="<%= @target_prots_per_kilo %>" class="form-control" placeholder="Usually 1 to 3" aria-describedby="basic-addon1" min="0.5" max="5" step="0.5">
+            <input type="number" id="target_p" name="target_prots_per_kilo" value="<%= @target_prots_per_kilo %>" class="form-control" placeholder="Usually 1 to 3" aria-describedby="basic-addon1" min="0.5" max="5" step="0.1">
           </div>
           <br>
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Carbs, grams/kilo</span>
-            <input type="number" name="target_carbs_per_kilo" value="<%= @target_carbs_per_kilo %>" class="form-control" placeholder="Usually 1 to 7" aria-describedby="basic-addon1" min="0" max="7" step="0.5">
+            <input type="number" id="target_c" name="target_carbs_per_kilo" value="<%= @target_carbs_per_kilo %>" class="form-control" placeholder="Usually 1 to 7" aria-describedby="basic-addon1" min="0" max="7" step="0.1">
           </div>
           <br>
 
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Fats, grams/kilo</span>
-            <input type="number" name="target_fats_per_kilo" value="<%= @target_fats_per_kilo %>" class="form-control" placeholder="Usually 0.5 to 1" aria-describedby="basic-addon1" min="0" max="2" step="0.1">
+            <input type="number" id="target_f" name="target_fats_per_kilo" value="<%= @target_fats_per_kilo %>" class="form-control" placeholder="Usually 0.5 to 1" aria-describedby="basic-addon1" min="0" max="2" step="0.1">
           </div>
         </div>
       </div>
+    </div>
+
+    <div id="calories_div" class="input-group">
+      <span class="input-group-addon" id="basic-addon1" style="font-weight: bold">Total calories:</span>
+      <input type="number" id="calories" class="form-control" aria-describedby="basic-addon1" disabled style="width: 100px; color: green">
     </div>
 
     <div style="padding-top: 1em">
@@ -117,8 +122,7 @@
                   <% end %>
                 </select>
 
-                <input type="number" class="quantity<%= select_css %>" id="prots_quantity_input<%= i %>" name="quantity<%= i %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
-
+                <input type="number" class="quantity<%= select_css %>" id="prots_quantity_input<%= i %>" name="quantity<%= i %>" value="<%= @quantities[i] %>" placeholder="Quantity" min="0.1" max="3000" step="any" style="width: 100px">
               </div>
           <% end %>
 
@@ -160,7 +164,7 @@
                   <% end %>
                 </select>
 
-                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="carbs_quantity_input<%= i-3 %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
+                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="carbs_quantity_input<%= i-3 %>" value="<%= @quantities[i] %>" placeholder="Quantity" min="0.1" max="3000" step="any" style="width: 100px">
 
               </div>
           <% end %>
@@ -202,7 +206,7 @@
                   <% end %>
                 </select>
 
-                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="fats_quantity_input<%= i-6 %>" value="<%= @quantities[i] %>" placeholder="Enter quantity" min="0.1" max="3000" step="any">
+                <input type="number" name="quantity<%= i %>" class="quantity<%= select_css %>" id="fats_quantity_input<%= i-6 %>" value="<%= @quantities[i] %>" placeholder="Quantity" min="0.1" max="3000" step="any" style="width: 100px">
 
               </div>
           <% end %>
@@ -436,6 +440,15 @@
       return arrayOfNames;
     }
 
+    function calc_total_cals() {
+      console.log(readWeight());
+      var cals_from_prots = $('#target_p').val() * 4 * readWeight();
+      var cals_from_carbs = $('#target_c').val() * 4 * readWeight();
+      var cals_from_fats = $('#target_f').val() * 9 * readWeight();
+
+      return (cals_from_prots + cals_from_carbs + cals_from_fats).toFixed(0);
+    }
+
     $('select#target_presets').change(function () {
       var phase = $('select#target_presets').val();
 
@@ -457,6 +470,18 @@
         $("input[name = 'target_fats_per_kilo']").val(1);
       }
 
+    });
+
+    $('#target_p').change(function () {
+      $('#calories').val(calc_total_cals());
+    });
+
+    $('#target_c').change(function () {
+      $('#calories').val(calc_total_cals());
+    });
+
+    $('#target_f').change(function () {
+      $('#calories').val(calc_total_cals());
     });
 
     $('select').change(function () {
