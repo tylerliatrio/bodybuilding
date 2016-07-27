@@ -87,6 +87,13 @@
       <input type="number" id="calories" class="form-control" aria-describedby="basic-addon1" disabled style="width: 100px; color: green">
     </div>
 
+    <br>
+    <div id="lb_to_g_div" class="input-group">
+      <span class="input-group-addon" id="basic-addon1" style="font-weight: bold">lb <-> g converter</span>
+      <input type="number" id="pounds" class="form-control" value="1" aria-describedby="basic-addon1" style="width: 100px; ">
+      <input type="number" id="grams" class="form-control" value="453" aria-describedby="basic-addon1" style="width: 100px;">
+    </div>
+
     <div style="padding-top: 1em">
       <div class="panel panel-primary">
         <div class="panel-heading">Select ingredients you will use today for cooking</div>
@@ -276,6 +283,10 @@
 
 <script>
   $(function () {
+
+    $('#pounds').on('input', function () {
+      $('#grams').val($('#pounds').val() * 453);
+    });
 
     function getLiveCarbs(ingredients) {
       var proteinIngredients = getSelectValues('prots', getNumberOfSelectsInGroup('prots'));
