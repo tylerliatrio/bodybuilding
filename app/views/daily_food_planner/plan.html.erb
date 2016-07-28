@@ -483,15 +483,15 @@
 
     });
 
-    $('#target_p').change(function () {
+    $('#target_p').on('input', function () {
       $('#calories').val(calc_total_cals());
     });
 
-    $('#target_c').change(function () {
+    $('#target_c').on('input', function () {
       $('#calories').val(calc_total_cals());
     });
 
-    $('#target_f').change(function () {
+    $('#target_f').on('input', function () {
       $('#calories').val(calc_total_cals());
     });
 
