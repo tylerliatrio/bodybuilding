@@ -288,6 +288,10 @@
       $('#grams').val($('#pounds').val() * 453);
     });
 
+    $('#grams').on('input', function () {
+      $('#pounds').val($('#grams').val() / 453);
+    });
+
     function getLiveCarbs(ingredients) {
       var proteinIngredients = getSelectValues('prots', getNumberOfSelectsInGroup('prots'));
       var totalCurrentCarbs = 0;
