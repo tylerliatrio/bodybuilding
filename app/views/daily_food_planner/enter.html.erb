@@ -29,19 +29,19 @@
 
         <div class="input-group" style="width: ">
           <span class="input-group-addon" id="basic-addon1">Ingredient title</span>
-          <input type="text" name="title" value="<%= @title %>" class="form-control" placeholder="i.e New York steak" aria-describedby="basic-addon1" autocapitalize="words">
+          <input type="text" name="title" value="<%= @title %>" class="form-control" placeholder="i.e New York Steak" aria-describedby="basic-addon1" autocapitalize="words">
         </div>
         <br>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Serving units </span>
-          <input type="text" name="units" value="<%= @units %>" class="form-control" placeholder="i.e. g, ml, lbs, tbs, scoop etc" aria-describedby="basic-addon1" autocomplete="off" autocorrect="off" autocapitalize="none">
+          <input type="text" name="units" value="<%= @units %>" class="form-control" placeholder="i.e. g, ml, lbs, tbs, scoop, slice" aria-describedby="basic-addon1" autocomplete="off" autocorrect="off" autocapitalize="none">
         </div>
         <br>
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Serving size</span>
-          <input type="number" name="serving_size" value="<%= @serving_size %>" class="form-control" placeholder="i.e 1" aria-describedby="basic-addon1">
+          <input type="number" name="serving_size" step="0.1" value="<%= @serving_size %>" class="form-control" placeholder="i.e 1, 120, 2" aria-describedby="basic-addon1">
         </div>
         <br>
 
@@ -59,7 +59,7 @@
 
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Fats, g/serving</span>
-          <input type="number" name="fats" value="<%= @fats %>" class="form-control" placeholder="i.e 5" aria-describedby="basic-addon1">
+          <input type="number" name="fats" value="<%= @fats %>" step="0.1" class="form-control" placeholder="i.e 5" aria-describedby="basic-addon1">
         </div>
         <br>
 
