@@ -11,8 +11,8 @@
       proteins - <%= each.prots %>g,
       carbs - <%= each.carbs %>g,
       fats - <%= each.fats %>g,
-      cals - <%= each.cals %>,
-      sugar - <%= each.sugar %>
+      sugar - <%= each.sugar %>g,
+      <%= each.cals %>cals
     </div>
 <% else %>
     <% for error in flash[:errors] %>
