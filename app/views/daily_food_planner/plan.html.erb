@@ -250,7 +250,7 @@
 
       <div class="progress">
         <div class="progress-bar progress-bar-info <%= prots_pb_css %>" role="progressbar" style="width: <%= percent_prots%>% ; min-width: 2em">
-          <span style="<%= prots_pb_label_css %>"> <%= percent_prots&.round(0) %>%</span>
+          <span style="<%= prots_pb_label_css %>"> <%= percent_prots&.round(0) %>% of target Protein</span>
         </div>
       </div>
 
@@ -262,7 +262,7 @@
 
       <div class="progress">
         <div class="progress-bar progress-bar-success <%= carbs_pb_css %> " role="progressbar" style="width: <%= percent_carbs%>%; min-width: 2em">
-          <span style="<%= carbs_pb_label_css %>"> <%= percent_carbs&.round(0) %>%</span>
+          <span style="<%= carbs_pb_label_css %>"> <%= percent_carbs&.round(0) %>% of target Carbs</span>
         </div>
       </div>
 
@@ -274,7 +274,14 @@
 
       <div class="progress">
         <div class="progress-bar progress-bar-warning <%= fats_pb_css %> " role="progressbar" style="width: <%= percent_fats%>%; min-width: 2em">
-          <span style="<%= fats_pb_label_css %>"> <%= percent_fats&.round(0) %>%</span>
+          <span style="<%= fats_pb_label_css %>"> <%= percent_fats&.round(0) %>% of target Fat</span>
+        </div>
+      </div>
+
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-danger " role="progressbar" style="width: <%= percent_fats%>%; min-width: 2em">
+          <span style="<%= fats_pb_label_css %>"> <%= @totals[:sugar].round(0) %> tea spoons of Sugar</span>
         </div>
       </div>
 

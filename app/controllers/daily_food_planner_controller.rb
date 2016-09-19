@@ -145,6 +145,7 @@ class DailyFoodPlannerController < ApplicationController
         @totals[:carbs] = 0
         @totals[:fats] = 0
         @totals[:cals] = 0
+        @totals[:sugar] = 0
 
         for i in 0..8
           unless @ingredient_name[i].blank?
@@ -153,6 +154,7 @@ class DailyFoodPlannerController < ApplicationController
             @totals[:carbs] += selectedIngredient.carbs * @quantities[i] / selectedIngredient.serving_size
             @totals[:fats] += selectedIngredient.fats * @quantities[i] / selectedIngredient.serving_size
             @totals[:cals] += selectedIngredient.cals * @quantities[i] / selectedIngredient.serving_size
+            @totals[:sugar] += selectedIngredient.sugar * @quantities[i] / selectedIngredient.serving_size
           end
         end
 
