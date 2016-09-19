@@ -8,10 +8,11 @@
       <h2>Added <%= each.name %></h2>
       units - <%= each.units %>,
       serving size - <%= each.serving_size %> <%= each.units %>,
-      proteins - <%= each.prots %> g,
-      carbs - <%= each.carbs %> g,
-      fats - <%= each.fats %> g,
-      cals - <%= each.cals %>
+      proteins - <%= each.prots %>g,
+      carbs - <%= each.carbs %>g,
+      fats - <%= each.fats %>g,
+      cals - <%= each.cals %>,
+      sugar - <%= each.sugar %>
     </div>
 <% else %>
     <% for error in flash[:errors] %>
@@ -65,6 +66,12 @@
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">Calories, cals/serving</span>
           <input type="number" name="cals" value="<%= @cals %>" class="form-control" placeholder="i.e 45" aria-describedby="basic-addon1">
+        </div>
+        <br>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Sugar, g/serving</span>
+          <input type="number" name="sugar" value="<%= @sugar %>" class="form-control" placeholder="i.e 5" aria-describedby="basic-addon1">
         </div>
       </div>
     </div>

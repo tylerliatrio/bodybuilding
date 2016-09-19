@@ -52,10 +52,16 @@ class DailyFoodPlannerController < ApplicationController
         @cals = params['cals']
       end
 
+      if params['sugar'].blank?
+        flash[:errors] << 'Please grams of Sugar per serving'
+      else
+        @sugar = params['sugar']
+      end
+
       if flash[:errors].blank?
         Ingredient.create(name: params['title'], units: params['units'], serving_size: params['serving_size'],
-                          prots: Integer(@prots), carbs: Integer(@carbs), fats: Float(@fats),
-                          cals: Integer(@cals))
+                          prots: Integer(@prots), carbs: Integer(@carbs), fats: Float(@fats), cals: Integer(@cals),
+                          sugar: @sugar)
         @added_item = true
       end
 
