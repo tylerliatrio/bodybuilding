@@ -6,13 +6,12 @@
     <div class="alert alert-success">
       <% each = Ingredient.last %>
       <h2>Added <%= each.name %></h2>
-      units - <%= each.units %>,
       serving size - <%= each.serving_size %> <%= each.units %>,
       proteins - <%= each.prots %>g,
       carbs - <%= each.carbs %>g,
       fats - <%= each.fats %>g,
       sugar - <%= each.sugar %>g,
-      <%= each.cals %>cals
+      <%= each.cals %> cals
     </div>
 <% else %>
     <% for error in flash[:errors] %>
