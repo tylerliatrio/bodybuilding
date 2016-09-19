@@ -4,7 +4,7 @@
 
 <div style="text-align: left; ">
   <% for each in Ingredient.all.order('name ASC') %>
-      <%= each.name %>: proteins - <%= each.prots %> g, carbs - <%= each.carbs %> g, fats - <%= each.fats %> g
+      <%= each.name %>: <span style="color: red">proteins - <%= each.prots %>g</span>, <span style="color: dodgerblue">carbs - <%= each.carbs %>g</span>, <span style="color: orange">fats - <%= each.fats.round 0 %>g</span>, <span style="color: slateblue">sugar - <%= each.sugar %>g</span>
       <hr>
   <% end %>
 </div>
