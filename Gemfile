@@ -2,29 +2,31 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
+gem 'rake'
+
 #for pagination
-gem 'kaminari'
+#gem 'kaminari'
 
 gem 'bootstrap-sass'
 
 gem 'gon'
 
-gem 'rollbar', '~> 2.8.0'
+gem 'rollbar'
 
-gem 'oj', '~> 2.12.14'
+gem 'oj'
 
 gem 'rails_12factor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
+gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
