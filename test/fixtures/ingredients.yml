@@ -2,18 +2,20 @@
 
 one:
   name: MyString
-  serving_type: MyString
+  units: MyString
   serving_size: 1
   prots: 1
   carbs: 1
   fats: 1
   cals: 1
+  sugar: 1
 
 two:
   name: MyString
-  serving_type: MyString
+  units: MyString
   serving_size: 1
   prots: 1
   carbs: 1
   fats: 1
   cals: 1
+  sugar: 1
