@@ -1,12 +1,13 @@
 language: ruby
 sudo: required
 rvm:
-  - 2.3.1
+- 2.3.1
 before_script:
-  - "bundle exec rake db:setup"
+- bundle exec rake db:setup
 notifications:
   email: false
 deploy:
   provider: heroku
   api_key:
-    secure:
+    secure: QWxptUf4IjYGRMI/etwIYAnQS+b1+YzpZoGCxn783DJ46mgYAZYKYnkElxzjkLdzGsRcLir82Kge6HX5FVTv8pUq9m3RgqakM98pt1DOIifRVHVyuIDBZZdyOgoKOiTdiwAVmXdTkP2230969fkrImkgT2PghL4J7hVOb/ZnE0JrYr4qe8UOvsfjkYbOe99j8hq5BoqVOBrqf7dRxf0/YXrhAX6YPwnsOsAnDaZ5LqM1FQneCVvNagoP5dGv9avwwV6CaUIK2VMUOZ43BztnLYNnbGExrRhG0WnWas8Txiorf8on8KETvx3zk0pdO94hoowKZekRT/UYinmR4jcjXNKJ4s0LBZ3RE64fiWh770ZRyg31ELL9OKngZKmiKDM1I8xHzn+H1kbzJ9KZ4sbvHrQza7e5e5bDZBRNsPP1WFC8NIgFbhQewZWx7k0Qt+TTDYYQC4YRz3TnFvxit3KtkGW99cPBMcFYxE1OhM21SQkYwDyAxVZb/bXG3k15ui/qfpfQPD5g7LVqflNv+8D6TOaDgLz6/9YPFt3LTqSbUozbwXfeysKr+G8yes912hk2QOa5obhDDkRSN2epnvi0HAZgythIMSAbUZVNMhXCGVJCTlR/PsrAuIhY3WfVWYpsMx3jKk+00pEEsmRv5GlJByoeR25cNzIm+Ls4xIWAopA=
+  app:  murmuring-sierra-11016
