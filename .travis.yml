@@ -6,3 +6,7 @@ before_script:
   - "bundle exec rake db:setup"
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure:
